@@ -251,6 +251,33 @@
     }
   }
 
+  /* ---- Before/After compare slider ---- */
+  $$(".ba-compare").forEach(function (el) {
+    var handle = $(".ba-handle", el);
+    var pos = 50, dragging = false;
+    function set(p) {
+      pos = Math.max(0, Math.min(100, p));
+      el.style.setProperty("--pos", pos + "%");
+      if (handle) handle.setAttribute("aria-valuenow", Math.round(pos));
+    }
+    function fromEvent(e) {
+      var r = el.getBoundingClientRect();
+      var cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+      set(cx / r.width * 100);
+    }
+    el.addEventListener("pointerdown", function (e) {
+      dragging = true; fromEvent(e);
+      if (el.setPointerCapture) { try { el.setPointerCapture(e.pointerId); } catch (x) {} }
+    });
+    el.addEventListener("pointermove", function (e) { if (dragging) fromEvent(e); });
+    window.addEventListener("pointerup", function () { dragging = false; });
+    if (handle) handle.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { set(pos - 4); e.preventDefault(); }
+      if (e.key === "ArrowRight") { set(pos + 4); e.preventDefault(); }
+    });
+    set(50);
+  });
+
   /* ---- Footer year ---- */
   var yr = $("#year");
   if (yr) yr.textContent = new Date().getFullYear();

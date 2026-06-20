@@ -487,6 +487,22 @@ def section(eyebrow, title, intro, inner, bg="", center=True):
     return f'<section class="{cls}"><div class="container">{head_html}{inner}</div></section>'
 
 
+def before_after(bg=""):
+    inner = '''<div class="ba-compare reveal" aria-label="Before and after garage door comparison">
+      <img class="ba-img ba-base" src="assets/img/ba1-after.jpg" alt="After — a brand-new modern charcoal garage door installed by North Shore Garage Doors">
+      <img class="ba-img ba-top" src="assets/img/ba1-before.jpg" alt="Before — a worn, faded, dated garage door">
+      <span class="ba-tag ba-tag-b">Before</span>
+      <span class="ba-tag ba-tag-a">After</span>
+      <div class="ba-handle" role="slider" aria-label="Drag to compare before and after" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        <span class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span>
+      </div>
+    </div>
+    <div class="center" style="margin-top:30px"><a href="contact.html" class="btn btn-gold btn-lg magnetic">Transform my garage</a></div>'''
+    return section("See the difference", "The same garage, transformed.",
+                   "Drag the slider — watch a tired old door become a stunning new one. A real North Shore transformation.",
+                   inner, bg=bg)
+
+
 # ============================ schema helpers ============================
 def breadcrumb_schema(name, url):
     data = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
@@ -592,6 +608,7 @@ def build():
                  + section("What we do", "Everything your garage door needs — in one local team.",
                            "From a snapped spring to a showpiece new door, we handle it all across the North Shore.", bento)
                  + why
+                 + before_after(bg="cloud")
                  + steps_section()
                  + section("Loved by the North Shore", "4.9★ From 237+ Happy Neighbours",
                            "Real reviews from West Vancouver homeowners and strata communities.",
@@ -626,7 +643,8 @@ def build():
     body = (page_hero("New garage doors", "A New Garage Door That Lifts Your Whole Home",
                       "Your garage door is up to a third of your home's curb appeal — and your largest moving part. We help you choose the perfect style, colour and insulation, then install it flawlessly with quality hardware built for the West Coast climate.", "Garage Doors")
             + section("Styles we install", "Find Your Style", "Insulated steel, aluminum &amp; glass, wood-look carriage and contemporary flush — measured, supplied and professionally installed.", doors_grid())
-            + section("", "Built for the West Coast", "", doors_detail, bg="cloud"))
+            + before_after(bg="cloud")
+            + section("", "Built for the West Coast", "", doors_detail))
     pages["garage-doors.html"] = assemble("doors", head(
         "New Garage Doors &amp; Installation | Modern, Carriage, Steel | North Shore",
         "New garage door installation on the North Shore — modern aluminum & glass, carriage house, traditional steel and contemporary flush doors, expertly measured and installed in West & North Vancouver.",
