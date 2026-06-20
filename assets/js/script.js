@@ -278,6 +278,37 @@
     set(50);
   });
 
+  /* ---- Before/After style switcher tabs ---- */
+  $$(".ba-tab").forEach(function (t) {
+    t.addEventListener("click", function () {
+      var wrap = t.closest("section");
+      var i = t.getAttribute("data-ba");
+      $$(".ba-tab", wrap).forEach(function (x) {
+        var on = x === t;
+        x.classList.toggle("is-on", on);
+        x.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      $$(".ba-compare", wrap).forEach(function (c) {
+        c.hidden = c.getAttribute("data-slide") !== i;
+      });
+    });
+  });
+
+  /* ---- Desktop sticky quote bar (appears after hero) ---- */
+  var qbar = $("#quoteBar");
+  if (qbar) {
+    var qClose = $("#quoteBarClose"), dismissed = false;
+    window.addEventListener("scroll", function () {
+      if (dismissed) return;
+      var doc = document.documentElement;
+      var nearBottom = (window.pageYOffset + window.innerHeight) > (doc.scrollHeight - 700);
+      qbar.classList.toggle("show", window.pageYOffset > 760 && !nearBottom);
+    }, { passive: true });
+    if (qClose) qClose.addEventListener("click", function () {
+      dismissed = true; qbar.classList.remove("show");
+    });
+  }
+
   /* ---- Footer year ---- */
   var yr = $("#year");
   if (yr) yr.textContent = new Date().getFullYear();

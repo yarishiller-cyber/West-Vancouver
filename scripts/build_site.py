@@ -177,6 +177,18 @@ def cta_band():
 </section>'''
 
 
+def trust_promise(bg=""):
+    cards = [
+        (SHIELD, "Workmanship Warranty", "Every repair and installation is backed by our warranty on parts and labour, plus the manufacturer's coverage on doors, openers and springs."),
+        ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>', "Flexible Financing", "Spread the cost of a beautiful new door or opener with simple financing options — just ask and we'll walk you through it."),
+        ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.6 11.5 12 20l-7-7a4 4 0 0 1 5.7-5.7l1.3 1.3 1.3-1.3a4 4 0 0 1 5.7 5.7Z"/></svg>', "Honest, Upfront Pricing", "You approve a clear, all-in quote before any work begins. No hidden fees, no pressure, no surprises — ever."),
+    ]
+    grid = '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))">' + "".join(
+        f'<div class="promise reveal"><span class="p-ico">{ic}</span><h3>{t}</h3><p>{d}</p></div>' for ic, t, d in cards) + '</div>'
+    return section("Peace of mind", "Done right — and backed up.",
+                   "Quality work you can trust, fair prices, and real guarantees behind every job.", grid, bg=bg)
+
+
 def footer():
     return f'''
 <footer class="footer">
@@ -224,6 +236,16 @@ def footer():
 
 def chrome_end():
     return f'''
+<div class="quotebar" id="quoteBar">
+  <div class="container">
+    <div class="qb-text"><b>Garage door trouble?</b> <span>Same-day service across the North Shore.</span></div>
+    <div class="qb-cta">
+      <a href="tel:{TEL}" class="btn btn-call">{PHONE} Call {PHONE_DISPLAY}</a>
+      <a href="contact.html" class="btn btn-gold magnetic">Free Quote</a>
+      <button class="qb-close" id="quoteBarClose" aria-label="Dismiss">×</button>
+    </div>
+  </div>
+</div>
 <div class="mobile-bar">
   <a href="tel:{TEL}" class="btn btn-call">{PHONE} Call Now</a>
   <a href="contact.html" class="btn btn-primary">Free Quote</a>
@@ -488,18 +510,27 @@ def section(eyebrow, title, intro, inner, bg="", center=True):
 
 
 def before_after(bg=""):
-    inner = '''<div class="ba-compare reveal" aria-label="Before and after garage door comparison">
-      <img class="ba-img ba-base" src="assets/img/ba1-after.jpg" alt="After — a brand-new modern charcoal garage door installed by North Shore Garage Doors">
-      <img class="ba-img ba-top" src="assets/img/ba1-before.jpg" alt="Before — a worn, faded, dated garage door">
-      <span class="ba-tag ba-tag-b">Before</span>
-      <span class="ba-tag ba-tag-a">After</span>
-      <div class="ba-handle" role="slider" aria-label="Drag to compare before and after" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-        <span class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span>
-      </div>
-    </div>
-    <div class="center" style="margin-top:30px"><a href="contact.html" class="btn btn-gold btn-lg magnetic">Transform my garage</a></div>'''
+    slides = [
+        ("ba1", "Modern", "After — a brand-new modern charcoal garage door installed by North Shore Garage Doors", "Before — a worn, faded, dated beige garage door"),
+        ("ba2", "Carriage", "After — a new wood-grain carriage-house garage door with windows", "Before — an old, plain, faded white garage door"),
+    ]
+    tabs = '<div class="ba-tabs" role="tablist">' + "".join(
+        f'<button class="ba-tab{" is-on" if i == 0 else ""}" data-ba="{i}" role="tab" aria-selected="{"true" if i == 0 else "false"}">{label}</button>'
+        for i, (key, label, aa, bb) in enumerate(slides)) + '</div>'
+    stage = ""
+    for i, (key, label, aa, bb) in enumerate(slides):
+        hid = "" if i == 0 else " hidden"
+        stage += f'''<div class="ba-compare" data-slide="{i}"{hid} aria-label="Before and after — {label}">
+        <img class="ba-img ba-base" src="assets/img/{key}-after.jpg" alt="{aa}">
+        <img class="ba-img ba-top" src="assets/img/{key}-before.jpg" alt="{bb}">
+        <span class="ba-tag ba-tag-b">Before</span><span class="ba-tag ba-tag-a">After</span>
+        <div class="ba-handle" role="slider" aria-label="Drag to compare before and after" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <span class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span>
+        </div></div>'''
+    inner = (tabs + f'<div class="ba-stage reveal">{stage}</div>'
+             + '<div class="center" style="margin-top:30px"><a href="contact.html" class="btn btn-gold btn-lg magnetic">Transform my garage</a></div>')
     return section("See the difference", "The same garage, transformed.",
-                   "Drag the slider — watch a tired old door become a stunning new one. A real North Shore transformation.",
+                   "Pick a style, then drag the slider — watch a tired old door become a stunning new one. Real North Shore transformations.",
                    inner, bg=bg)
 
 
@@ -552,7 +583,9 @@ def build():
     # ---------- HOME ----------
     hero = f'''
 <section class="hero">
-  <div class="hero-bg"><img src="assets/img/hero-home.jpg" alt="Modern North Shore home with a new garage door" fetchpriority="high"></div>
+  <div class="hero-bg"><picture>
+    <source media="(max-width:760px)" srcset="assets/img/hero-mobile.jpg">
+    <img src="assets/img/hero-home.jpg" alt="Modern North Shore home with a new garage door" fetchpriority="high"></picture></div>
   <div class="blob b1"></div><div class="blob b2"></div>
   <div class="container"><div class="hero-content">
     <span class="pill"><b>★ 4.9</b> &nbsp;237+ five-star North Shore reviews</span>
@@ -610,6 +643,7 @@ def build():
                  + why
                  + before_after(bg="cloud")
                  + steps_section()
+                 + trust_promise()
                  + section("Loved by the North Shore", "4.9★ From 237+ Happy Neighbours",
                            "Real reviews from West Vancouver homeowners and strata communities.",
                            reviews_grid(3) + '<div class="center" style="margin-top:34px"><a href="reviews.html" class="btn btn-ghost btn-lg">Read more reviews</a></div>')

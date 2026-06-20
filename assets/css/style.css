@@ -111,7 +111,9 @@ section{position:relative}
 /* ---------- HERO (home) ---------- */
 .hero{position:relative;margin-top:calc(-1 * (var(--header-h) + 20px));min-height:100svh;display:flex;align-items:center;padding:150px 0 90px;overflow:hidden;background:var(--bg)}
 .hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg picture{display:block;width:100%;height:100%}
 .hero-bg img{width:100%;height:100%;object-fit:cover;animation:nsg-zoom 20s ease-in-out infinite alternate}
+@media(max-width:760px){.hero-bg img{object-position:center}}
 @keyframes nsg-zoom{from{transform:scale(1)}to{transform:scale(1.08)}}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,11,20,.74),rgba(7,11,20,.6) 42%,rgba(7,11,20,.94))}
 .blob{position:absolute;border-radius:50%;filter:blur(72px);opacity:.5;z-index:1;pointer-events:none}
@@ -403,6 +405,26 @@ section{position:relative}
 .footer-bottom .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center}
 .footer-bottom .fb-links{display:flex;gap:18px;flex-wrap:wrap}
 
+/* promise / financing-warranty cards */
+.promise{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px 26px;text-align:center;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.promise:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.promise .p-ico{width:60px;height:60px;margin:0 auto 18px;border-radius:18px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;color:var(--gold2)}
+.promise .p-ico svg{width:30px;height:30px}
+.promise h3{font-size:1.22rem;margin-bottom:10px}
+.promise p{color:var(--slate);font-size:.95rem}
+
+/* desktop sticky quote bar */
+.quotebar{position:fixed;left:0;right:0;bottom:0;z-index:56;transform:translateY(115%);transition:transform .45s var(--ease);background:rgba(7,11,20,.93);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.1);color:#fff}
+.quotebar.show{transform:translateY(0)}
+.quotebar .container{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 22px}
+.qb-text b{font-family:var(--disp);color:#fff;font-size:1.04rem}
+.qb-text span{color:#9fb0c8;margin-left:6px}
+.qb-cta{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.qb-cta .btn{padding:11px 20px;font-size:.92rem}
+.qb-close{background:rgba(255,255,255,.1);border:none;color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.2rem;flex-shrink:0}
+.qb-close:hover{background:rgba(255,255,255,.2)}
+@media(max-width:760px){.quotebar{display:none}}
+
 /* sticky mobile bar + to-top */
 .mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:55;display:none;background:rgba(7,11,20,.92);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.08);padding:9px 12px;gap:10px;grid-template-columns:1fr 1fr}
 .mobile-bar .btn{padding:13px;font-size:.96rem}
@@ -410,9 +432,14 @@ section{position:relative}
 .to-top{position:fixed;right:18px;bottom:84px;z-index:54;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;border:1px solid rgba(240,181,82,.3);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);opacity:0;visibility:hidden;transition:.25s var(--ease)}
 .to-top.show{opacity:1;visibility:visible}
 .to-top svg{width:22px;height:22px}
-@media(min-width:761px){.to-top{bottom:24px}}
+@media(min-width:761px){.to-top{bottom:88px}}
 
 /* ---------- before/after compare slider ---------- */
+.ba-tabs{display:flex;gap:8px;justify-content:center;margin-bottom:24px;flex-wrap:wrap}
+.ba-tab{font-family:var(--disp);font-weight:600;font-size:.9rem;padding:9px 20px;border-radius:50px;border:1px solid var(--line);background:#fff;color:var(--ink2);cursor:pointer;transition:.2s var(--ease)}
+.ba-tab:hover{border-color:var(--gold);transform:translateY(-2px)}
+.ba-tab.is-on{background:linear-gradient(135deg,#f4c06a,#e09a36);color:#2a1a05;border-color:transparent;box-shadow:0 8px 20px rgba(224,154,54,.3)}
+.ba-compare[hidden]{display:none}
 .ba-compare{position:relative;max-width:920px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;border-radius:var(--r);box-shadow:var(--shadow-lg);user-select:none;touch-action:none;cursor:ew-resize;--pos:50%}
 .ba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
 .ba-top{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
