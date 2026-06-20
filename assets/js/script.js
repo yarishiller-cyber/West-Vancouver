@@ -309,6 +309,22 @@
     });
   }
 
+  /* ---- Price toggle (prices hidden by default) ---- */
+  var priceToggle = $("#priceToggle");
+  function applyPrices(on) {
+    document.body.classList.toggle("show-prices", on);
+    if (priceToggle) {
+      priceToggle.textContent = on ? "Hide prices" : "Show prices";
+      priceToggle.setAttribute("aria-pressed", on ? "true" : "false");
+    }
+  }
+  try { if (localStorage.getItem("nsg-prices") === "1") applyPrices(true); } catch (e) {}
+  if (priceToggle) priceToggle.addEventListener("click", function () {
+    var on = !document.body.classList.contains("show-prices");
+    applyPrices(on);
+    try { localStorage.setItem("nsg-prices", on ? "1" : "0"); } catch (e) {}
+  });
+
   /* ---- Footer year ---- */
   var yr = $("#year");
   if (yr) yr.textContent = new Date().getFullYear();

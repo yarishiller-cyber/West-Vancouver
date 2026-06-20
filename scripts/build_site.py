@@ -231,7 +231,7 @@ def footer():
     </div>
     <div class="footer-bottom"><div class="container">
       <span>© <span id="year">2026</span> North Shore Garage Doors. All rights reserved. Proudly serving West &amp; North Vancouver and the North Shore.</span>
-      <span class="fb-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="sitemap.xml">Sitemap</a><a href="contact.html">Contact</a></span>
+      <span class="fb-links"><button class="price-toggle" id="priceToggle" aria-pressed="false">Show prices</button><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="sitemap.xml">Sitemap</a><a href="contact.html">Contact</a></span>
     </div></div>
   </div>
 </footer>'''
@@ -260,7 +260,7 @@ def chrome_end():
 
 
 def assemble(active, head_html, body_html):
-    return head_html + topbar() + header(active) + mobile_nav(active) + "<main>" + body_html + "</main>" + cta_band() + footer() + chrome_end()
+    return head_html + header(active) + mobile_nav(active) + "<main>" + body_html + "</main>" + cta_band() + footer() + chrome_end()
 
 
 # ============================ content blocks ============================
@@ -334,7 +334,7 @@ DOORS = [
 
 def doors_grid():
     cards = "".join(
-        f'<a href="contact.html" class="door-card reveal"><img src="assets/img/{img}" alt="{t} garage door" loading="lazy"><span class="door-label"><b>{t}</b><span>{s}</span></span></a>'
+        f'<a href="contact.html" class="door-card reveal"><div class="dc-img"><img src="assets/img/{img}" alt="{t} garage door" loading="lazy"></div><div class="dc-cap"><b>{t}</b><span>{s}</span></div></a>'
         for img, t, s in DOORS)
     return f'<div class="grid doors-grid">{cards}</div>'
 
@@ -384,29 +384,47 @@ def openers_block():
     </div>'''
 
 
-def spring_card(popular, name, cycles, life, feats, warranty, btn):
+GIFT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v9h14v-9M12 8S11 3 8 3a2.5 2.5 0 0 0 0 5h4Zm0 0s1-5 4-5a2.5 2.5 0 0 1 0 5h-4Z"/></svg>'
+
+def spring_card(popular, name, img, price, sub, feats, free_cables=False, extras=None, btn="Choose this option"):
     pop = '<span class="spring-pop">Most Popular</span>' if popular else ""
-    img = {"Standard": "spring-standard.jpg", "High-Cycle": "spring-highcycle.jpg", "Premium Lifetime": "spring-premium.jpg"}[name]
     lis = "".join(f'<li>{CHK} {f}</li>' for f in feats)
     btncls = "btn-primary" if popular else "btn-ghost"
+    fc = f'<div class="free-cables">{CHK} FREE cable replacement included</div>' if free_cables else ""
+    ex = ""
+    if extras:
+        ex = '<ul class="sp-extras">' + "".join(f'<li>{GIFT} {e}</li>' for e in extras) + '</ul>'
+    price_html = f'<div class="sp-price price-tag"><span>from</span><b>${price}</b></div>'
     return f'''<article class="spring-card{" popular" if popular else ""} reveal">{pop}
-      <div class="sp-img"><img src="assets/img/{img}" alt="{name} garage door torsion spring"></div>
-      <div class="sp-body"><h3>{name}</h3><div class="sp-cycles">{cycles}</div><div class="sp-life">{life}</div>
+      <div class="sp-img"><img src="assets/img/{img}" alt="{name}"></div>
+      <div class="sp-body"><h3>{name}</h3>{price_html}<div class="sp-life">{sub}</div>
+      {fc}{ex}
       <ul>{lis}</ul>
-      <div class="warranty-note">{SHIELD} {warranty}</div>
       <a href="contact.html" class="btn {btncls} btn-block">{btn}</a></div></article>'''
 
 
 def springs_block():
     cards = (
-        spring_card(False, "Standard", "10,000 cycles", "≈ 7 years of typical use",
-                    ["Quality galvanized torsion spring", "Great budget-friendly fix", "Ideal for lighter-use garages"], "1-year warranty", "Choose Standard") +
-        spring_card(True, "High-Cycle", "20,000 cycles", "≈ 12–15 years of typical use",
-                    ["Oil-tempered for smoother, quieter lift", "Best value over the life of your door", "Our most-recommended upgrade"], "5-year warranty", "Choose High-Cycle") +
-        spring_card(False, "Premium Lifetime", "30,000+ cycles", "≈ 20+ years of typical use",
-                    ["Heavy-duty, powder-coated &amp; corrosion-resistant", "Built for busy households &amp; coastal air", "Often the last spring you'll ever need"], "Lifetime warranty", "Choose Premium")
+        spring_card(False, "Single Spring", "spring-single.jpg", "730", "For single-spring garage doors",
+                    ["One broken torsion spring replaced", "High-cycle steel for a long, quiet life",
+                     "Same-day replacement on most doors", "Backed by our workmanship warranty"],
+                    free_cables=False, extras=None, btn="Book single spring") +
+        spring_card(True, "Two Springs", "spring-double.jpg", "849", "Both springs replaced — our best value",
+                    ["For standard two-spring doors", "We replace both so they wear evenly and last longer",
+                     "Same-day replacement on most doors", "Backed by our workmanship warranty"],
+                    free_cables=True,
+                    extras=["15% off your springs when you refer a friend",
+                            "15% off a new opener or garage door install"],
+                    btn="Choose two springs") +
+        spring_card(False, "Premium — 2 Extra-Long-Life Springs", "spring-premium.jpg", "1300",
+                    "Our longest-lasting, heaviest-duty springs",
+                    ["Two premium extra-high-cycle springs (red-sleeved)", "Built for busy households and coastal salt air",
+                     "The last springs you'll likely ever need", "Backed by our workmanship warranty"],
+                    free_cables=True, extras=None, btn="Choose premium")
     )
-    return f'<div class="grid spring-grid">{cards}</div><p class="center" style="margin-top:24px;color:var(--slate);font-size:.92rem">⚠️ Garage door springs are under extreme tension. Please leave replacement to our trained technicians — never attempt it yourself.</p>'
+    return (f'<div class="grid spring-grid">{cards}</div>'
+            '<p class="center price-hint">🔒 Prices are tucked away by default — tap <b>"Show prices"</b> at the very bottom of the page to reveal them.</p>'
+            '<p class="center" style="margin-top:10px;color:var(--slate);font-size:.92rem">⚠️ Garage door springs are under extreme tension. Please leave replacement to our trained technicians — never attempt it yourself.</p>')
 
 
 AREAS = ["West Vancouver", "British Properties", "Ambleside", "Dundarave", "Caulfeild", "Horseshoe Bay",
@@ -642,7 +660,7 @@ def build():
                     + '</div></div></section>')
     home_body = (hero + statband
                  + section("What we do", "Everything your garage door needs — in one local team.",
-                           "From a snapped spring to a showpiece new door, we handle it all across the North Shore.", bento)
+                           "From a snapped spring to a showpiece new door, we handle it all across the North Shore.", services_grid())
                  + why
                  + before_after(bg="cloud")
                  + steps_section()
@@ -713,28 +731,70 @@ def build():
         breadcrumb_schema("Spring Replacement", SITE + "/springs.html") + service_schema("Garage Door Spring Replacement", "Same-day torsion and extension spring replacement with 10,000 to 30,000+ cycle options.", SITE + "/springs.html")), body)
 
     # ---------- STRATA ----------
-    strata_inner = f'''
-  <div class="strata-grid">
-    <div class="reveal">
-      <p style="color:var(--slate);font-size:1.05rem">We're the go-to garage door team for strata corporations, property managers and townhome owners across West Vancouver and the North Shore. From a single unit to an entire complex, we deliver fast, professional, fully-documented service that keeps residents happy and councils worry-free.</p>
-      <ul class="strata-feats" style="margin-top:24px">
-        <li>{CHK} Scheduled multi-unit maintenance programs</li>
-        <li>{CHK} Priority emergency response for residents</li>
-        <li>{CHK} Fully licensed, insured &amp; WorkSafeBC</li>
-        <li>{CHK} Clear quotes, POs &amp; consolidated invoicing</li>
-        <li>{CHK} Matching doors &amp; hardware across units</li>
-        <li>{CHK} Detailed reports for council records</li>
-      </ul>
-      <a href="contact.html" class="btn btn-primary btn-lg" style="margin-top:8px">Request a Strata Quote</a>
-    </div>
-    <div class="strata-img reveal"><img src="assets/img/strata.jpg" alt="Row of North Shore strata townhomes with matching garage doors"></div>
-  </div>'''
-    body = (page_hero("Strata &amp; townhome communities", "A Garage Door Partner Your Strata Can Rely On",
-                      "Dependable, fully-documented garage door service for strata councils, property managers and townhome owners across the North Shore — from one unit to an entire complex.", "Strata &amp; Townhomes", hero="strata")
-            + f'<section class="section"><div class="container">{strata_inner}</div></section>')
+    pm_cards = [
+        ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M21 12a9 9 0 1 1-6.2-8.5"/></svg>',
+         "Scheduled multi-point inspections", "Every door, opener, spring, cable, roller and safety sensor checked on a set schedule — so worn parts get flagged early."),
+        ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-2.1-.6-.6-2.1 2.1-2.1Z"/></svg>',
+         "Tune-up on every visit", "Lubrication, balancing, hardware tightening and safety-reverse testing keep doors quiet, smooth and code-compliant."),
+        ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 3h9l5 5v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M9 13h6M9 17h4"/></svg>',
+         "Documented condition reports", "Written reports with photos for your files, council updates and depreciation reports — no guesswork at the AGM."),
+        ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6l4 2"/><circle cx="12" cy="14" r="8"/></svg>',
+         "Fewer surprise call-outs", "Catching small issues early means fewer 11pm emergencies, more predictable budgets and happier residents."),
+    ]
+    pm_grid = ('<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))">'
+               + "".join(f'<div class="promise reveal"><span class="p-ico">{ic}</span><h3>{t}</h3><p>{d}</p></div>' for ic, t, d in pm_cards)
+               + '</div>')
+    intro = f'''
+<section class="section"><div class="container"><div class="strata-grid">
+  <div class="reveal">
+    <span class="eyebrow">For strata councils &amp; property managers</span>
+    <h2 class="section-title">Garage doors, handled — so they never land on your desk at the worst time.</h2>
+    <p style="color:var(--slate);font-size:1.06rem;margin-bottom:6px">A jammed parkade gate or a resident locked out by a snapped spring always seems to happen at 11pm on a long weekend. We make sure it rarely does — and when something does go wrong, you have one accountable, licensed team who already knows your buildings.</p>
+    <ul class="strata-feats" style="margin-top:22px">
+      <li>{CHK} One point of contact for every door, gate &amp; opener</li>
+      <li>{CHK} Consolidated quotes, POs &amp; invoicing</li>
+      <li>{CHK} Licensed, insured &amp; WorkSafeBC — COI on file</li>
+      <li>{CHK} Documentation for council &amp; depreciation reports</li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary btn-lg magnetic" style="margin-top:8px">Request a strata proposal</a>
+  </div>
+  <div class="strata-img reveal"><img src="assets/img/strata.jpg" alt="North Shore strata townhomes with matching garage doors"></div>
+</div></div></section>'''
+    pm = section("Preventive maintenance program", "Catch the problem on a Tuesday — not at 11pm Sunday.",
+                 "Our strata maintenance program is built to find worn springs, frayed cables, tired openers and failing safety sensors before they strand a resident or trigger an after-hours emergency.",
+                 pm_grid, bg="cloud")
+    emergency = f'''
+<section class="section strata"><div class="container"><div class="strata-grid">
+  <div class="reveal">
+    <span class="eyebrow">True 24/7 emergency response</span>
+    <h2>Doors break at the worst times. We answer anyway.</h2>
+    <p>When a resident is blocked out of the parkade or a door won't secure overnight, you can reach a real person — any hour, any day, including long weekends. Contracted buildings get priority dispatch, and our trucks carry the most common parts for a first-visit fix.</p>
+    <ul class="strata-feats">
+      <li>{CHK} 24/7 emergency line &amp; priority dispatch</li>
+      <li>{CHK} Fast response so residents aren't stranded</li>
+      <li>{CHK} Common springs, cables &amp; opener parts stocked</li>
+      <li>{CHK} Evenings, weekends &amp; long weekends covered</li>
+    </ul>
+    <a href="tel:{TEL}" class="btn btn-gold btn-lg magnetic" style="margin-top:6px">{PHONE} Call our 24/7 line</a>
+  </div>
+  <div class="strata-img reveal"><img src="assets/img/strata-hero.jpg" alt="Torsion springs and garage door hardware serviced for a North Shore strata"></div>
+</div></div></section>'''
+    why = section("Why managers choose us", "Less hassle for you. Fewer complaints from residents.", "",
+                  '<div class="feature-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px">'
+                  + "".join(f'<div class="feature"><span class="f-ico">{CHK}</span><div><h4>{t}</h4><p>{d}</p></div></div>' for t, d in [
+                      ("Single point of contact", "One number for every building — no chasing three different vendors."),
+                      ("Council-friendly quotes", "Clear, itemized pricing your council can approve without surprises."),
+                      ("Multi-building experience", "Parkade gates, common-area doors and individual townhome doors alike."),
+                      ("Matching doors &amp; hardware", "Consistent doors, springs and openers across units for a uniform look."),
+                      ("Fully insured &amp; documented", "COI on file, WorkSafeBC, and a paper trail for every visit."),
+                      ("Reliable, on-time crews", "Local, stocked trucks mean we show up when we say we will."),
+                  ]) + '</div>')
+    body = (page_hero("Strata &amp; townhome communities", "The Garage Door Partner Strata Managers Rely On",
+                      "Preventive maintenance, fast documented repairs and genuine 24/7 emergency response for strata and townhome communities across West Vancouver and the North Shore.", "Strata &amp; Townhomes", hero="strata")
+            + intro + pm + emergency + why)
     pages["strata.html"] = assemble("strata", head(
-        "Strata &amp; Townhome Garage Door Service | North Shore",
-        "Garage door service for North Shore strata corporations & property managers — scheduled maintenance, priority response, matching doors, and consolidated invoicing. West & North Vancouver.",
+        "Strata Garage Door Maintenance &amp; 24/7 Service | North Shore",
+        "Preventive maintenance, documented repairs and true 24/7 emergency response for North Shore strata & townhome communities. One point of contact, council-friendly quotes, fully insured. West & North Vancouver.",
         SITE + "/strata.html",
         breadcrumb_schema("Strata & Townhomes", SITE + "/strata.html") + service_schema("Strata & Townhome Garage Door Service", "Multi-unit garage door maintenance, repair and installation for strata corporations and property managers.", SITE + "/strata.html")), body)
 
@@ -874,7 +934,7 @@ def build():
 
     def legal_page(title, desc, canonical, crumb, h1, intro, main_html, schema):
         h = head(title, desc, canonical, legal_css + schema)
-        return (h + topbar() + header("") + mobile_nav("")
+        return (h + header("") + mobile_nav("")
                 + page_hero("Legal", h1, intro, crumb, show_cta=False)
                 + main_html + footer() + chrome_end())
 
