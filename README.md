@@ -4,8 +4,9 @@ A fast, mobile-first, SEO-optimized marketing website for a family-owned garage
 door company serving **West Vancouver, North Vancouver and the North Shore** of
 British Columbia. Residential and strata/townhome focus.
 
-- **Live (GitHub Pages):** published automatically from `main` — see the Actions
-  "Deploy site to GitHub Pages" run for the URL (e.g. `https://<owner>.github.io/<repo>/`).
+- **Instant live preview (no setup):** https://raw.githack.com/yarishiller-cyber/West-Vancouver/main/index.html
+  (serves the public repo with correct content-types; relative assets resolve).
+- **Production (GitHub Pages):** needs a one-time toggle — see "Publishing" below.
 - **Intended domain:** https://www.northshoregaragedoors.ca/
 - **Phone:** (778) 800-0769 · **Email:** info@NorthShoreGarageDoors.ca
 
@@ -46,9 +47,15 @@ python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
 ## Publishing
-Pushing to `main` triggers `.github/workflows/pages.yml`, which enables GitHub
-Pages (first run) and deploys the site. The live URL appears in the workflow's
-`github-pages` environment.
+**One-time setup** (the automation token can't flip this for you): in the repo,
+go to **Settings → Pages → Build and deployment → Source** and choose either:
+- **"GitHub Actions"** (recommended) — then every push to `main` runs
+  `.github/workflows/pages.yml` and deploys. Live URL:
+  `https://yarishiller-cyber.github.io/West-Vancouver/`.
+- **"Deploy from a branch" → `main` → `/ (root)`** — publishes the static files
+  directly, no workflow needed.
+
+Until then, use the instant **raw.githack** preview URL above to view the site.
 
 ### Point the custom domain (www.northshoregaragedoors.ca)
 1. At your DNS provider for `northshoregaragedoors.ca`, add:
