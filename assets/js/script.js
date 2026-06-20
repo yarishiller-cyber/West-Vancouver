@@ -218,6 +218,39 @@
     });
   }
 
+  /* ---- Magnetic buttons (desktop, fine pointer) ---- */
+  if (!reduceMotion && window.matchMedia && window.matchMedia("(pointer:fine)").matches) {
+    $$(".magnetic").forEach(function (b) {
+      b.addEventListener("mousemove", function (ev) {
+        var r = b.getBoundingClientRect();
+        var x = ev.clientX - r.left - r.width / 2;
+        var y = ev.clientY - r.top - r.height / 2;
+        b.style.transform = "translate(" + x * 0.22 + "px," + (y * 0.32 - 2) + "px)";
+      });
+      b.addEventListener("mouseleave", function () { b.style.transform = ""; });
+    });
+  }
+
+  /* ---- Subtle parallax on .parallax images ---- */
+  if (!reduceMotion) {
+    var paras = $$(".parallax");
+    if (paras.length) {
+      var ticking = false;
+      var onP = function () {
+        paras.forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          var off = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
+          el.style.transform = "translateY(" + (off * -22) + "px)";
+        });
+        ticking = false;
+      };
+      window.addEventListener("scroll", function () {
+        if (!ticking) { window.requestAnimationFrame(onP); ticking = true; }
+      }, { passive: true });
+      onP();
+    }
+  }
+
   /* ---- Footer year ---- */
   var yr = $("#year");
   if (yr) yr.textContent = new Date().getFullYear();

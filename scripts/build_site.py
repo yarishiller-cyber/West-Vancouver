@@ -87,7 +87,7 @@ def head(title, desc, canonical, extra_schema=""):
 <link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 {extra_schema}
 </head>
@@ -135,7 +135,7 @@ def mobile_nav(active):
 <div class="overlay" id="overlay"></div>
 <aside class="mobile-nav" id="mobileNav" aria-label="Mobile menu">
   <div class="mn-head">
-    <b style="font-family:var(--font-head);color:var(--navy)">Menu</b>
+    <b style="font-family:var(--disp);color:#fff">Menu</b>
     <button class="mn-close" id="mnClose" aria-label="Close menu">×</button>
   </div>
   {links}
@@ -147,8 +147,8 @@ def mobile_nav(active):
 
 
 def page_hero(eyebrow, h1, intro, crumb, show_cta=True):
-    cta = (f'<div class="hero-actions"><a href="tel:{TEL}" class="btn btn-call btn-lg">{PHONE} Call {PHONE_DISPLAY}</a>'
-           f'<a href="contact.html" class="btn btn-outline-light btn-lg">Get a Free Quote</a></div>') if show_cta else ""
+    cta = (f'<div class="hero-actions"><a href="tel:{TEL}" class="btn btn-gold btn-lg magnetic">{PHONE} Call {PHONE_DISPLAY}</a>'
+           f'<a href="contact.html" class="btn btn-glass btn-lg">Get a Free Quote</a></div>') if show_cta else ""
     return f'''
 <section class="page-hero">
   <div class="container">
@@ -170,8 +170,8 @@ def cta_band():
     <h2>Let's Get Your Garage Door Working Again</h2>
     <p>Same-day appointments are often available. Call now or request your free, no-obligation quote.</p>
     <div class="cta-actions">
-      <a href="tel:{TEL}" class="btn btn-call btn-lg">{PHONE} Call {PHONE_DISPLAY}</a>
-      <a href="contact.html" class="btn btn-primary btn-lg">Request a Free Quote</a>
+      <a href="tel:{TEL}" class="btn btn-gold btn-lg magnetic">{PHONE} Call {PHONE_DISPLAY}</a>
+      <a href="contact.html" class="btn btn-glass btn-lg">Request a Free Quote</a>
     </div>
   </div>
 </section>'''
@@ -537,19 +537,24 @@ def build():
     hero = f'''
 <section class="hero">
   <div class="hero-bg"><img src="assets/img/hero-home.jpg" alt="Modern North Shore home with a new garage door" fetchpriority="high"></div>
+  <div class="blob b1"></div><div class="blob b2"></div>
   <div class="container"><div class="hero-content">
     <span class="pill"><b>★ 4.9</b> &nbsp;237+ five-star North Shore reviews</span>
-    <h1>North Shore's Trusted <span class="hl">Garage Door</span> Experts</h1>
-    <p class="lead">Family-owned and locally operated. From broken springs to brand-new doors, we get your garage working beautifully again — often the same day.</p>
+    <h1>Garage doors,<br>done <span class="hl">beautifully.</span></h1>
+    <p class="lead">Family-owned specialists for West &amp; North Vancouver. From broken springs to brand-new doors, we get your garage working — often the same day, always done right.</p>
     <div class="hero-actions">
-      <a href="tel:{TEL}" class="btn btn-call btn-lg">{PHONE} Call {PHONE_DISPLAY}</a>
-      <a href="contact.html" class="btn btn-outline-light btn-lg">Get a Free Quote</a>
+      <a href="tel:{TEL}" class="btn btn-gold btn-lg magnetic">{PHONE} Call {PHONE_DISPLAY}</a>
+      <a href="contact.html" class="btn btn-glass btn-lg">Get a free quote</a>
     </div>
-    <ul class="hero-trust">
-      <li>{CHK} Same-day &amp; emergency repairs</li><li>{CHK} Licensed, insured &amp; WorkSafeBC</li>
-      <li>{CHK} Upfront, no-surprise pricing</li><li>{CHK} LiftMaster Authorized Dealer</li>
-    </ul>
-    <div class="hero-rating"><span class="stars">★★★★★</span><small><b>Rated 4.9/5</b> by West Vancouver &amp; North Shore homeowners</small></div>
+    <div class="hero-trust">
+      <div class="gcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 2.4 7.4H22l-6 4.4 2.3 7.2L12 16.7 5.7 21l2.3-7.2-6-4.4h7.6L12 2Z"/></svg></span><div><b>4.9★ rating</b><small>237+ reviews</small></div></div>
+      <div class="gcard"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span><div><b>Same-day</b><small>service, 7 days</small></div></div>
+      <div class="gcard"><span class="ic">{SHIELD}</span><div><b>Licensed</b><small>&amp; insured</small></div></div>
+    </div>
+    <div class="marquee"><div class="track">
+      <span>Licensed &amp; Insured</span><span>LiftMaster® Dealer</span><span>Same-Day Service</span><span>Family-Owned</span><span>WorkSafeBC</span><span>Strata Experts</span>
+      <span>Licensed &amp; Insured</span><span>LiftMaster® Dealer</span><span>Same-Day Service</span><span>Family-Owned</span><span>WorkSafeBC</span><span>Strata Experts</span>
+    </div></div>
   </div></div>
   <div class="scroll-cue" aria-hidden="true"><span></span></div>
 </section>'''
@@ -559,18 +564,41 @@ def build():
                 '<div class="sb reveal"><b class="count" data-count="10" data-suffix="k+">10k+</b><span>Doors serviced</span></div>'
                 '<div class="sb reveal"><b class="count" data-count="15" data-suffix="+">15+</b><span>Years on the North Shore</span></div>'
                 '</div></section>')
-    home_body = (hero + trust_strip() + statband
-                 + section("What we do", "Complete Residential Garage Door Services",
-                           "One local team for everything your garage door needs — each service has its own page with full detail.", services_grid())
+    bento = f'''<div class="bento">
+      <a href="services.html" class="tile t-wide t-tall reveal"><img src="assets/img/service-repair.jpg" alt="Garage door repair"><span class="arrow">{ARR}</span><div class="t-in"><h3>Garage Door Repair</h3><p>Off-track doors, cables, noisy operation &amp; doors that won't open — fixed fast.</p></div></a>
+      <a href="springs.html" class="tile reveal"><img src="assets/img/spring-highcycle.jpg" alt="Spring replacement"><span class="arrow">{ARR}</span><div class="t-in"><h3>Springs</h3></div></a>
+      <a href="openers.html" class="tile reveal"><img src="assets/img/service-opener.jpg" alt="Opener installation"><span class="arrow">{ARR}</span><div class="t-in"><h3>Openers</h3></div></a>
+      <div class="tile solid reveal"><span class="eyebrow">LiftMaster®</span><h3>Smart &amp; quiet by default.</h3><p>Wi-Fi + myQ® app control on every opener we install.</p></div>
+      <a href="garage-doors.html" class="tile t-wide reveal"><img src="assets/img/door-modern.jpg" alt="New garage doors"><span class="arrow">{ARR}</span><div class="t-in"><h3>Brand-new doors</h3><p>Modern, carriage, full-view glass &amp; insulated steel.</p></div></a>
+    </div>'''
+    why = f'''<section class="section bg-cloud"><div class="container"><div class="about-grid">
+      <div class="pframe reveal"><img class="parallax" src="assets/img/strata.jpg" alt="North Shore townhomes with matching garage doors"></div>
+      <div class="reveal">
+        <span class="eyebrow">Why North Shore</span>
+        <h2 class="section-title">A door is a third of your home's curb appeal. We treat it that way.</h2>
+        <p style="color:var(--slate);font-size:1.05rem;margin-bottom:6px">No call-centre scripts, no commissioned salespeople — just a family that takes pride in doing the job properly the first time.</p>
+        <div class="feature-list">
+          <div class="feature"><span class="f-ico">{CHK}</span><div><h4>Same-day &amp; emergency</h4><p>Stocked local trucks mean we're there fast when it counts.</p></div></div>
+          <div class="feature"><span class="f-ico">{CHK}</span><div><h4>Upfront pricing</h4><p>You approve a clear, all-in quote before any work begins.</p></div></div>
+          <div class="feature"><span class="f-ico">{CHK}</span><div><h4>Strata specialists</h4><p>Trusted by councils &amp; property managers across the North Shore.</p></div></div>
+        </div>
+        <a href="about.html" class="btn btn-gold btn-lg magnetic" style="margin-top:24px">Meet the team</a>
+      </div>
+    </div></div></section>'''
+    area_marquee = ('<section class="areas-marquee"><div class="marquee"><div class="track">'
+                    + "".join(f'<span>{a}</span>' for a in AREAS) + "".join(f'<span>{a}</span>' for a in AREAS)
+                    + '</div></div></section>')
+    home_body = (hero + statband
+                 + section("What we do", "Everything your garage door needs — in one local team.",
+                           "From a snapped spring to a showpiece new door, we handle it all across the North Shore.", bento)
+                 + why
                  + steps_section()
-                 + section("New garage doors", "A Door That Lifts Your Whole Home",
-                           "Your garage door is up to a third of your home's curb appeal. Explore styles or book a free design consultation.",
-                           doors_grid() + '<div class="center" style="margin-top:34px"><a href="garage-doors.html" class="btn btn-primary btn-lg">Explore Garage Doors</a></div>')
                  + section("Loved by the North Shore", "4.9★ From 237+ Happy Neighbours",
                            "Real reviews from West Vancouver homeowners and strata communities.",
-                           reviews_grid(3) + '<div class="center" style="margin-top:34px"><a href="reviews.html" class="btn btn-ghost btn-lg">Read more reviews</a></div>', bg="cloud")
+                           reviews_grid(3) + '<div class="center" style="margin-top:34px"><a href="reviews.html" class="btn btn-ghost btn-lg">Read more reviews</a></div>')
+                 + area_marquee
                  + section("Get in touch", "Request Your Free Quote",
-                           "Tell us what's going on and we'll get right back to you — usually within the hour during business hours.", contact_block()))
+                           "Tell us what's going on and we'll get right back to you — usually within the hour during business hours.", contact_block(), bg="cloud"))
     pages["index.html"] = assemble("", head(
         "North Shore Garage Doors | Repair, Springs &amp; Openers | West &amp; North Vancouver",
         "North Shore Garage Doors — family-owned garage door repair, broken spring & opener replacement, LiftMaster openers, new door installation and strata service across West Vancouver, North Vancouver & the North Shore. Same-day service. Call (778) 800-0769.",
