@@ -121,16 +121,22 @@ PROMPTS = {
     ),
     # ---- Springs (product close-ups) ----
     "spring-standard": (
-        "Clean product photo of a single black galvanized garage door torsion spring coil on a soft light-grey "
-        "studio gradient background. No text. 1:1 square." + STYLE
+        "Clean product photo of a single real garage-door TORSION spring: a long horizontal cylindrical tube of "
+        "tightly wound black steel wire with the coils packed closely together touching each other, threaded onto "
+        "a metal torsion shaft with a black cast-iron winding cone fitting at the end. Horizontal orientation, "
+        "soft light-grey studio gradient background. Photorealistic hardware. No text. 1:1 square." + STYLE
     ),
     "spring-highcycle": (
-        "Clean product photo of a heavy-duty oil-tempered garage door torsion spring with a subtle bronze/gold "
-        "tone on a soft light-grey studio gradient background. No text. 1:1 square." + STYLE
+        "Clean product photo of a single heavy-duty oil-tempered garage-door TORSION spring: a long horizontal "
+        "cylindrical coil of tightly wound galvanized zinc-grey steel wire, coils tightly packed together, on a "
+        "steel torsion shaft with a winding cone at the end. Horizontal orientation, soft light-grey studio "
+        "gradient background. Photorealistic. No text. 1:1 square." + STYLE
     ),
     "spring-premium": (
-        "Clean product photo of two premium powder-coated black high-cycle garage door torsion springs side by "
-        "side on a soft light-grey studio gradient background. No text. 1:1 square." + STYLE
+        "Clean product photo of two premium heavy-duty garage-door TORSION springs mounted side by side on a "
+        "single long steel torsion shaft above where a garage door would be: each is a long cylindrical coil of "
+        "tightly wound black powder-coated steel wire with red cast winding cones in the centre. Horizontal "
+        "orientation, soft light-grey studio gradient background. Photorealistic. No text. 1:1 square." + STYLE
     ),
     # ---- CTA / texture ----
     "cta-bg": (
