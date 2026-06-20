@@ -1,0 +1,12 @@
+{
+  "name": "North Shore Garage Doors",
+  "short_name": "NS Garage Doors",
+  "description": "Family-owned garage door repair, springs, openers and installation across West Vancouver, North Vancouver and the North Shore.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b2545",
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
