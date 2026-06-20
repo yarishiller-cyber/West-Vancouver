@@ -146,11 +146,14 @@ def mobile_nav(active):
 </aside>'''
 
 
-def page_hero(eyebrow, h1, intro, crumb, show_cta=True):
+def page_hero(eyebrow, h1, intro, crumb, show_cta=True, hero=None):
     cta = (f'<div class="hero-actions"><a href="tel:{TEL}" class="btn btn-gold btn-lg magnetic">{PHONE} Call {PHONE_DISPLAY}</a>'
            f'<a href="contact.html" class="btn btn-glass btn-lg">Get a Free Quote</a></div>') if show_cta else ""
+    bg = (f'<div class="ph-bg"><picture><source media="(max-width:760px)" srcset="assets/img/{hero}-hero-mobile.jpg">'
+          f'<img src="assets/img/{hero}-hero.jpg" alt="" fetchpriority="high"></picture></div>') if hero else ""
     return f'''
 <section class="page-hero">
+  {bg}
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>{crumb}</span></nav>
     <span class="eyebrow">{eyebrow}</span>
@@ -657,7 +660,7 @@ def build():
 
     # ---------- SERVICES ----------
     body = (page_hero("Residential garage door services", "Complete Garage Door Services on the North Shore",
-                      "From a snapped spring on a Sunday morning to a brand-new custom door, one trusted local team handles it all — for homes and strata communities across West Vancouver and North Vancouver.", "Services")
+                      "From a snapped spring on a Sunday morning to a brand-new custom door, one trusted local team handles it all — for homes and strata communities across West Vancouver and North Vancouver.", "Services", hero="services")
             + section("", "", "", services_grid())
             + steps_section())
     pages["services.html"] = assemble("services", head(
@@ -675,7 +678,7 @@ def build():
       <div class="service-card reveal"><div class="sc-body"><h3>Contemporary Flush</h3><p>Smooth, clean flush panels in bold or muted tones for a sleek, understated finish that complements modern architecture.</p></div></div>
     </div>'''
     body = (page_hero("New garage doors", "A New Garage Door That Lifts Your Whole Home",
-                      "Your garage door is up to a third of your home's curb appeal — and your largest moving part. We help you choose the perfect style, colour and insulation, then install it flawlessly with quality hardware built for the West Coast climate.", "Garage Doors")
+                      "Your garage door is up to a third of your home's curb appeal — and your largest moving part. We help you choose the perfect style, colour and insulation, then install it flawlessly with quality hardware built for the West Coast climate.", "Garage Doors", hero="garage-doors")
             + section("Styles we install", "Find Your Style", "Insulated steel, aluminum &amp; glass, wood-look carriage and contemporary flush — measured, supplied and professionally installed.", doors_grid())
             + before_after(bg="cloud")
             + section("", "Built for the West Coast", "", doors_detail))
@@ -687,7 +690,7 @@ def build():
 
     # ---------- OPENERS ----------
     body = (page_hero("LiftMaster® Authorized Dealer", "Garage Door Openers, Done Right",
-                      "We install and service the full LiftMaster® residential lineup. Start with our three most popular picks — or open the full collection to compare all seven models, every one with Wi-Fi and myQ® smartphone control.", "Garage Door Openers")
+                      "We install and service the full LiftMaster® residential lineup. Start with our three most popular picks — or open the full collection to compare all seven models, every one with Wi-Fi and myQ® smartphone control.", "Garage Door Openers", hero="openers")
             + section("", "", "", openers_block())
             + section("Opener repairs too", "Opener Acting Up?", "We also repair most existing opener brands — noisy operation, broken gears, dead remotes, faulty safety sensors and Wi-Fi setup.",
                       '<div class="center"><a href="contact.html" class="btn btn-primary btn-lg">Book an Opener Repair</a></div>', bg="cloud"))
@@ -699,7 +702,7 @@ def build():
 
     # ---------- SPRINGS ----------
     body = (page_hero("Spring replacement", "Broken Garage Door Spring? We'll Fix It Today",
-                      "A broken spring is the #1 reason a garage door stops working — and it's our most common same-day call. We never charge a hidden fee. Pick the cycle rating that fits how often you use your door, and we install it on the spot.", "Spring Replacement")
+                      "A broken spring is the #1 reason a garage door stops working — and it's our most common same-day call. We never charge a hidden fee. Pick the cycle rating that fits how often you use your door, and we install it on the spot.", "Spring Replacement", hero="springs")
             + section("", "Three Spring Options — You Choose the Lifespan", "", springs_block())
             + section("Stay safe", "Why You Shouldn't DIY a Spring", "Garage door springs store enormous tension and can cause serious injury if they release unexpectedly. Our trained technicians carry the right tools and high-cycle springs on every truck.",
                       f'<div class="center"><a href="tel:{TEL}" class="btn btn-call btn-lg">{PHONE} Call {PHONE_DISPLAY}</a></div>', bg="cloud"))
@@ -727,7 +730,7 @@ def build():
     <div class="strata-img reveal"><img src="assets/img/strata.jpg" alt="Row of North Shore strata townhomes with matching garage doors"></div>
   </div>'''
     body = (page_hero("Strata &amp; townhome communities", "A Garage Door Partner Your Strata Can Rely On",
-                      "Dependable, fully-documented garage door service for strata councils, property managers and townhome owners across the North Shore — from one unit to an entire complex.", "Strata &amp; Townhomes")
+                      "Dependable, fully-documented garage door service for strata councils, property managers and townhome owners across the North Shore — from one unit to an entire complex.", "Strata &amp; Townhomes", hero="strata")
             + f'<section class="section"><div class="container">{strata_inner}</div></section>')
     pages["strata.html"] = assemble("strata", head(
         "Strata &amp; Townhome Garage Door Service | North Shore",
@@ -751,7 +754,7 @@ def build():
     </div>
   </div>'''
     body = (page_hero("Our family, your neighbours", "Built on Family Values &amp; Honest Work",
-                      "We're a family-owned and operated garage door company that treats every customer's home like our own — honest pricing, quality workmanship and friendly local faces.", "About Us")
+                      "We're a family-owned and operated garage door company that treats every customer's home like our own — honest pricing, quality workmanship and friendly local faces.", "About Us", hero="about")
             + f'<section class="section"><div class="container">{about_inner}</div></section>'
             + section("Where we work", "Proudly Serving the North Shore", "From West Vancouver to Deep Cove, our stocked local trucks mean help is never far away.",
                       areas_list() + f'<div class="center" style="margin-top:30px"><a href="service-areas.html" class="btn btn-ghost btn-lg">See all service areas</a></div>', bg="cloud"))
@@ -762,7 +765,7 @@ def build():
 
     # ---------- SERVICE AREAS ----------
     body = (page_hero("Where we work", "Proudly Serving West Vancouver &amp; the North Shore",
-                      "If you're on the North Shore, we've got you covered. Our trucks are stocked and local, so same-day help is never far away.", "Service Areas")
+                      "If you're on the North Shore, we've got you covered. Our trucks are stocked and local, so same-day help is never far away.", "Service Areas", hero="service-areas")
             + section("", "Our Service Areas", "", areas_list())
             + section("Not sure if we cover you?", "Just Ask", "If your community is on or near the North Shore, give us a call — we likely serve your street.",
                       f'<div class="center"><a href="tel:{TEL}" class="btn btn-call btn-lg">{PHONE} Call {PHONE_DISPLAY}</a></div>', bg="cloud"))
@@ -773,7 +776,7 @@ def build():
 
     # ---------- REVIEWS ----------
     body = (page_hero("Loved by the North Shore", "4.9★ From 237+ Happy Neighbours",
-                      "Real reviews from West Vancouver homeowners and strata communities who trust us with their garage doors.", "Reviews")
+                      "Real reviews from West Vancouver homeowners and strata communities who trust us with their garage doors.", "Reviews", hero="reviews")
             + section("", "", "", reviews_grid(6)))
     pages["reviews.html"] = assemble("reviews", head(
         "Reviews | 4.9★ Garage Door Service | North Shore",
@@ -782,7 +785,7 @@ def build():
 
     # ---------- FAQ ----------
     body = (page_hero("Good to know", "Frequently Asked Questions",
-                      "Answers to the questions North Shore homeowners ask us most about garage door repair, springs, openers and new doors.", "FAQ")
+                      "Answers to the questions North Shore homeowners ask us most about garage door repair, springs, openers and new doors.", "FAQ", hero="faq")
             + section("", "", "", faq_accordion(FAQS)))
     pages["faq.html"] = assemble("faq", head(
         "Garage Door FAQ | North Shore Garage Doors",
@@ -791,7 +794,7 @@ def build():
 
     # ---------- CONTACT ----------
     body = (page_hero("Get in touch", "Request Your Free Quote",
-                      "Tell us what's going on and we'll get right back to you — usually within the hour during business hours. For urgent issues, call us any time.", "Contact", show_cta=False)
+                      "Tell us what's going on and we'll get right back to you — usually within the hour during business hours. For urgent issues, call us any time.", "Contact", show_cta=False, hero="contact")
             + section("", "", "", contact_block()))
     pages["contact.html"] = assemble("", head(
         "Contact &amp; Free Quote | North Shore Garage Doors | (778) 800-0769",
