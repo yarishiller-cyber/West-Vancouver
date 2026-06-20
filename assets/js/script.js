@@ -81,8 +81,23 @@
     });
   });
 
-  /* ---- Reveal on scroll ---- */
+  /* ---- Reveal on scroll (with stagger) ---- */
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var revealEls = $$(".reveal");
+  // stagger items that share a parent so grids cascade in
+  if (!reduceMotion) {
+    var groups = {};
+    revealEls.forEach(function (el) {
+      var p = el.parentNode;
+      if (!p.__rk) { p.__rk = "g" + Math.random().toString(36).slice(2); }
+      (groups[p.__rk] = groups[p.__rk] || []).push(el);
+    });
+    Object.keys(groups).forEach(function (k) {
+      groups[k].forEach(function (el, i) {
+        if (groups[k].length > 1) el.style.setProperty("--d", Math.min(i * 75, 450) + "ms");
+      });
+    });
+  }
   if ("IntersectionObserver" in window && revealEls.length) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -92,6 +107,37 @@
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  /* ---- Animated number count-up ---- */
+  function countUp(el) {
+    var target = parseFloat(el.getAttribute("data-count"));
+    if (isNaN(target)) return;
+    var dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
+    var suffix = el.getAttribute("data-suffix") || "";
+    var sufHtml = suffix ? '<span class="count-suffix">' + suffix + "</span>" : "";
+    if (reduceMotion) { el.innerHTML = target.toFixed(dec) + sufHtml; return; }
+    var start = null, dur = 1300;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.innerHTML = (target * eased).toFixed(dec) + sufHtml;
+      if (p < 1) requestAnimationFrame(step);
+      else el.innerHTML = target.toFixed(dec) + sufHtml;
+    }
+    requestAnimationFrame(step);
+  }
+  var counters = $$(".count");
+  if ("IntersectionObserver" in window && counters.length) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { countUp(e.target); cio.unobserve(e.target); }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (el) { cio.observe(el); });
+  } else {
+    counters.forEach(countUp);
   }
 
   /* ---- Back to top ---- */

@@ -551,8 +551,15 @@ def build():
     </ul>
     <div class="hero-rating"><span class="stars">★★★★★</span><small><b>Rated 4.9/5</b> by West Vancouver &amp; North Shore homeowners</small></div>
   </div></div>
+  <div class="scroll-cue" aria-hidden="true"><span></span></div>
 </section>'''
-    home_body = (hero + trust_strip()
+    statband = ('<section class="statband"><div class="container">'
+                '<div class="sb reveal"><b class="count" data-count="4.9" data-decimals="1" data-suffix="★">4.9★</b><span>Average rating</span></div>'
+                '<div class="sb reveal"><b class="count" data-count="237" data-suffix="+">237+</b><span>Five-star reviews</span></div>'
+                '<div class="sb reveal"><b class="count" data-count="10" data-suffix="k+">10k+</b><span>Doors serviced</span></div>'
+                '<div class="sb reveal"><b class="count" data-count="15" data-suffix="+">15+</b><span>Years on the North Shore</span></div>'
+                '</div></section>')
+    home_body = (hero + trust_strip() + statband
                  + section("What we do", "Complete Residential Garage Door Services",
                            "One local team for everything your garage door needs — each service has its own page with full detail.", services_grid())
                  + steps_section()
@@ -660,7 +667,7 @@ def build():
         <div class="feature"><span class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div><h4>Honest, upfront pricing</h4><p>You approve a clear, all-in quote before any work begins. No surprises, ever.</p></div></div>
         <div class="feature"><span class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg></span><div><h4>Fast, local response</h4><p>Based right here on the North Shore, so we're at your door quickly when it counts.</p></div></div>
       </div>
-      <div class="stats"><div class="stat"><b>4.9★</b><span>Average rating</span></div><div class="stat"><b>10k+</b><span>Doors serviced</span></div><div class="stat"><b>Same-Day</b><span>Most repairs</span></div></div>
+      <div class="stats"><div class="stat"><b class="count" data-count="4.9" data-decimals="1" data-suffix="★">4.9★</b><span>Average rating</span></div><div class="stat"><b class="count" data-count="10" data-suffix="k+">10k+</b><span>Doors serviced</span></div><div class="stat"><b>Same-Day</b><span>Most repairs</span></div></div>
     </div>
   </div>'''
     body = (page_hero("Our family, your neighbours", "Built on Family Values &amp; Honest Work",
