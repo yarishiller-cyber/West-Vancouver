@@ -57,20 +57,37 @@ go to **Settings → Pages → Build and deployment → Source** and choose eith
 
 Until then, use the instant **raw.githack** preview URL above to view the site.
 
-### Point the custom domain (www.northshoregaragedoors.ca)
-1. At your DNS provider for `northshoregaragedoors.ca`, add:
-   - `CNAME` record: `www` → `<owner>.github.io`
-   - Apex (`@`) `A` records to GitHub Pages: `185.199.108.153`, `185.199.109.153`,
-     `185.199.110.153`, `185.199.111.153` (and the AAAA equivalents).
-2. In the repo: **Settings → Pages → Custom domain**, enter
-   `www.northshoregaragedoors.ca`, save, and enable "Enforce HTTPS".
-   (This recreates the `CNAME` file in the repo.)
+### Point the custom domain (www.northshoregaragedoors.ca) — Hostinger
+Domain is registered at **Hostinger**. In **hPanel → Domains → DNS / Nameservers
+→ DNS Zone**, add:
 
-## Before going fully live
+| Type  | Name (Host) | Value / Points to        | TTL |
+|-------|-------------|--------------------------|-----|
+| CNAME | `www`       | `yarishiller-cyber.github.io` | 3600 |
+| A     | `@`         | `185.199.108.153`        | 3600 |
+| A     | `@`         | `185.199.109.153`        | 3600 |
+| A     | `@`         | `185.199.110.153`        | 3600 |
+| A     | `@`         | `185.199.111.153`        | 3600 |
+
+(Delete any existing parking/`A @` records that point elsewhere first.)
+Then in the repo: **Settings → Pages → Custom domain** → enter
+`www.northshoregaragedoors.ca` → Save → tick **Enforce HTTPS** (give DNS up to a
+few hours to propagate; GitHub then issues the SSL cert automatically).
+
+## Contact form
+The quote form is wired to **FormSubmit** (free, no backend) and emails each lead
+to **info@northshoregaragedoors.ca**. JS submits via AJAX (inline success message)
+and falls back to `mailto:` if the request fails.
+
+**One-time activation:** the *first* real submission makes FormSubmit send an
+activation link to `info@northshoregaragedoors.ca`. That mailbox must exist (set
+it up at Hostinger, or add a forward to your Gmail), then click the link once —
+after that every lead is delivered automatically. To change the destination,
+edit `LEAD_EMAIL` in `assets/js/script.js` and the form `action` in `index.html`.
+
+## Other before-go-live niceties
 1. Replace the family-team / review copy with real names/photos as available.
-2. Connect the contact form to a backend (Formspree / Netlify Forms) — it
-   currently validates and falls back to a `mailto:` link.
-3. Add real Google Business Profile + social URLs (footer + `sameAs` in JSON-LD).
+2. Add real Google Business Profile + social URLs (footer + `sameAs` in JSON-LD).
 
 ## Regenerating images
 ```bash

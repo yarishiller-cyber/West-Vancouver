@@ -860,7 +860,13 @@
       <div class="form-card reveal">
         <h3>Send us a message</h3>
         <p>Fill out the form below for your free, no-obligation quote.</p>
-        <form id="quoteForm" novalidate>
+        <form id="quoteForm" action="https://formsubmit.co/info@northshoregaragedoors.ca" method="POST" novalidate>
+          <!-- FormSubmit config (used as a no-JavaScript fallback) -->
+          <input type="hidden" name="_subject" value="New quote request — North Shore Garage Doors website">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <!-- Honeypot: hidden from people, catches spam bots -->
+          <input type="text" id="f-company" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <div class="form-row two">
             <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" placeholder="Your name" required></div>
             <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" placeholder="(778) 000-0000" required></div>

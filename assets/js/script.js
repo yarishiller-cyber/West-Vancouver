@@ -105,6 +105,26 @@
      shows a success message, and offers a mailto fallback. */
   var form = $("#quoteForm");
   var success = $("#formSuccess");
+  // Where leads are delivered. FormSubmit relays this to the inbox (no backend
+  // needed). NOTE: the first real submission triggers a one-time activation
+  // email to this address — click that link once and every future lead arrives.
+  var LEAD_EMAIL = "info@northshoregaragedoors.ca";
+  var FORM_ENDPOINT = "https://formsubmit.co/ajax/" + LEAD_EMAIL;
+
+  function showSuccess() {
+    if (form) form.style.display = "none";
+    if (success) success.classList.add("show");
+    if (success) success.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+  function mailtoFallback(name, phone, email, service, msg) {
+    var body = "Name: " + name + "\r\nPhone: " + phone +
+      "\r\nEmail: " + email + "\r\nService: " + service + "\r\n\r\n" + msg;
+    var mailto = "mailto:" + LEAD_EMAIL + "?subject=" +
+      encodeURIComponent("Quote request from " + name) +
+      "&body=" + encodeURIComponent(body);
+    try { window.location.href = mailto; } catch (err) {}
+  }
+
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -114,20 +134,41 @@
         if (!name) $("#f-name").focus(); else $("#f-phone").focus();
         return;
       }
-      // Build a mailto fallback so the message can actually be delivered.
       var email = $("#f-email").value.trim();
       var service = $("#f-service").value;
       var msg = $("#f-msg").value.trim();
-      var body = "Name: " + name + "%0D%0APhone: " + phone +
-        "%0D%0AEmail: " + email + "%0D%0AService: " + service +
-        "%0D%0A%0D%0A" + encodeURIComponent(msg);
-      var mailto = "mailto:info@northshoregaragedoors.ca?subject=" +
-        encodeURIComponent("Quote request from " + name) + "&body=" + body;
+      var honey = $("#f-company"); // honeypot — bots fill this, humans don't
+      if (honey && honey.value) { showSuccess(); return; }
 
-      form.style.display = "none";
-      if (success) success.classList.add("show");
-      // open the user's mail client as a delivery fallback
-      try { window.location.href = mailto; } catch (err) {}
+      var btn = form.querySelector('button[type="submit"]');
+      var label = btn ? btn.textContent : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+
+      var payload = {
+        name: name, phone: phone, email: email,
+        service: service, message: msg,
+        _subject: "New quote request — North Shore Garage Doors website",
+        _template: "table"
+      };
+
+      fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (data) {
+          return { ok: r.ok, data: data };
+        });
+      }).then(function (res) {
+        if (res.ok) { showSuccess(); }
+        else { showSuccess(); mailtoFallback(name, phone, email, service, msg); }
+      }).catch(function () {
+        // network/endpoint issue — still confirm to the user and open their mail app
+        showSuccess();
+        mailtoFallback(name, phone, email, service, msg);
+      }).then(function () {
+        if (btn) { btn.disabled = false; btn.textContent = label; }
+      });
     });
   }
 
