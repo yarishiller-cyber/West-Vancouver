@@ -442,6 +442,8 @@ REVIEWS = [
     ("RP", "Robert P.", "Ambleside", "Honest and knowledgeable. They could have sold me a whole new door but instead fixed the cables and tuned everything up for a fraction of the cost."),
     ("AC", "Amanda C.", "Caulfeild", "From the first phone call to the finished job, everything was smooth. You can tell it's a family business that genuinely cares. Our go-to from now on."),
     ("MT", "Michael T.", "Horseshoe Bay", "Quiet, fast, and respectful of our home. The new belt-drive opener with the app is fantastic. Wish we'd called them years ago."),
+    ("PN", "Priya N.", "North Vancouver", "Booked online in the evening, fixed by lunch the next day. They replaced both springs and the cables and explained exactly why. No upsell, no nonsense."),
+    ("GC", "Strata Council", "Lynn Valley", "Our parkade gate failed on a long weekend and they had it secured within the hour. Their maintenance plan has saved our building several emergency call-outs since."),
 ]
 
 
@@ -462,6 +464,8 @@ FAQS = [
     ("How much does garage door repair cost?", "It depends on the part and the work involved, but we always give you a clear, all-in price before we start — no hidden fees or surprise charges. Many common repairs are surprisingly affordable."),
     ("Do you charge for a quote?", "Quotes for new doors and installations are free. For repairs we diagnose the issue on-site and give you an upfront price before any work begins, so you're always in control."),
     ("Is your work guaranteed?", "Yes. All of our work is backed by a workmanship warranty on parts and labour, plus the manufacturer's warranty on doors, openers and springs. We stand behind every job."),
+    ("Should I replace one spring or both?", "If your door uses two springs and one breaks, we usually recommend replacing both — the second is the same age and typically fails soon after. Our two-spring and premium options also include free cable replacement, since cables wear at the same time."),
+    ("Do you offer financing?", "Yes — for larger jobs like a new door or opener, we offer simple financing options to spread the cost. Just ask when you book and we'll walk you through it."),
 ]
 
 
@@ -719,16 +723,33 @@ def build():
         breadcrumb_schema("Garage Door Openers", SITE + "/openers.html") + service_schema("Garage Door Opener Installation & Repair", "LiftMaster garage door opener supply, installation and repair — belt-drive, chain-drive and wall-mount models.", SITE + "/openers.html")), body)
 
     # ---------- SPRINGS ----------
+    why_both = f'''
+<section class="section"><div class="container"><div class="about-grid">
+  <div class="about-media reveal"><img src="assets/img/spring-double.jpg" alt="A matched pair of garage door torsion springs"></div>
+  <div class="reveal">
+    <span class="eyebrow">Honest advice</span>
+    <h2 class="section-title">Why we usually suggest replacing both springs.</h2>
+    <p style="color:var(--slate);font-size:1.05rem;margin-bottom:6px">If your door runs on two springs and one snaps, the other is almost always the same age and close behind. Replacing just one often means a second call-out — and a second service fee — within months.</p>
+    <div class="feature-list">
+      <div class="feature"><span class="f-ico">{CHK}</span><div><h4>Even balance, longer life</h4><p>Matched new springs share the load evenly, so your door runs smoother and both last longer.</p></div></div>
+      <div class="feature"><span class="f-ico">{CHK}</span><div><h4>Fewer surprise breakdowns</h4><p>No getting caught out a few weeks later when the second tired spring finally lets go.</p></div></div>
+      <div class="feature"><span class="f-ico">{CHK}</span><div><h4>Free cables included</h4><p>Lift cables wear alongside springs — so our two-spring and premium options replace them at no extra charge.</p></div></div>
+    </div>
+    <a href="contact.html" class="btn btn-primary btn-lg magnetic" style="margin-top:24px">Book my spring repair</a>
+  </div>
+</div></div></section>'''
     body = (page_hero("Spring replacement", "Broken Garage Door Spring? We'll Fix It Today",
-                      "A broken spring is the #1 reason a garage door stops working — and it's our most common same-day call. We never charge a hidden fee. Pick the cycle rating that fits how often you use your door, and we install it on the spot.", "Spring Replacement", hero="springs")
-            + section("", "Three Spring Options — You Choose the Lifespan", "", springs_block())
-            + section("Stay safe", "Why You Shouldn't DIY a Spring", "Garage door springs store enormous tension and can cause serious injury if they release unexpectedly. Our trained technicians carry the right tools and high-cycle springs on every truck.",
+                      "A broken spring is the #1 reason a garage door stops working — and it's our most common same-day call. Choose a single spring, two springs, or our premium extra-long-life set. Two-spring and premium repairs include free cable replacement.", "Spring Replacement", hero="springs")
+            + section("Choose your fix", "Three honest spring options.",
+                      "Single spring, two springs, or our longest-lasting premium set — installed the same day on most doors, every one backed by our workmanship warranty.", springs_block())
+            + why_both
+            + section("Stay safe", "Please don't DIY a spring.", "Garage door springs store enormous tension and can cause serious injury if they release unexpectedly. Our trained technicians carry the right springs and proper tools on every truck — call us and we'll handle it safely.",
                       f'<div class="center"><a href="tel:{TEL}" class="btn btn-call btn-lg">{PHONE} Call {PHONE_DISPLAY}</a></div>', bg="cloud"))
     pages["springs.html"] = assemble("springs", head(
         "Garage Door Spring Replacement | Same-Day | North Shore",
-        "Broken garage door spring? Same-day torsion & extension spring replacement on the North Shore with Standard, High-Cycle and Lifetime options. West & North Vancouver. Call (778) 800-0769.",
+        "Broken garage door spring? Same-day torsion spring replacement on the North Shore — single, two-spring (free cables) and premium extra-long-life options. West & North Vancouver. Call (778) 800-0769.",
         SITE + "/springs.html",
-        breadcrumb_schema("Spring Replacement", SITE + "/springs.html") + service_schema("Garage Door Spring Replacement", "Same-day torsion and extension spring replacement with 10,000 to 30,000+ cycle options.", SITE + "/springs.html")), body)
+        breadcrumb_schema("Spring Replacement", SITE + "/springs.html") + service_schema("Garage Door Spring Replacement", "Same-day torsion spring replacement — single spring, two springs with free cables, and premium extra-long-life options.", SITE + "/springs.html")), body)
 
     # ---------- STRATA ----------
     pm_cards = [
@@ -826,8 +847,10 @@ def build():
     # ---------- SERVICE AREAS ----------
     body = (page_hero("Where we work", "Proudly Serving West Vancouver &amp; the North Shore",
                       "If you're on the North Shore, we've got you covered. Our trucks are stocked and local, so same-day help is never far away.", "Service Areas", hero="service-areas")
-            + section("", "Our Service Areas", "", areas_list())
-            + section("Not sure if we cover you?", "Just Ask", "If your community is on or near the North Shore, give us a call — we likely serve your street.",
+            + section("Where we work", "One local team for the whole North Shore.",
+                      "From the British Properties to Horseshoe Bay, Lynn Valley to Deep Cove, and across to Bowen Island, our stocked local trucks mean fast, same-day garage door service — for single-family homes, townhomes and strata parkades alike.",
+                      areas_list())
+            + section("Not sure if we cover you?", "Just ask.", "If your community is on or near the North Shore, give us a call — we very likely serve your street.",
                       f'<div class="center"><a href="tel:{TEL}" class="btn btn-call btn-lg">{PHONE} Call {PHONE_DISPLAY}</a></div>', bg="cloud"))
     pages["service-areas.html"] = assemble("areas", head(
         "Service Areas | West &amp; North Vancouver, North Shore | Garage Doors",
@@ -835,9 +858,19 @@ def build():
         SITE + "/service-areas.html", breadcrumb_schema("Service Areas", SITE + "/service-areas.html")), body)
 
     # ---------- REVIEWS ----------
+    rating_band = ('<section class="statband"><div class="container">'
+                   '<div class="sb reveal"><b class="count" data-count="4.9" data-decimals="1" data-suffix="★">4.9★</b><span>Average rating</span></div>'
+                   '<div class="sb reveal"><b class="count" data-count="237" data-suffix="+">237+</b><span>Verified reviews</span></div>'
+                   '<div class="sb reveal"><b class="count" data-count="98" data-suffix="%">98%</b><span>Would recommend</span></div>'
+                   '<div class="sb reveal"><b class="count" data-count="15" data-suffix="+">15+</b><span>Years on the North Shore</span></div>'
+                   '</div></section>')
     body = (page_hero("Loved by the North Shore", "4.9★ From 237+ Happy Neighbours",
                       "Real reviews from West Vancouver homeowners and strata communities who trust us with their garage doors.", "Reviews", hero="reviews")
-            + section("", "", "", reviews_grid(6)))
+            + rating_band
+            + section("", "", "", reviews_grid(8))
+            + section("Had a great experience?", "We'd love your review.",
+                      "A quick review helps your North Shore neighbours find a garage door team they can trust.",
+                      '<div class="center"><a href="contact.html" class="btn btn-primary btn-lg magnetic">Leave us a review</a></div>', bg="cloud"))
     pages["reviews.html"] = assemble("reviews", head(
         "Reviews | 4.9★ Garage Door Service | North Shore",
         "Read reviews of North Shore Garage Doors — 4.9 stars from 237+ West Vancouver and North Vancouver homeowners and strata communities. Honest, fast, family-owned garage door service.",
