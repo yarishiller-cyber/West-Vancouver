@@ -149,11 +149,13 @@ def mobile_nav(active):
 </aside>'''
 
 
-def page_hero(eyebrow, h1, intro, crumb, show_cta=True, hero=None):
+def page_hero(eyebrow, h1, intro, crumb, show_cta=True, hero=None, focus=None, hero_alt=None):
     cta = (f'<div class="hero-actions"><a href="tel:{TEL}" class="btn btn-gold btn-lg magnetic">{PHONE} Call {PHONE_DISPLAY}</a>'
            f'<a href="contact.html" class="btn btn-glass btn-lg">Get a Free Quote</a></div>') if show_cta else ""
+    fstyle = f' style="object-position:{focus}"' if focus else ""
+    alt = hero_alt or ""
     bg = (f'<div class="ph-bg"><picture><source media="(max-width:760px)" srcset="assets/img/{hero}-hero-mobile.jpg">'
-          f'<img src="assets/img/{hero}-hero.jpg" alt="" fetchpriority="high"></picture></div>') if hero else ""
+          f'<img src="assets/img/{hero}-hero.jpg" alt="{alt}" title="{alt}" fetchpriority="high"{fstyle}></picture></div>') if hero else ""
     return f'''
 <section class="page-hero">
   {bg}
@@ -841,7 +843,8 @@ def build():
     </div>
   </div>'''
     body = (page_hero("Our family, your neighbours", "Built on Family Values &amp; Honest Work",
-                      "We're a family-owned and operated garage door company that treats every customer's home like our own — honest pricing, quality workmanship and friendly local faces.", "About Us", hero="about")
+                      "We're a family-owned and operated garage door company that treats every customer's home like our own — honest pricing, quality workmanship and friendly local faces.", "About Us", hero="about",
+                      focus="center 22%", hero_alt="The North Shore Garage Doors family team in navy uniforms")
             + f'<section class="section"><div class="container">{about_inner}</div></section>'
             + section("Where we work", "Proudly Serving the North Shore", "From West Vancouver to Deep Cove, our stocked local trucks mean help is never far away.",
                       areas_list() + f'<div class="center" style="margin-top:30px"><a href="service-areas.html" class="btn btn-ghost btn-lg">See all service areas</a></div>', bg="cloud"))
