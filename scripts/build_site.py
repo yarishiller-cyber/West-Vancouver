@@ -10,6 +10,7 @@ import os, json, datetime
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 PHONE_DISPLAY = "(778) 800-0769"
 TEL = "+17788000769"
+SMS = "sms:+17788000769"
 EMAIL_DISPLAY = "info@NorthShoreGarageDoors.ca"
 EMAIL = "info@northshoregaragedoors.ca"
 SITE = "https://www.northshoregaragedoors.ca"
@@ -41,6 +42,7 @@ NAV_MOBILE = [
 CHK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>'
 ARR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>'
 PHONE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>'
+TEXT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>'
 PIN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>'
 SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z"/></svg>'
 
@@ -141,6 +143,7 @@ def mobile_nav(active):
   {links}
   <div class="mn-cta">
     <a href="tel:{TEL}" class="btn btn-call btn-block">Call {PHONE_DISPLAY}</a>
+    <a href="{SMS}" class="btn btn-text btn-block">Text us {PHONE_DISPLAY}</a>
     <a href="contact.html" class="btn btn-primary btn-block">Get a Free Quote</a>
   </div>
 </aside>'''
@@ -244,14 +247,16 @@ def chrome_end():
     <div class="qb-text"><b>Garage door trouble?</b> <span>Same-day service across the North Shore.</span></div>
     <div class="qb-cta">
       <a href="tel:{TEL}" class="btn btn-call">{PHONE} Call {PHONE_DISPLAY}</a>
+      <a href="{SMS}" class="btn btn-glass">{TEXT} Text us</a>
       <a href="contact.html" class="btn btn-gold magnetic">Free Quote</a>
       <button class="qb-close" id="quoteBarClose" aria-label="Dismiss">×</button>
     </div>
   </div>
 </div>
 <div class="mobile-bar">
-  <a href="tel:{TEL}" class="btn btn-call">{PHONE} Call Now</a>
-  <a href="contact.html" class="btn btn-primary">Free Quote</a>
+  <a href="tel:{TEL}" class="btn btn-call">{PHONE} Call</a>
+  <a href="{SMS}" class="btn btn-text">{TEXT} Text</a>
+  <a href="contact.html" class="btn btn-primary">Quote</a>
 </div>
 <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m18 15-6-6-6 6"/></svg></button>
 <script src="assets/js/script.js"></script>
@@ -483,7 +488,8 @@ def contact_block():
       <h3>Talk to a real local person</h3>
       <p style="color:var(--slate)">No call centres, no runaround. Reach the family directly:</p>
       <ul class="contact-list">
-        <li><span class="ci-ico">{PHONE}</span><div><small>Phone</small><b><a href="tel:{TEL}">{PHONE_DISPLAY}</a></b></div></li>
+        <li><span class="ci-ico">{PHONE}</span><div><small>Call</small><b><a href="tel:{TEL}">{PHONE_DISPLAY}</a></b></div></li>
+        <li><span class="ci-ico">{TEXT}</span><div><small>Text us</small><b><a href="{SMS}">{PHONE_DISPLAY}</a></b></div></li>
         <li><span class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span><div><small>Email</small><b><a href="mailto:{EMAIL}">{EMAIL_DISPLAY}</a></b></div></li>
         <li><span class="ci-ico">{PIN}</span><div><small>Service area</small><b>West Vancouver &amp; the North Shore</b></div></li>
       </ul>
