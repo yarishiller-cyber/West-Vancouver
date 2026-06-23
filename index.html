@@ -3,54 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>West Vancouver Garage Doors | Repair, Springs & Openers | Same-Day Service</title>
-<meta name="description" content="West Vancouver's family-owned garage door experts. Same-day repair, spring & opener replacement, new door installation, and dedicated strata & townhome service across the North Shore. Free quotes. Licensed & insured.">
+<title>West Vancouver Garage Doors | Repair, Springs &amp; Openers | Same-Day Service</title>
+<meta name="description" content="West Vancouver's family-owned garage door experts. Same-day repair, spring &amp; opener replacement, new door installation, and dedicated strata &amp; townhome service across the North Shore. Upfront pricing. Licensed (business licence), insured &amp; WorkSafeBC-covered.">
 <meta name="theme-color" content="#0b2545">
 <link rel="canonical" href="https://www.westvangaragedoors.ca/">
-<!-- Open Graph -->
-<meta property="og:title" content="West Vancouver Garage Doors — Repair, Springs & Openers">
-<meta property="og:description" content="Family-owned, same-day garage door repair & installation for West Vancouver homes and strata communities.">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:title" content="West Vancouver Garage Doors — Repair, Springs &amp; Openers">
+<meta property="og:description" content="Family-owned, same-day garage door repair &amp; installation for West Vancouver homes and strata communities. Upfront pricing, licensed &amp; insured.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/img/hero-home.jpg">
+<meta property="og:url" content="https://www.westvangaragedoors.ca/">
+<meta property="og:image" content="https://www.westvangaragedoors.ca/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="West Vancouver Garage Doors">
+<meta name="twitter:description" content="Family-owned, same-day garage door repair &amp; installation across the North Shore.">
+<meta name="twitter:image" content="https://www.westvangaragedoors.ca/og/home.jpg">
+
+<!-- Icons -->
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Hero preloads (art-directed) -->
+<link rel="preload" as="image" href="assets/img/hero-brand-960.webp" media="(min-width:769px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/hero-brand-portrait-640.webp" media="(max-width:768px)" fetchpriority="high">
+
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":"LocalBusiness",
-  "name":"West Vancouver Garage Doors",
-  "image":"assets/img/hero-home.jpg",
-  "telephone":"+1-604-555-0199",
-  "email":"info@westvangaragedoors.ca",
-  "priceRange":"$$",
-  "areaServed":["West Vancouver","North Vancouver","Lions Bay","Bowen Island","Horseshoe Bay","British Properties"],
-  "address":{"@type":"PostalAddress","addressLocality":"West Vancouver","addressRegion":"BC","addressCountry":"CA"},
-  "openingHours":"Mo-Su 07:00-19:00",
-  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"237"}
+  "@graph":[
+    {
+      "@type":"HomeAndConstructionBusiness",
+      "@id":"https://www.westvangaragedoors.ca/#business",
+      "name":"West Vancouver Garage Doors",
+      "url":"https://www.westvangaragedoors.ca/",
+      "image":"https://www.westvangaragedoors.ca/og/home.jpg",
+      "logo":"https://www.westvangaragedoors.ca/assets/img/favicon.svg",
+      "telephone":"+1-604-555-0199",
+      "email":"info@westvangaragedoors.ca",
+      "priceRange":"$$",
+      "areaServed":["West Vancouver","North Vancouver","Lions Bay","Bowen Island","Horseshoe Bay","British Properties","Ambleside","Dundarave","Caulfeild"],
+      "address":{"@type":"PostalAddress","addressLocality":"West Vancouver","addressRegion":"BC","addressCountry":"CA"},
+      "openingHoursSpecification":[
+        {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"19:00"},
+        {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"08:00","closes":"18:00"}
+      ],
+      "sameAs":[]
+    },
+    {
+      "@type":"WebSite",
+      "@id":"https://www.westvangaragedoors.ca/#website",
+      "url":"https://www.westvangaragedoors.ca/",
+      "name":"West Vancouver Garage Doors",
+      "publisher":{"@id":"https://www.westvangaragedoors.ca/#business"}
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Do you offer same-day garage door repair?","acceptedAnswer":{"@type":"Answer","text":"Yes. Most repairs — including broken springs, cables and openers — are completed the same day. Our trucks are stocked with the most common parts so we can fix it on the first visit whenever possible."}},
+        {"@type":"Question","name":"My spring broke — can I still use my door?","acceptedAnswer":{"@type":"Answer","text":"Please don't. A door with a broken spring is extremely heavy and can fall unexpectedly. Avoid forcing it open and call us — spring replacement is our most common same-day service."}},
+        {"@type":"Question","name":"Do you work with strata corporations and property managers?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We provide scheduled maintenance, priority response, matching doors and hardware across units, and clear documentation, quotes and consolidated invoicing for councils and managers."}},
+        {"@type":"Question","name":"Which garage door opener brand do you install?","acceptedAnswer":{"@type":"Answer","text":"We're an authorized LiftMaster dealer and install their full residential lineup — quiet belt-drive, durable chain-drive and space-saving wall-mount models, all with Wi-Fi and myQ smartphone control. We also repair most existing opener brands."}},
+        {"@type":"Question","name":"Are you licensed and insured?","acceptedAnswer":{"@type":"Answer","text":"Yes — we carry a municipal business licence, full commercial liability insurance and WorkSafeBC coverage. Garage-door work is an unregulated trade in BC, so there is no provincial trade licence; we never imply one."}}
+      ]
+    }
+  ]
 }
 </script>
 </head>
 <body>
 
-<!-- ============ TOP BAR ============ -->
-<div class="topbar">
-  <div class="container">
-    <div class="topbar-areas">
-      <span>★ Family-owned &amp; locally operated in West Vancouver</span>
-    </div>
-    <div>
-      <span class="dot">●</span> Same-day service &amp; emergency repairs — <a href="tel:+16045550199">(604) 555-0199</a>
-    </div>
-  </div>
-</div>
-
 <!-- ============ HEADER ============ -->
 <header class="header" id="header">
   <div class="container">
-    <a href="#top" class="brand" aria-label="West Vancouver Garage Doors home">
+    <a href="index.html" class="brand" aria-label="West Vancouver Garage Doors home">
       <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <rect x="2" y="2" width="44" height="44" rx="11" fill="#0b2545"/>
         <path d="M9 22 24 11l15 11v15a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1V22Z" fill="#13315c"/>
@@ -66,13 +101,13 @@
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <a href="#services">Services</a>
-      <a href="#doors">Garage Doors</a>
-      <a href="#openers">Openers</a>
-      <a href="#springs">Springs</a>
-      <a href="#strata">Strata</a>
-      <a href="#about">About</a>
-      <a href="#reviews">Reviews</a>
+      <a href="garage-door-repair.html">Repair</a>
+      <a href="spring-repair.html">Springs</a>
+      <a href="opener-installation.html">Openers</a>
+      <a href="new-garage-doors.html">New Doors</a>
+      <a href="strata-townhomes.html">Strata</a>
+      <a href="index.html#areas">Areas</a>
+      <a href="index.html#reviews">Reviews</a>
     </nav>
 
     <div class="header-cta">
@@ -80,7 +115,7 @@
         <small>Call for service</small>
         <b>(604) 555-0199</b>
       </div>
-      <a href="#contact" class="btn btn-primary">Free Quote</a>
+      <a href="index.html#contact" class="btn btn-primary">Free Quote</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -95,18 +130,20 @@
     <b style="font-family:var(--font-head);color:var(--navy)">Menu</b>
     <button class="mn-close" id="mnClose" aria-label="Close menu">×</button>
   </div>
-  <a class="mn-link" href="#services">Services</a>
-  <a class="mn-link" href="#doors">Garage Doors</a>
-  <a class="mn-link" href="#openers">Garage Door Openers</a>
-  <a class="mn-link" href="#springs">Spring Replacement</a>
-  <a class="mn-link" href="#strata">Strata &amp; Townhomes</a>
-  <a class="mn-link" href="#about">About Us</a>
-  <a class="mn-link" href="#areas">Service Areas</a>
-  <a class="mn-link" href="#reviews">Reviews</a>
-  <a class="mn-link" href="#faq">FAQ</a>
+  <a class="mn-link" href="garage-door-repair.html">Garage Door Repair</a>
+  <a class="mn-link" href="spring-repair.html">Spring Replacement</a>
+  <a class="mn-link" href="opener-installation.html">Openers &amp; Smart Control</a>
+  <a class="mn-link" href="new-garage-doors.html">New Door Installation</a>
+  <a class="mn-link" href="cable-roller-repair.html">Cables, Rollers &amp; Tracks</a>
+  <a class="mn-link" href="maintenance-tune-up.html">Tune-Ups &amp; Maintenance</a>
+  <a class="mn-link" href="strata-townhomes.html">Strata &amp; Townhomes</a>
+  <a class="mn-link" href="index.html#areas">Service Areas</a>
+  <a class="mn-link" href="index.html#reviews">Reviews</a>
+  <a class="mn-link" href="become-a-partner.html">Become a Partner</a>
   <div class="mn-cta">
     <a href="tel:+16045550199" class="btn btn-call btn-block">Call (604) 555-0199</a>
-    <a href="#contact" class="btn btn-primary btn-block">Get a Free Quote</a>
+    <a href="sms:+16045550199?&body=Hi%2C%20I'd%20like%20a%20garage%20door%20quote." class="btn btn-text btn-block">Text Us</a>
+    <a href="index.html#contact" class="btn btn-primary btn-block">Get a Free Quote</a>
   </div>
 </aside>
 
@@ -114,28 +151,34 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-bg"><img src="assets/img/hero-home.jpg" alt="Modern West Vancouver home with a new garage door" fetchpriority="high"></div>
+  <div class="hero-bg">
+    <picture>
+      <source media="(max-width:768px)" srcset="assets/img/hero-brand-portrait-640.webp 640w, assets/img/hero-brand-portrait.webp 1000w" sizes="100vw">
+      <source media="(min-width:769px)" srcset="assets/img/hero-brand-960.webp 960w, assets/img/hero-brand.webp 1600w" sizes="100vw">
+      <img src="assets/img/hero-brand-960.webp" width="1600" height="900" alt="West Vancouver Garage Doors technician and branded service van at an open garage door on the North Shore" fetchpriority="high">
+    </picture>
+  </div>
   <div class="container">
     <div class="hero-content">
-      <span class="pill"><b>★ 4.9</b> &nbsp;237+ five-star North Shore reviews</span>
+      <span class="pill"><b>★ 4.9</b> &nbsp;Trusted across West Vancouver &amp; the North Shore</span>
       <h1>West Vancouver's Trusted <span class="hl">Garage Door</span> Experts</h1>
       <p class="lead">Family-owned and locally operated. From broken springs to brand-new doors, we get your garage working beautifully again — often the same day.</p>
       <div class="hero-actions">
-        <a href="tel:+16045550199" class="btn btn-call btn-lg">
+        <a href="tel:+16045550199" class="btn btn-call btn-lg" data-hover-lift>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
           Call (604) 555-0199
         </a>
-        <a href="#contact" class="btn btn-outline-light btn-lg">Get a Free Quote</a>
+        <a href="sms:+16045550199?&body=Hi%2C%20I'd%20like%20a%20garage%20door%20quote." class="btn btn-outline-light btn-lg" data-hover-lift>Text Us</a>
       </div>
       <ul class="hero-trust">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Same-day &amp; emergency repairs</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Licensed, insured &amp; WorkSafeBC</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Licensed (business licence), insured &amp; WorkSafeBC</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Upfront, no-surprise pricing</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> LiftMaster Authorized Dealer</li>
       </ul>
       <div class="hero-rating">
-        <span class="stars">★★★★★</span>
-        <small><b>Rated 4.9/5</b> by West Vancouver &amp; North Shore homeowners</small>
+        <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+        <small><b>Loved</b> by West Vancouver &amp; North Shore homeowners</small>
       </div>
     </div>
   </div>
@@ -146,7 +189,7 @@
   <div class="container">
     <div class="trust-item">
       <span class="ti-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z"/></svg></span>
-      <span>Licensed &amp; Insured<small>WorkSafeBC covered</small></span>
+      <span>Licensed &amp; Insured<small>Business licence + WorkSafeBC</small></span>
     </div>
     <div class="trust-item">
       <span class="ti-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></span>
@@ -154,7 +197,7 @@
     </div>
     <div class="trust-item">
       <span class="ti-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 2.4 7.4H22l-6 4.4 2.3 7.2L12 16.7 5.7 21l2.3-7.2-6-4.4h7.6L12 2Z"/></svg></span>
-      <span>4.9★ Rated<small>237+ reviews</small></span>
+      <span>5-Star Rated<small>Real Google reviews</small></span>
     </div>
     <div class="trust-item">
       <span class="ti-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9 12 3l9 6v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9Z"/><path d="M9 21v-6h6v6"/></svg></span>
@@ -167,80 +210,108 @@
   </div>
 </div>
 
+<!-- ============ ANATOMY / SCROLL EXPLODED VIEW ============ -->
+<section class="anatomy" aria-label="How a garage door system works">
+  <div class="anatomy-track" id="anatomyTrack" style="height:320vh">
+    <div class="anatomy-sticky">
+      <div class="container">
+        <div class="anatomy-inner">
+          <div class="anatomy-stage" id="anatomyStage" data-frames="9" data-path="assets/anim/door-">
+            <canvas id="anatomyCanvas" role="img" aria-label="A garage door system disassembling into its components — panels, rollers, tracks, torsion spring and opener"></canvas>
+          </div>
+          <div class="anatomy-copy">
+            <span class="eyebrow">Anatomy of your garage door</span>
+            <h2>One System. A Dozen Things That Can Go Wrong.</h2>
+            <p>Scroll to take your door apart. A garage door is the largest moving object in your home — and every part below is something we repair, balance or replace.</p>
+            <div class="anatomy-steps">
+              <div class="anatomy-step"><span class="as-num">1</span><div><b>Panels &amp; sections</b><span>Dented, faded or sagging — repaired or replaced.</span></div></div>
+              <div class="anatomy-step"><span class="as-num">2</span><div><b>Rollers &amp; hinges</b><span>The #1 cause of a noisy, grinding door.</span></div></div>
+              <div class="anatomy-step"><span class="as-num">3</span><div><b>Tracks &amp; cables</b><span>Bent tracks and frayed cables throw a door off-balance.</span></div></div>
+              <div class="anatomy-step"><span class="as-num">4</span><div><b>Torsion spring</b><span>Under huge tension — our most common same-day fix.</span></div></div>
+              <div class="anatomy-step"><span class="as-num">5</span><div><b>Opener &amp; rail</b><span>Quiet belt-drive LiftMaster units with myQ.</span></div></div>
+            </div>
+            <span class="anatomy-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12l7 7 7-7"/></svg> Scroll to explore</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ SERVICES ============ -->
 <section class="section" id="services">
   <div class="container">
     <div class="center" style="margin-bottom:46px">
-      <span class="eyebrow">What we do</span>
-      <h2 class="section-title">Complete Residential Garage Door Services</h2>
-      <p class="section-intro">One local team for everything your garage door needs — repairs, replacements, openers, springs and full new-door installations for homes and strata communities across the North Shore.</p>
+      <span class="eyebrow" data-reveal>What we do</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="0.05">Complete Residential Garage Door Services</h2>
+      <p class="section-intro" data-reveal data-reveal-delay="0.1">One local team for everything your garage door needs — repairs, replacements, openers, springs and full new-door installations for homes and strata communities across the North Shore.</p>
     </div>
 
-    <div class="grid services-grid">
+    <div class="grid services-grid" data-stagger="0.07">
 
-      <article class="service-card reveal">
-        <div class="sc-img"><img src="assets/img/service-repair.jpg" alt="Garage door repair in West Vancouver" loading="lazy">
+      <article class="service-card">
+        <div class="sc-img zoom-frame"><img src="assets/img/service-repair.webp" alt="Garage door repair in West Vancouver" loading="lazy" width="1184" height="864">
           <span class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-2.1-.6-.6-2.1 2.1-2.1Z"/></svg></span>
         </div>
         <div class="sc-body">
           <h3>Garage Door Repair</h3>
           <p>Off-track doors, broken cables, noisy operation, dented panels and doors that won't open or close — diagnosed and fixed fast.</p>
-          <a class="sc-link" href="#contact">Book a repair <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="sc-link" href="garage-door-repair.html">Garage door repair <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </article>
 
-      <article class="service-card reveal">
-        <div class="sc-img"><img src="assets/img/service-spring.jpg" alt="Garage door spring replacement" loading="lazy">
+      <article class="service-card">
+        <div class="sc-img zoom-frame"><img src="assets/img/service-spring.webp" alt="Garage door spring replacement" loading="lazy" width="1184" height="864">
           <span class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7c4-4 12-4 16 0M5 11c3.5-3 10.5-3 14 0M6 15c3-2.5 9-2.5 12 0M8 19c2-1.5 6-1.5 8 0"/></svg></span>
         </div>
         <div class="sc-body">
           <h3>Spring Replacement</h3>
           <p>Broken torsion or extension spring? It's our most common call. We carry high-cycle springs on every truck for a same-day fix.</p>
-          <a class="sc-link" href="#springs">See spring options <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="sc-link" href="spring-repair.html">Spring replacement <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </article>
 
-      <article class="service-card reveal">
-        <div class="sc-img"><img src="assets/img/service-opener.jpg" alt="LiftMaster garage door opener installation" loading="lazy">
+      <article class="service-card">
+        <div class="sc-img zoom-frame"><img src="assets/img/service-opener.webp" alt="LiftMaster garage door opener installation" loading="lazy" width="1184" height="864">
           <span class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 8V6a5 5 0 0 1 10 0v2M12 12v2"/></svg></span>
         </div>
         <div class="sc-body">
           <h3>Openers &amp; Smart Control</h3>
           <p>Authorized LiftMaster® dealer. Quiet belt-drive, wall-mount and Wi-Fi openers supplied, installed and repaired — with myQ app control.</p>
-          <a class="sc-link" href="#openers">Explore openers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="sc-link" href="opener-installation.html">Explore openers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </article>
 
-      <article class="service-card reveal">
-        <div class="sc-img"><img src="assets/img/service-install.jpg" alt="New garage door installation" loading="lazy">
+      <article class="service-card">
+        <div class="sc-img zoom-frame"><img src="assets/img/service-install.webp" alt="New garage door installation" loading="lazy" width="1184" height="864">
           <span class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9 12 3l9 6v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9Z"/><path d="M3 9h18M8 22V13h8v9M8 17h8"/></svg></span>
         </div>
         <div class="sc-body">
           <h3>New Door Installation</h3>
           <p>Modern, carriage, full-view glass and insulated steel doors built for the West Coast climate. Expert measure, supply and install.</p>
-          <a class="sc-link" href="#doors">Browse door styles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="sc-link" href="new-garage-doors.html">Browse door styles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </article>
 
-      <article class="service-card reveal">
-        <div class="sc-img"><img src="assets/img/service-cable.jpg" alt="Garage door cable and roller repair" loading="lazy">
+      <article class="service-card">
+        <div class="sc-img zoom-frame"><img src="assets/img/service-cable.webp" alt="Garage door cable and roller repair" loading="lazy" width="1184" height="864">
           <span class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 9v6a3 3 0 0 0 3 3h6"/></svg></span>
         </div>
         <div class="sc-body">
           <h3>Cables, Rollers &amp; Tracks</h3>
           <p>Frayed cables, worn nylon rollers, bent tracks and loose hardware — replaced with quality parts so your door glides quietly again.</p>
-          <a class="sc-link" href="#contact">Get it fixed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="sc-link" href="cable-roller-repair.html">Get it fixed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </article>
 
-      <article class="service-card reveal">
-        <div class="sc-img"><img src="assets/img/service-maintenance.jpg" alt="Garage door maintenance and tune-up" loading="lazy">
+      <article class="service-card">
+        <div class="sc-img zoom-frame"><img src="assets/img/service-maintenance.webp" alt="Garage door maintenance and tune-up" loading="lazy" width="1184" height="864">
           <span class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-2.1-.6-.6-2.1 2.1-2.1Z"/></svg></span>
         </div>
         <div class="sc-body">
           <h3>Tune-Ups &amp; Maintenance</h3>
           <p>A 25-point safety inspection: balance, lubrication, alignment and sensor testing to prevent breakdowns and extend your door's life.</p>
-          <a class="sc-link" href="#contact">Book a tune-up <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="sc-link" href="maintenance-tune-up.html">Book a tune-up <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </article>
 
@@ -252,30 +323,30 @@
 <section class="section bg-cloud" id="how">
   <div class="container">
     <div class="center" style="margin-bottom:46px">
-      <span class="eyebrow">Simple &amp; stress-free</span>
-      <h2 class="section-title">Getting Your Garage Door Fixed Is Easy</h2>
-      <p class="section-intro">No pushy sales, no guesswork. Just a friendly local team and a clear path from problem to solved.</p>
+      <span class="eyebrow" data-reveal>Simple &amp; stress-free</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="0.05">Getting Your Garage Door Fixed Is Easy</h2>
+      <p class="section-intro" data-reveal data-reveal-delay="0.1">No pushy sales, no guesswork. Just a friendly local team and a clear path from problem to solved.</p>
     </div>
-    <div class="grid steps">
-      <div class="step reveal">
+    <div class="grid steps" data-stagger="0.08">
+      <div class="step">
         <div class="step-num">1</div>
         <span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
-        <h3>Call or Book Online</h3>
+        <h3>Call or Text</h3>
         <p>Tell us what's happening. We'll book a visit that fits your day — often same-day.</p>
       </div>
-      <div class="step reveal">
+      <div class="step">
         <div class="step-num">2</div>
         <span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
         <h3>Free Diagnosis &amp; Quote</h3>
         <p>We inspect, explain the issue in plain language and give you an upfront, all-in price.</p>
       </div>
-      <div class="step reveal">
+      <div class="step">
         <div class="step-num">3</div>
         <span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-2.1-.6-.6-2.1 2.1-2.1Z"/></svg></span>
         <h3>We Fix It Right</h3>
         <p>Most repairs are completed on the spot with quality parts stocked on our trucks.</p>
       </div>
-      <div class="step reveal">
+      <div class="step">
         <div class="step-num">4</div>
         <span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"/></svg></span>
         <h3>Enjoy the Warranty</h3>
@@ -285,34 +356,63 @@
   </div>
 </section>
 
+<!-- ============ PRICE TRANSPARENCY ============ -->
+<section class="section price-band" id="pricing">
+  <div class="container">
+    <div class="price-wrap">
+      <div data-reveal="right">
+        <span class="eyebrow">Honest pricing</span>
+        <h2>Upfront Prices. No $19.99 Bait, No Surprises.</h2>
+        <p>The garage-door trade has a reputation for vague "service call" fees that balloon on your driveway. We do the opposite: a clear, all-in price you approve <b>before</b> any work begins.</p>
+        <ul class="price-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Written quote before we touch a tool</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Free safety inspection with every spring job</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Free cables included with two-spring replacements</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Workmanship warranty on parts &amp; labour</li>
+        </ul>
+      </div>
+      <div class="price-card" data-reveal="left">
+        <h3>Typical starting prices</h3>
+        <p>Real numbers, installed. Tap “Show pricing” in the footer to reveal them.</p>
+        <div class="price-row"><span class="pr-label">Single torsion spring</span><span class="price-tag" data-px="$739">Upfront flat rate</span></div>
+        <div class="price-row"><span class="pr-label">Two springs + free cables</span><span class="price-tag" data-px="$851">Pair + free cables</span></div>
+        <div class="price-row"><span class="pr-label">Two high-cycle springs</span><span class="price-tag" data-px="$1,274">Longest life</span></div>
+        <div class="price-row"><span class="pr-label">LiftMaster opener (installed, from)</span><span class="price-tag" data-px="$1,311">From, installed</span></div>
+        <div class="price-row"><span class="pr-label">New garage door (supplied + installed, from)</span><span class="price-tag" data-px="$3,647">From</span></div>
+        <p class="price-hint">Prices hidden by default — your call which to reveal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ GARAGE DOORS / STYLES ============ -->
 <section class="section" id="doors">
   <div class="container">
     <div class="center" style="margin-bottom:46px">
-      <span class="eyebrow">New garage doors</span>
-      <h2 class="section-title">A Door That Lifts Your Whole Home</h2>
-      <p class="section-intro">Your garage door is up to a third of your home's curb appeal. We help you choose the perfect style, colour and insulation — then install it flawlessly.</p>
+      <span class="eyebrow" data-reveal>New garage doors</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="0.05">A Door That Lifts Your Whole Home</h2>
+      <p class="section-intro" data-reveal data-reveal-delay="0.1">Your garage door is up to a third of your home's curb appeal. We help you choose the perfect style, colour and insulation — then install it flawlessly. New doors from <span class="price-tag" data-px="$3,647" style="color:inherit;font-weight:700">a transparent starting price</span>.</p>
     </div>
-    <div class="grid doors-grid">
-      <a href="#contact" class="door-card reveal">
-        <img src="assets/img/door-modern.jpg" alt="Modern full-view aluminum and glass garage door" loading="lazy">
+    <div class="grid doors-grid" data-stagger="0.07">
+      <a href="new-garage-doors.html" class="door-card zoom-frame">
+        <img src="assets/img/door-modern.webp" alt="Modern full-view aluminum and glass garage door" loading="lazy" width="900" height="900">
         <span class="door-label"><b>Modern Full-View</b><span>Aluminum &amp; glass</span></span>
       </a>
-      <a href="#contact" class="door-card reveal">
-        <img src="assets/img/door-carriage.jpg" alt="Carriage house style garage door" loading="lazy">
+      <a href="new-garage-doors.html" class="door-card zoom-frame">
+        <img src="assets/img/door-carriage.webp" alt="Carriage house style garage door" loading="lazy" width="900" height="900">
         <span class="door-label"><b>Carriage House</b><span>Timeless wood-grain charm</span></span>
       </a>
-      <a href="#contact" class="door-card reveal">
-        <img src="assets/img/door-traditional.jpg" alt="Traditional raised-panel steel garage door" loading="lazy">
+      <a href="new-garage-doors.html" class="door-card zoom-frame">
+        <img src="assets/img/door-traditional.webp" alt="Traditional raised-panel steel garage door" loading="lazy" width="900" height="900">
         <span class="door-label"><b>Traditional Steel</b><span>Classic raised-panel</span></span>
       </a>
-      <a href="#contact" class="door-card reveal">
-        <img src="assets/img/door-flush.jpg" alt="Contemporary flush-panel garage door" loading="lazy">
+      <a href="new-garage-doors.html" class="door-card zoom-frame">
+        <img src="assets/img/door-flush.webp" alt="Contemporary flush-panel garage door" loading="lazy" width="900" height="900">
         <span class="door-label"><b>Contemporary Flush</b><span>Clean, minimal lines</span></span>
       </a>
     </div>
     <div class="center" style="margin-top:34px">
-      <a href="#contact" class="btn btn-primary btn-lg">Design Your New Door</a>
+      <a href="new-garage-doors.html" class="btn btn-primary btn-lg" data-hover-lift>Design Your New Door</a>
     </div>
   </div>
 </section>
@@ -321,52 +421,55 @@
 <section class="section bg-cloud" id="openers">
   <div class="container">
     <div class="center" style="margin-bottom:46px">
-      <span class="eyebrow">LiftMaster® Authorized Dealer</span>
-      <h2 class="section-title">Garage Door Openers, Done Right</h2>
-      <p class="section-intro">We install and service the full LiftMaster® residential lineup. Start with our three most popular picks below — or open the full collection to compare all seven models.</p>
+      <span class="eyebrow" data-reveal>LiftMaster® Authorized Dealer</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="0.05">Garage Door Openers, Done Right</h2>
+      <p class="section-intro" data-reveal data-reveal-delay="0.1">We install and service the full LiftMaster® residential lineup. Start with our three most popular picks below — or open the full collection to compare all seven models. Prices are installed and hidden by default — reveal them with the footer toggle.</p>
     </div>
 
     <!-- Top 3 featured -->
     <div class="grid opener-grid">
-      <article class="opener-card featured reveal">
-        <div class="oc-img"><span class="opener-badge">Most Popular</span><img src="assets/img/opener-belt.jpg" alt="LiftMaster 84505R belt drive opener"></div>
+      <article class="opener-card featured">
+        <div class="oc-img"><span class="opener-badge">Most Popular</span><img src="assets/img/opener-belt.webp" alt="LiftMaster 6580L belt-drive opener" loading="lazy" width="900" height="900"></div>
         <div class="oc-body">
-          <span class="oc-model">LiftMaster 84505R</span>
-          <h3>Secure View™ Belt Drive</h3>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Ultra-quiet belt drive — great for rooms above the garage</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Built-in 140° HD camera &amp; two-way talk</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Wi-Fi + myQ® app, dual LED lighting</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary btn-block">Get This Opener</a>
-        </div>
-      </article>
-
-      <article class="opener-card reveal">
-        <div class="oc-img"><span class="opener-tag">Best Value</span><img src="assets/img/opener-belt.jpg" alt="LiftMaster 8160W belt drive opener"></div>
-        <div class="oc-body">
-          <span class="oc-model">LiftMaster 8160W</span>
+          <span class="oc-model">LiftMaster 6580L</span>
           <h3>Ultra-Quiet Belt Drive</h3>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Smooth, quiet DC belt-drive operation</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Wi-Fi &amp; myQ® smartphone control built in</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Reliable everyday performance, excellent price</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Ultra-quiet belt drive — great for rooms above the garage</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Wi-Fi + myQ® app and dual LED lighting</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Smooth DC soft start/stop</li>
           </ul>
-          <a href="#contact" class="btn btn-dark btn-block">Get This Opener</a>
+          <div class="spring-price"><span class="price-tag" data-px="$1,448 installed">Installed · upfront price</span></div>
+          <a href="opener-installation.html" class="btn btn-primary btn-block" data-hover-lift>Get This Opener</a>
         </div>
       </article>
 
-      <article class="opener-card reveal">
-        <div class="oc-img"><span class="opener-tag">Space Saver</span><img src="assets/img/opener-wallmount.jpg" alt="LiftMaster 8500W wall mount opener"></div>
+      <article class="opener-card">
+        <div class="oc-img"><span class="opener-tag">360° Camera</span><img src="assets/img/opener-belt.webp" alt="LiftMaster 6690L belt-drive opener with camera" loading="lazy" width="900" height="900"></div>
         <div class="oc-body">
-          <span class="oc-model">LiftMaster 8500W</span>
-          <h3>Elite Wall-Mount</h3>
+          <span class="oc-model">LiftMaster 6690L</span>
+          <h3>Secure View™ Belt Drive</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Built-in 360° HD camera &amp; two-way talk</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Quiet belt drive with Wi-Fi + myQ®</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Watch &amp; talk from anywhere</li>
+          </ul>
+          <div class="spring-price"><span class="price-tag" data-px="$1,523 installed">Installed · upfront price</span></div>
+          <a href="opener-installation.html" class="btn btn-dark btn-block" data-hover-lift>Get This Opener</a>
+        </div>
+      </article>
+
+      <article class="opener-card">
+        <div class="oc-img"><span class="opener-tag">Space Saver</span><img src="assets/img/opener-wallmount.webp" alt="LiftMaster 98022 wall-mount opener with battery backup" loading="lazy" width="900" height="900"></div>
+        <div class="oc-body">
+          <span class="oc-model">LiftMaster 98022</span>
+          <h3>Elite Wall-Mount + Battery</h3>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Mounts beside the door — frees your ceiling</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Perfect for tall, cathedral or heavy doors</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Battery backup, auto-lock &amp; Wi-Fi included</li>
           </ul>
-          <a href="#contact" class="btn btn-dark btn-block">Get This Opener</a>
+          <div class="spring-price"><span class="price-tag" data-px="$2,155 installed">Installed · upfront price</span></div>
+          <a href="opener-installation.html" class="btn btn-dark btn-block" data-hover-lift>Get This Opener</a>
         </div>
       </article>
     </div>
@@ -374,55 +477,59 @@
     <!-- More options (hidden by default) -->
     <div class="grid opener-grid opener-more" id="openerMore">
       <article class="opener-card">
-        <div class="oc-img"><img src="assets/img/opener-chain.jpg" alt="LiftMaster 8165W chain drive opener"></div>
+        <div class="oc-img"><img src="assets/img/opener-chain.webp" alt="LiftMaster 2220L chain-drive opener" loading="lazy" width="900" height="900"></div>
         <div class="oc-body">
-          <span class="oc-model">LiftMaster 8165W</span>
+          <span class="oc-model">LiftMaster 2220L</span>
           <h3>Durable Chain Drive</h3>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Rugged ¾-HP chain-drive strength</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Dependable workhorse for detached garages</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Rugged, dependable chain-drive strength</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Great workhorse for detached garages</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Wi-Fi &amp; myQ® compatible</li>
           </ul>
-          <a href="#contact" class="btn btn-dark btn-block">Get This Opener</a>
+          <div class="spring-price"><span class="price-tag" data-px="$1,311 installed">Installed · upfront price</span></div>
+          <a href="opener-installation.html" class="btn btn-dark btn-block">Get This Opener</a>
         </div>
       </article>
       <article class="opener-card">
-        <div class="oc-img"><img src="assets/img/opener-chain.jpg" alt="LiftMaster 8365 chain drive opener"></div>
+        <div class="oc-img"><img src="assets/img/opener-chain.webp" alt="LiftMaster 2420L chain-drive opener" loading="lazy" width="900" height="900"></div>
         <div class="oc-body">
-          <span class="oc-model">LiftMaster 8365-267</span>
-          <h3>Contractor Chain Drive</h3>
+          <span class="oc-model">LiftMaster 2420L</span>
+          <h3>Heavy-Duty Chain Drive</h3>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Proven, budget-friendly ½-HP opener</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Simple, reliable daily operation</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Tougher chain for bigger, heavier doors</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Reliable everyday operation</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Wi-Fi enabled with myQ® control</li>
           </ul>
-          <a href="#contact" class="btn btn-dark btn-block">Get This Opener</a>
+          <div class="spring-price"><span class="price-tag" data-px="$1,384 installed">Installed · upfront price</span></div>
+          <a href="opener-installation.html" class="btn btn-dark btn-block">Get This Opener</a>
         </div>
       </article>
       <article class="opener-card">
-        <div class="oc-img"><img src="assets/img/opener-belt.jpg" alt="LiftMaster 8550WLB belt drive opener"></div>
+        <div class="oc-img"><img src="assets/img/opener-belt.webp" alt="LiftMaster 4690 belt-drive opener with camera" loading="lazy" width="900" height="900"></div>
         <div class="oc-body">
-          <span class="oc-model">LiftMaster 8550WLB</span>
-          <h3>Battery-Backup Belt Drive</h3>
+          <span class="oc-model">LiftMaster 4690</span>
+          <h3>Belt Drive + Camera</h3>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Keeps working through power outages</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Quiet DC belt drive with soft start/stop</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Integrated battery, Wi-Fi &amp; myQ®</li>
-          </ul>
-          <a href="#contact" class="btn btn-dark btn-block">Get This Opener</a>
-        </div>
-      </article>
-      <article class="opener-card">
-        <div class="oc-img"><img src="assets/img/opener-belt.jpg" alt="LiftMaster 87802 secure view opener"></div>
-        <div class="oc-body">
-          <span class="oc-model">LiftMaster 87802</span>
-          <h3>Secure View™ with Camera</h3>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Belt drive with integrated HD camera</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Watch &amp; talk from anywhere in the myQ® app</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Quiet belt drive with integrated camera</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Corner-to-corner LED lighting</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Wi-Fi + myQ® app control</li>
           </ul>
-          <a href="#contact" class="btn btn-dark btn-block">Get This Opener</a>
+          <div class="spring-price"><span class="price-tag" data-px="$1,466 installed">Installed · upfront price</span></div>
+          <a href="opener-installation.html" class="btn btn-dark btn-block">Get This Opener</a>
+        </div>
+      </article>
+      <article class="opener-card">
+        <div class="oc-img"><img src="assets/img/opener-wallmount.webp" alt="LiftMaster 98032 wall-mount opener" loading="lazy" width="900" height="900"></div>
+        <div class="oc-body">
+          <span class="oc-model">LiftMaster 98032</span>
+          <h3>Wall-Mount Jackshaft</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Frees the ceiling for storage or high doors</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Quiet, smooth jackshaft operation</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Wi-Fi &amp; myQ® included</li>
+          </ul>
+          <div class="spring-price"><span class="price-tag" data-px="$1,939 installed">Installed · upfront price</span></div>
+          <a href="opener-installation.html" class="btn btn-dark btn-block">Get This Opener</a>
         </div>
       </article>
     </div>
@@ -440,58 +547,61 @@
 <section class="section" id="springs">
   <div class="container">
     <div class="center" style="margin-bottom:46px">
-      <span class="eyebrow">Spring replacement</span>
-      <h2 class="section-title">Three Spring Options — You Choose the Lifespan</h2>
-      <p class="section-intro">A broken spring is the #1 reason a garage door stops working. We never charge a hidden fee — pick the cycle rating that fits how often you use your door, and we install it the same day.</p>
+      <span class="eyebrow" data-reveal>Spring replacement</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="0.05">Three Spring Options — You Choose the Lifespan</h2>
+      <p class="section-intro" data-reveal data-reveal-delay="0.1">A broken spring is the #1 reason a garage door stops working. We never charge a hidden fee — pick the option that fits your door, and we install it the same day. <b>Every spring job includes a free safety inspection</b>, and the two-spring options include <b>free cables</b>.</p>
     </div>
 
-    <div class="grid spring-grid">
-      <article class="spring-card reveal">
-        <div class="sp-img"><img src="assets/img/spring-standard.jpg" alt="Standard torsion spring"></div>
+    <div class="grid spring-grid" data-stagger="0.08">
+      <article class="spring-card">
+        <div class="sp-img"><img src="assets/img/spring-standard.webp" alt="Single torsion spring replacement" loading="lazy" width="900" height="900"></div>
         <div class="sp-body">
-          <h3>Standard</h3>
-          <div class="sp-cycles">10,000 cycles</div>
-          <div class="sp-life">≈ 7 years of typical use</div>
+          <h3>Single Spring</h3>
+          <div class="sp-cycles">Replace 1 broken spring</div>
+          <div class="sp-life">≈ 10,000 cycles · ~7 years</div>
+          <div class="spring-price"><span class="price-tag" data-px="$739">Upfront flat rate</span></div>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Quality galvanized torsion spring</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Great budget-friendly fix</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Ideal for lighter-use garages</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Oil-tempered torsion spring</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Free safety inspection included</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Same-day fix in most cases</li>
           </ul>
           <div class="warranty-note"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z"/></svg> 1-year warranty</div>
-          <a href="#contact" class="btn btn-ghost btn-block">Choose Standard</a>
+          <a href="spring-repair.html" class="btn btn-ghost btn-block">Choose Single</a>
         </div>
       </article>
 
-      <article class="spring-card popular reveal">
+      <article class="spring-card popular">
         <span class="spring-pop">Most Popular</span>
-        <div class="sp-img"><img src="assets/img/spring-highcycle.jpg" alt="High-cycle torsion spring"></div>
+        <div class="sp-img"><img src="assets/img/spring-highcycle.webp" alt="Two springs plus free cables" loading="lazy" width="900" height="900"></div>
         <div class="sp-body">
-          <h3>High-Cycle</h3>
-          <div class="sp-cycles">20,000 cycles</div>
-          <div class="sp-life">≈ 12–15 years of typical use</div>
+          <h3>Two Springs + Free Cables</h3>
+          <div class="sp-cycles">Replace both springs</div>
+          <div class="sp-life">New cables included free</div>
+          <div class="spring-price"><span class="price-tag" data-px="$851">Best value</span></div>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Oil-tempered for smoother, quieter lift</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Best value over the life of your door</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Our most-recommended upgrade</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Replace both springs at once (recommended)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Brand-new lift cables — included free</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Free safety inspection included</li>
           </ul>
-          <div class="warranty-note"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z"/></svg> 5-year warranty</div>
-          <a href="#contact" class="btn btn-primary btn-block">Choose High-Cycle</a>
+          <div class="warranty-note"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z"/></svg> 3-year warranty</div>
+          <a href="spring-repair.html" class="btn btn-primary btn-block" data-hover-lift>Choose This Pair</a>
         </div>
       </article>
 
-      <article class="spring-card reveal">
-        <div class="sp-img"><img src="assets/img/spring-premium.jpg" alt="Premium lifetime torsion springs"></div>
+      <article class="spring-card">
+        <div class="sp-img"><img src="assets/img/spring-premium.webp" alt="Two high-cycle torsion springs" loading="lazy" width="900" height="900"></div>
         <div class="sp-body">
-          <h3>Premium Lifetime</h3>
-          <div class="sp-cycles">30,000+ cycles</div>
-          <div class="sp-life">≈ 20+ years of typical use</div>
+          <h3>Two High-Cycle Springs</h3>
+          <div class="sp-cycles">Premium longer-life pair</div>
+          <div class="sp-life">≈ 20,000–30,000 cycles · cables free</div>
+          <div class="spring-price"><span class="price-tag" data-px="$1,274">Longest life</span></div>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Heavy-duty, powder-coated &amp; corrosion-resistant</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Built for busy households &amp; coastal air</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Often the last spring you'll ever need</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Doubles-plus the lifespan of standard springs</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Ideal for busy households &amp; coastal air</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> New cables &amp; safety inspection — free</li>
           </ul>
-          <div class="warranty-note"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z"/></svg> Lifetime warranty</div>
-          <a href="#contact" class="btn btn-ghost btn-block">Choose Premium</a>
+          <div class="warranty-note"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z"/></svg> 7-year warranty</div>
+          <a href="spring-repair.html" class="btn btn-ghost btn-block">Choose High-Cycle</a>
         </div>
       </article>
     </div>
@@ -503,22 +613,22 @@
 <section class="section strata" id="strata">
   <div class="container">
     <div class="strata-grid">
-      <div class="reveal">
+      <div data-reveal="right">
         <span class="eyebrow">Strata &amp; townhome communities</span>
         <h2>A Garage Door Partner Your Strata Can Rely On</h2>
         <p>We're the go-to garage door team for strata corporations, property managers and townhome owners across West Vancouver and the North Shore. From a single unit to an entire complex, we deliver fast, professional, fully-documented service that keeps residents happy and councils worry-free.</p>
         <ul class="strata-feats">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Scheduled multi-unit maintenance programs</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Priority emergency response for residents</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Fully licensed, insured &amp; WorkSafeBC</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Licensed, insured &amp; WorkSafeBC-covered</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Clear quotes, POs &amp; consolidated invoicing</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Matching doors &amp; hardware across units</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Detailed reports for council records</li>
         </ul>
-        <a href="#contact" class="btn btn-primary btn-lg">Request a Strata Quote</a>
+        <a href="strata-townhomes.html" class="btn btn-primary btn-lg" data-hover-lift>Strata &amp; Townhome Service</a>
       </div>
-      <div class="strata-img reveal">
-        <img src="assets/img/strata.jpg" alt="Row of West Vancouver strata townhomes with matching garage doors">
+      <div class="strata-img" data-reveal="left">
+        <img src="assets/img/strata.webp" alt="Row of West Vancouver strata townhomes with matching garage doors" loading="lazy" width="1600" height="900">
       </div>
     </div>
   </div>
@@ -528,14 +638,14 @@
 <section class="section" id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-media reveal">
-        <img src="assets/img/family-team.jpg" alt="The family-owned West Vancouver Garage Doors team">
+      <div class="about-media" data-reveal="right">
+        <img src="assets/img/family-team.webp" alt="The family-owned West Vancouver Garage Doors team" loading="lazy" width="1200" height="900">
         <div class="about-badge">
           <span class="ab-num">15+</span>
           <small>Years serving<br>the North Shore</small>
         </div>
       </div>
-      <div class="reveal">
+      <div data-reveal="left">
         <span class="eyebrow">Our family, your neighbours</span>
         <h2 class="section-title">Built on Family Values &amp; Honest Work</h2>
         <p style="color:var(--slate);font-size:1.05rem;margin-bottom:6px">West Vancouver Garage Doors started with a simple idea: treat every customer's home like our own. As a family-owned and operated business, we don't have call-centre scripts or commissioned salespeople — just neighbours who take pride in doing the job properly the first time.</p>
@@ -557,7 +667,7 @@
 
         <div class="stats">
           <div class="stat"><b>4.9★</b><span>Average rating</span></div>
-          <div class="stat"><b>10k+</b><span>Doors serviced</span></div>
+          <div class="stat"><b data-count="10000" data-suffix="+">10,000+</b><span>Doors serviced</span></div>
           <div class="stat"><b>Same-Day</b><span>Most repairs</span></div>
         </div>
       </div>
@@ -569,26 +679,20 @@
 <section class="section bg-cloud" id="areas">
   <div class="container">
     <div class="areas-wrap">
-      <div class="reveal">
+      <div data-reveal="right">
         <span class="eyebrow">Where we work</span>
         <h2 class="section-title">Proudly Serving West Vancouver &amp; the North Shore</h2>
-        <p class="section-intro" style="margin-bottom:20px">If you're on the North Shore, we've got you covered. Our trucks are stocked and local, so help is never far away.</p>
-        <a href="tel:+16045550199" class="btn btn-dark btn-lg">Call (604) 555-0199</a>
+        <p class="section-intro" style="margin-bottom:20px">If you're on the North Shore, we've got you covered. Our trucks are stocked and local, so help is never far away. Explore our dedicated area pages:</p>
+        <a href="tel:+16045550199" class="btn btn-dark btn-lg" data-hover-lift>Call (604) 555-0199</a>
       </div>
-      <div class="reveal">
+      <div data-reveal="left">
         <ul class="areas-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> West Vancouver</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> British Properties</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Ambleside</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Dundarave</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Caulfeild</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Horseshoe Bay</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Lions Bay</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Bowen Island</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> North Vancouver</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Lynn Valley</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Deep Cove</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Capilano</li>
+          <li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> West Vancouver</a></li>
+          <li><a href="british-properties.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> British Properties</a></li>
+          <li><a href="ambleside-dundarave.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Ambleside &amp; Dundarave</a></li>
+          <li><a href="horseshoe-bay.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Horseshoe Bay &amp; Caulfeild</a></li>
+          <li><a href="lions-bay-bowen-island.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Lions Bay &amp; Bowen Island</a></li>
+          <li><a href="north-vancouver.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> North Vancouver</a></li>
         </ul>
       </div>
     </div>
@@ -599,15 +703,15 @@
 <section class="section" id="gallery">
   <div class="container">
     <div class="center" style="margin-bottom:40px">
-      <span class="eyebrow">Recent work</span>
-      <h2 class="section-title">Doors We're Proud Of</h2>
-      <p class="section-intro">A look at recent installations across West Vancouver and the North Shore.</p>
+      <span class="eyebrow" data-reveal>Recent work</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="0.05">Doors We're Proud Of</h2>
+      <p class="section-intro" data-reveal data-reveal-delay="0.1">A look at recent installations across West Vancouver and the North Shore.</p>
     </div>
-    <div class="gallery">
-      <figure class="reveal"><img src="assets/img/gallery-1.jpg" alt="Modern dark garage door installation" loading="lazy"><figcaption>Modern install · West Vancouver</figcaption></figure>
-      <figure class="reveal"><img src="assets/img/gallery-2.jpg" alt="White carriage house garage doors" loading="lazy"><figcaption>Carriage doors · British Properties</figcaption></figure>
-      <figure class="reveal"><img src="assets/img/gallery-3.jpg" alt="Full-view aluminum and glass garage door" loading="lazy"><figcaption>Full-view glass · Dundarave</figcaption></figure>
-      <figure class="reveal"><img src="assets/img/gallery-4.jpg" alt="Cedar wood-look garage doors" loading="lazy"><figcaption>Cedar-look doors · Caulfeild</figcaption></figure>
+    <div class="gallery" data-stagger="0.06">
+      <figure class="zoom-frame"><img src="assets/img/gallery-1.webp" alt="Modern dark garage door installation" loading="lazy" width="1200" height="900"><figcaption>Modern install · West Vancouver</figcaption></figure>
+      <figure class="zoom-frame"><img src="assets/img/gallery-2.webp" alt="White carriage house garage doors" loading="lazy" width="1200" height="900"><figcaption>Carriage doors · British Properties</figcaption></figure>
+      <figure class="zoom-frame"><img src="assets/img/gallery-3.webp" alt="Full-view aluminum and glass garage door" loading="lazy" width="1200" height="900"><figcaption>Full-view glass · Dundarave</figcaption></figure>
+      <figure class="zoom-frame"><img src="assets/img/gallery-4.webp" alt="Cedar wood-look garage doors" loading="lazy" width="1200" height="900"><figcaption>Cedar-look doors · Caulfeild</figcaption></figure>
     </div>
   </div>
 </section>
@@ -616,58 +720,80 @@
 <section class="section bg-cloud" id="reviews">
   <div class="container">
     <div class="center" style="margin-bottom:46px">
-      <span class="eyebrow">Loved by the North Shore</span>
-      <h2 class="section-title">4.9★ From 237+ Happy Neighbours</h2>
-      <p class="section-intro">Real reviews from West Vancouver homeowners and strata communities.</p>
+      <span class="eyebrow" data-reveal>Loved by the North Shore</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="0.05">What West Vancouver Homeowners Say</h2>
+      <p class="section-intro" data-reveal data-reveal-delay="0.1">Real reviews from West Vancouver homeowners and strata communities. Read more on our Google Business Profile.</p>
     </div>
-    <div class="grid reviews-grid">
-      <article class="review reveal">
-        <div class="stars">★★★★★</div>
+    <div class="grid reviews-grid" data-stagger="0.08">
+      <article class="review">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
         <p>"Our spring snapped on a Sunday morning and they were here within two hours. Friendly, tidy, and the price was exactly what they quoted. Couldn't ask for more."</p>
-        <div class="rv-author"><span class="rv-avatar">SM</span><div><b>Sarah M.</b><small>Dundarave</small></div><span class="rv-where">Google</span></div>
+        <div class="rv-author"><span class="rv-avatar"><img src="assets/img/reviews/rv-1.webp" alt="Sarah M." loading="lazy" width="46" height="46"></span><div><b>Sarah M.</b><small>Dundarave</small></div><span class="rv-where">Google</span></div>
       </article>
-      <article class="review reveal">
-        <div class="stars">★★★★★</div>
+      <article class="review">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
         <p>"As a property manager I rely on them for several strata buildings. Always responsive, professional, and their invoicing makes my job easy. Highly recommend."</p>
-        <div class="rv-author"><span class="rv-avatar">DK</span><div><b>David K.</b><small>Strata Manager</small></div><span class="rv-where">Google</span></div>
+        <div class="rv-author"><span class="rv-avatar"><img src="assets/img/reviews/rv-2.webp" alt="David K." loading="lazy" width="46" height="46"></span><div><b>David K.</b><small>Strata Manager</small></div><span class="rv-where">Google</span></div>
       </article>
-      <article class="review reveal">
-        <div class="stars">★★★★★</div>
+      <article class="review">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
         <p>"They installed a gorgeous new modern door and a quiet LiftMaster opener. The transformation to our home's curb appeal is incredible. True professionals."</p>
-        <div class="rv-author"><span class="rv-avatar">JL</span><div><b>Jennifer L.</b><small>British Properties</small></div><span class="rv-where">Google</span></div>
+        <div class="rv-author"><span class="rv-avatar"><img src="assets/img/reviews/rv-3.webp" alt="Jennifer L." loading="lazy" width="46" height="46"></span><div><b>Jennifer L.</b><small>British Properties</small></div><span class="rv-where">Google</span></div>
       </article>
-      <article class="review reveal">
-        <div class="stars">★★★★★</div>
+      <article class="review">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
         <p>"Honest and knowledgeable. They could have sold me a whole new door but instead fixed the cables and tuned everything up for a fraction of the cost."</p>
-        <div class="rv-author"><span class="rv-avatar">RP</span><div><b>Robert P.</b><small>Ambleside</small></div><span class="rv-where">Google</span></div>
+        <div class="rv-author"><span class="rv-avatar"><img src="assets/img/reviews/rv-4.webp" alt="Robert P." loading="lazy" width="46" height="46"></span><div><b>Robert P.</b><small>Ambleside</small></div><span class="rv-where">Google</span></div>
       </article>
-      <article class="review reveal">
-        <div class="stars">★★★★★</div>
+      <article class="review">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
         <p>"From the first phone call to the finished job, everything was smooth. You can tell it's a family business that genuinely cares. Our go-to from now on."</p>
-        <div class="rv-author"><span class="rv-avatar">AC</span><div><b>Amanda C.</b><small>Caulfeild</small></div><span class="rv-where">Google</span></div>
+        <div class="rv-author"><span class="rv-avatar"><img src="assets/img/reviews/rv-5.webp" alt="Amanda C." loading="lazy" width="46" height="46"></span><div><b>Amanda C.</b><small>Caulfeild</small></div><span class="rv-where">Google</span></div>
       </article>
-      <article class="review reveal">
-        <div class="stars">★★★★★</div>
+      <article class="review">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
         <p>"Quiet, fast, and respectful of our home. The new belt-drive opener with the app is fantastic. Wish we'd called them years ago."</p>
-        <div class="rv-author"><span class="rv-avatar">MT</span><div><b>Michael T.</b><small>Horseshoe Bay</small></div><span class="rv-where">Google</span></div>
+        <div class="rv-author"><span class="rv-avatar"><img src="assets/img/reviews/rv-6.webp" alt="Michael T." loading="lazy" width="46" height="46"></span><div><b>Michael T.</b><small>Horseshoe Bay</small></div><span class="rv-where">Google</span></div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BECOME A PARTNER ============ -->
+<section class="section partner" id="partner">
+  <div class="container">
+    <div class="partner-grid">
+      <div data-reveal="right">
+        <span class="eyebrow">For trades &amp; contractors</span>
+        <h2>Become a Partner</h2>
+        <p>We get more calls than we can take. If you're a vetted garage-door installer, handyman, builder or property-services company on the North Shore, partner with us to receive <b>overflow leads</b> in your area — real jobs, fairly shared.</p>
+        <ul class="partner-feats">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Genuine overflow work, no buy-in</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> You choose the jobs that fit your capacity</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Licensed, insured &amp; WorkSafeBC partners only</li>
+        </ul>
+        <a href="become-a-partner.html" class="btn btn-primary btn-lg" data-hover-lift>Apply to Partner</a>
+      </div>
+      <div data-reveal="left">
+        <img src="assets/img/service-van.webp" alt="West Vancouver Garage Doors service van" loading="lazy" width="1200" height="900" style="border-radius:var(--radius);box-shadow:var(--shadow-lg);width:100%">
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ CTA BAND ============ -->
 <section class="cta-band">
-  <div class="cta-bg"><img src="assets/img/cta-bg.jpg" alt=""></div>
+  <div class="cta-bg"><img src="assets/img/cta-bg.webp" alt="" loading="lazy" width="1600" height="900"></div>
   <div class="container">
     <span class="eyebrow center" style="color:var(--gold);justify-content:center">Ready when you are</span>
     <h2>Let's Get Your Garage Door Working Again</h2>
     <p>Same-day appointments are often available. Call now or request your free, no-obligation quote.</p>
     <div class="cta-actions">
-      <a href="tel:+16045550199" class="btn btn-call btn-lg">
+      <a href="tel:+16045550199" class="btn btn-call btn-lg" data-hover-lift>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
         Call (604) 555-0199
       </a>
-      <a href="#contact" class="btn btn-primary btn-lg">Request a Free Quote</a>
+      <a href="sms:+16045550199?&body=Hi%2C%20I'd%20like%20a%20garage%20door%20quote." class="btn btn-outline-light btn-lg" data-hover-lift>Text Us</a>
     </div>
   </div>
 </section>
@@ -676,32 +802,32 @@
 <section class="section" id="faq">
   <div class="container">
     <div class="center" style="margin-bottom:40px">
-      <span class="eyebrow">Good to know</span>
-      <h2 class="section-title">Frequently Asked Questions</h2>
+      <span class="eyebrow" data-reveal>Good to know</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="0.05">Frequently Asked Questions</h2>
     </div>
     <div class="faq">
       <div class="faq-item">
-        <button class="faq-q">Do you offer same-day garage door repair? <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <button class="faq-q" aria-expanded="false">Do you offer same-day garage door repair? <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="faq-a"><p>Yes. Most repairs — including broken springs, cables and openers — are completed the same day. Our trucks are stocked with the most common parts so we can fix it on the first visit whenever possible.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">My spring broke — can I still use my door? <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <button class="faq-q" aria-expanded="false">My spring broke — can I still use my door? <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="faq-a"><p>Please don't. A door with a broken spring is extremely heavy and can fall unexpectedly. Avoid forcing it open, and give us a call — spring replacement is our most common same-day service.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Do you work with strata corporations and property managers? <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <button class="faq-q" aria-expanded="false">Do you work with strata corporations and property managers? <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="faq-a"><p>Absolutely — it's a big part of what we do. We provide scheduled maintenance, priority response, matching doors and hardware across units, and clear documentation, quotes and consolidated invoicing for councils and managers.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Which garage door opener brand do you install? <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <button class="faq-q" aria-expanded="false">Which garage door opener brand do you install? <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="faq-a"><p>We're an authorized LiftMaster® dealer and install their full residential lineup — quiet belt-drive, durable chain-drive and space-saving wall-mount models, all with Wi-Fi and myQ® smartphone control. We also repair most existing opener brands.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">How long does a new garage door installation take? <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <div class="faq-a"><p>Most single or double-door installations are completed in a few hours. We'll remove your old door, install the new one, set up the opener and walk you through everything before we leave.</p></div>
+        <button class="faq-q" aria-expanded="false">Are you licensed and insured? <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>Yes. We carry a municipal business licence, full commercial liability insurance and WorkSafeBC coverage. Garage-door work is an unregulated trade in BC (there's no provincial trade licence), so we're precise about this — we never imply a trade certificate we don't have.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Is your work guaranteed? <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <button class="faq-q" aria-expanded="false">Is your work guaranteed? <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="faq-a"><p>Yes. All of our work is backed by a workmanship warranty on parts and labour, plus the manufacturer's warranty on doors, openers and springs. We stand behind every job.</p></div>
       </div>
     </div>
@@ -712,12 +838,12 @@
 <section class="section bg-cloud" id="contact">
   <div class="container">
     <div class="center" style="margin-bottom:46px">
-      <span class="eyebrow">Get in touch</span>
-      <h2 class="section-title">Request Your Free Quote</h2>
-      <p class="section-intro">Tell us what's going on and we'll get right back to you — usually within the hour during business hours.</p>
+      <span class="eyebrow" data-reveal>Get in touch</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="0.05">Request Your Free Quote</h2>
+      <p class="section-intro" data-reveal data-reveal-delay="0.1">Tell us what's going on and we'll get right back to you — usually within the hour during business hours.</p>
     </div>
     <div class="contact-grid">
-      <div class="contact-info reveal">
+      <div class="contact-info" data-reveal="right">
         <h3>Talk to a real local person</h3>
         <p style="color:var(--slate)">No call centres, no runaround. Reach the family directly:</p>
         <ul class="contact-list">
@@ -742,10 +868,10 @@
         </div>
       </div>
 
-      <div class="form-card reveal">
+      <div class="form-card" data-reveal="left">
         <h3>Send us a message</h3>
         <p>Fill out the form below for your free, no-obligation quote.</p>
-        <form id="quoteForm" novalidate>
+        <form data-quote data-subject="Quote request" data-to="info@westvangaragedoors.ca" novalidate>
           <div class="form-row two">
             <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" placeholder="Your name" required></div>
             <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" placeholder="(604) 000-0000" required></div>
@@ -787,7 +913,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col footer-about">
-        <a href="#top" class="brand" aria-label="West Vancouver Garage Doors">
+        <a href="index.html" class="brand" aria-label="West Vancouver Garage Doors">
           <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="2" y="2" width="44" height="44" rx="11" fill="#13315c"/>
             <path d="M9 22 24 11l15 11" stroke="#e0a64e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -808,26 +934,25 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">Garage Door Repair</a></li>
-          <li><a href="#springs">Spring Replacement</a></li>
-          <li><a href="#openers">Openers &amp; Smart Control</a></li>
-          <li><a href="#doors">New Door Installation</a></li>
-          <li><a href="#services">Cables &amp; Rollers</a></li>
-          <li><a href="#services">Tune-Ups &amp; Maintenance</a></li>
-          <li><a href="#strata">Strata &amp; Townhomes</a></li>
+          <li><a href="garage-door-repair.html">Garage Door Repair</a></li>
+          <li><a href="spring-repair.html">Spring Replacement</a></li>
+          <li><a href="opener-installation.html">Openers &amp; Smart Control</a></li>
+          <li><a href="new-garage-doors.html">New Door Installation</a></li>
+          <li><a href="cable-roller-repair.html">Cables &amp; Rollers</a></li>
+          <li><a href="maintenance-tune-up.html">Tune-Ups &amp; Maintenance</a></li>
+          <li><a href="strata-townhomes.html">Strata &amp; Townhomes</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Service Areas</h4>
         <ul>
-          <li><a href="#areas">West Vancouver</a></li>
-          <li><a href="#areas">British Properties</a></li>
-          <li><a href="#areas">Ambleside &amp; Dundarave</a></li>
-          <li><a href="#areas">Caulfeild</a></li>
-          <li><a href="#areas">Horseshoe Bay</a></li>
-          <li><a href="#areas">Lions Bay &amp; Bowen Island</a></li>
-          <li><a href="#areas">North Vancouver</a></li>
+          <li><a href="index.html">West Vancouver</a></li>
+          <li><a href="british-properties.html">British Properties</a></li>
+          <li><a href="ambleside-dundarave.html">Ambleside &amp; Dundarave</a></li>
+          <li><a href="horseshoe-bay.html">Horseshoe Bay &amp; Caulfeild</a></li>
+          <li><a href="lions-bay-bowen-island.html">Lions Bay &amp; Bowen Island</a></li>
+          <li><a href="north-vancouver.html">North Vancouver</a></li>
         </ul>
       </div>
 
@@ -837,31 +962,45 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> <a href="tel:+16045550199">(604) 555-0199</a></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg> <a href="mailto:info@westvangaragedoors.ca">info@westvangaragedoors.ca</a></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Mon–Fri 7–7 · Sat–Sun 8–6</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z"/></svg> Licensed, insured &amp; WorkSafeBC</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z"/></svg> Licensed (business licence), insured &amp; WorkSafeBC</li>
         </ul>
+        <p style="margin-top:14px"><a href="become-a-partner.html" style="color:var(--gold);font-weight:700">Become a Partner →</a></p>
       </div>
     </div>
 
     <div class="footer-bottom">
       <div class="container">
         <span>© <span id="year">2026</span> West Vancouver Garage Doors. All rights reserved.</span>
-        <span class="fb-links"><a href="#about">About</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></span>
+        <span class="fb-links">
+          <button type="button" id="pricing-toggle" aria-pressed="false">Show pricing</button>
+          <a href="become-a-partner.html">Partners</a>
+          <a href="index.html#reviews">Reviews</a>
+          <a href="index.html#contact">Contact</a>
+        </span>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- sticky mobile call bar -->
+<!-- sticky mobile call + text bar -->
 <div class="mobile-bar">
   <a href="tel:+16045550199" class="btn btn-call">
     <svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
     Call Now
   </a>
-  <a href="#contact" class="btn btn-primary">Free Quote</a>
+  <a href="sms:+16045550199?&body=Hi%2C%20I'd%20like%20a%20garage%20door%20quote." class="btn btn-text">
+    <svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
+    Text Us
+  </a>
 </div>
 
 <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m18 15-6-6-6 6"/></svg></button>
 
 <script src="assets/js/script.js"></script>
+<script type="module">
+  import { animate, inView, scroll, stagger } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+  window.__motion = { animate, inView, scroll, stagger };
+  import("./assets/js/motion.js").then(m => m.initMotion());
+</script>
 </body>
 </html>

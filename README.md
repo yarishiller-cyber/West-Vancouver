@@ -1,46 +1,51 @@
 # West Vancouver Garage Doors — Website
 
-A fast, mobile-first, conversion-focused marketing website for a family-owned
-garage door company serving West Vancouver and the North Shore. Residential and
-strata/townhome focus.
+Fast, mobile-first, conversion-focused 15-page microsite for a family-owned garage
+door company serving **West Vancouver & the North Shore** (residential + strata).
 
 ## Tech
-- Static **HTML / CSS / JS** — no build step, hosts anywhere (GitHub Pages, Netlify, Vercel, S3…).
-- All imagery is original, generated with Google's **Gemini 2.5 Flash Image ("nano banana")**.
+- **Static HTML / CSS / vanilla JS** — no build step. Deploys to Hostinger via Git.
+- One JS dependency: **Motion** (CDN `+esm`) for scroll reveals. Everything else is vanilla.
+- All imagery generated with Google **Gemini 2.5 Flash Image ("nano banana")**, optimized to WebP.
+
+## Signature feature
+A **scroll-driven "exploded view"** of a garage door (`assets/anim/door-00…08.webp`) scrubbed
+on a `<canvas>` as you scroll the pinned "anatomy" section — assembles/disassembles with scroll.
+Reduced-motion users get a static end-frame. See `assets/js/script.js` (`#anatomyStage`).
 
 ## Structure
 ```
-index.html              # full single-page site
-assets/css/style.css    # design system + components
-assets/js/script.js     # nav, FAQ, opener toggle, scroll reveal, form
-assets/img/             # generated imagery + favicon
-scripts/gen_images.py   # image-generation pipeline (re-run to regenerate art)
-robots.txt / sitemap.xml
+index.html                 # home hub (hero, anatomy scroll-explode, services, pricing, springs,
+                           #   openers, strata, about, areas, gallery, reviews, partner, FAQ, contact)
+garage-door-repair.html spring-repair.html opener-installation.html new-garage-doors.html
+cable-roller-repair.html maintenance-tune-up.html strata-townhomes.html      # 7 service pages
+north-vancouver.html british-properties.html ambleside-dundarave.html
+horseshoe-bay.html lions-bay-bowen-island.html                              # 5 area pages
+become-a-partner.html thank-you.html 404.html
+assets/css/style.css  assets/js/script.js  assets/js/motion.js
+assets/img/  assets/anim/  og/home.jpg
+robots.txt sitemap.xml site.webmanifest .htaccess site-config.json
+scripts/   # image + page generators (NOT served; blocked by .htaccess)
+```
+
+## Build / regenerate
+```bash
+pip install Pillow                                   # (cwebp/ffmpeg not needed)
+python3 scripts/to_webp.py                           # jpg/png -> responsive webp
+GEMINI_API_KEY=... python3 scripts/gen_brand.py      # brand hero (desktop+mobile) + OG
+GEMINI_API_KEY=... python3 scripts/gen_explode_frames.py   # the scroll-explode sequence
+python3 scripts/content.py && python3 scripts/extra_pages.py   # (re)build all inner pages
 ```
 
 ## Run locally
 ```bash
-python3 -m http.server 8000
-# open http://localhost:8000
+python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
-## Sections
-Hero · Trust badges · Services · How it works (buyer journey) · Garage door
-styles · LiftMaster openers (top 3 + full 7) · Spring options (3 tiers) ·
-Strata & townhomes · About / family story · Service areas · Gallery · Reviews ·
-CTA · FAQ · Contact form · Sticky mobile call bar.
-
-## To do before going live
-1. Replace placeholder phone **(604) 555-0199** and email **info@westvangaragedoors.ca**
-   with real contact details (find/replace across `index.html`, `script.js`).
-2. Connect the contact form to a backend (Formspree / Netlify Forms) — it
-   currently validates and falls back to a `mailto:` link.
-3. Add real Google review/business links and social URLs in the footer.
-4. Regenerate imagery any time with: `GEMINI_API_KEY=... python3 scripts/gen_images.py --all --force`
-
-## Regenerating images
-```bash
-export GEMINI_API_KEY="your-key"
-python3 scripts/gen_images.py --all          # only missing
-python3 scripts/gen_images.py hero-home --force
-```
+## Before go-live
+1. **Replace placeholder phone** `(604) 555-0199` / `+16045550199` with the real local 604/778
+   number (find/replace across all `*.html` and `assets/js/script.js`).
+2. Wire forms to a backend (SMTP relay / Supabase / Formspree). They currently validate and
+   fall back to `mailto:`. Partner + quote forms post to `info@westvangaragedoors.ca`.
+3. Add real Google Business Profile + social URLs (footer placeholders `#`).
+4. Confirm canonical host in `.htaccess` (currently non-www → www).

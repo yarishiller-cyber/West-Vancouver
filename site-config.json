@@ -1,0 +1,47 @@
+{
+  "site": "West Vancouver Garage Doors",
+  "domain": "westvangaragedoors.ca",
+  "canonicalHost": "www.westvangaragedoors.ca",
+  "email": "info@westvangaragedoors.ca",
+  "phone": "(604) 555-0199",
+  "phoneHref": "+16045550199",
+  "phoneNote": "PLACEHOLDER — replace with the real local 604/778 number before go-live (find/replace +16045550199 and the formatted (604) 555-0199).",
+  "coverage": "single-town",
+  "town": "West Vancouver, BC",
+  "region": "North Shore (Metro Vancouver)",
+  "emphasis": "residential + strata/townhome",
+  "primaryKeyword": "West Vancouver garage door repair",
+  "voice": "premium-coastal, family-owned, calm and trustworthy; West Coast modern",
+  "palette": { "navy": "#0b2545", "navy2": "#13315c", "steel": "#1d4e89", "gold": "#e0a64e" },
+  "fonts": { "head": "Plus Jakarta Sans", "body": "Inter" },
+  "layoutVariant": "layout-A (full-bleed brand hero + scroll exploded-view 'anatomy' section)",
+  "neighbourhoods": ["Ambleside","Dundarave","British Properties","Caulfeild","Horseshoe Bay","Lions Bay","Bowen Island","Cypress","Eagle Harbour","West Bay","Sentinel Hill"],
+  "adjacentAreas": ["North Vancouver","Lynn Valley","Deep Cove","Capilano"],
+  "springPricing": {
+    "single": "$739",
+    "twoPlusCables": "$851",
+    "twoHighCycle": "$1,274",
+    "freeCables": true,
+    "freeInspection": true
+  },
+  "openerPricingInstalled": {
+    "2220L": "$1,311",
+    "2420L": "$1,384",
+    "6580L": "$1,448",
+    "4690": "$1,466",
+    "6690L": "$1,523",
+    "98032": "$1,939",
+    "98022": "$2,155"
+  },
+  "doorPricing": { "from": "$3,647", "mid": "$4,558", "premium": "$7,268" },
+  "pricingPolicy": "Fleet canonical table (Steveston floor + offset). Hidden by default; revealed via footer 'Show pricing' toggle ([data-px]).",
+  "compliance": "Licensed (business licence), insured & WorkSafeBC-covered. Garage-door trade is UNREGULATED in BC — never imply a trade certificate.",
+  "schema": "HomeAndConstructionBusiness + WebSite + FAQPage + (Service/Breadcrumb on inner pages). NO Review/AggregateRating.",
+  "animation": "Motion (CDN +esm) via shared motion.js for data-reveal/stagger/parallax; bespoke scroll-driven canvas 'exploded view' hero (assets/anim/door-00..08.webp).",
+  "pages": [
+    "index.html","garage-door-repair.html","spring-repair.html","opener-installation.html",
+    "new-garage-doors.html","cable-roller-repair.html","maintenance-tune-up.html","strata-townhomes.html",
+    "north-vancouver.html","british-properties.html","ambleside-dundarave.html","horseshoe-bay.html",
+    "lions-bay-bowen-island.html","become-a-partner.html","thank-you.html","404.html"
+  ]
+}

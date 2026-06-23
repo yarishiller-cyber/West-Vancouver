@@ -4,8 +4,9 @@
 
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- Header shadow on scroll ---- */
+  /* ---- Header shadow on scroll + back-to-top ---- */
   var header = $("#header");
   var toTop = $("#toTop");
   function onScroll() {
@@ -17,23 +18,18 @@
   onScroll();
 
   /* ---- Mobile nav drawer ---- */
-  var navToggle = $("#navToggle");
-  var mobileNav = $("#mobileNav");
-  var overlay = $("#overlay");
-  var mnClose = $("#mnClose");
-
+  var navToggle = $("#navToggle"), mobileNav = $("#mobileNav"),
+      overlay = $("#overlay"), mnClose = $("#mnClose");
   function openNav() {
-    mobileNav.classList.add("open");
-    overlay.classList.add("open");
-    navToggle.classList.add("open");
-    navToggle.setAttribute("aria-expanded", "true");
+    if (!mobileNav) return;
+    mobileNav.classList.add("open"); overlay.classList.add("open");
+    navToggle.classList.add("open"); navToggle.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
   }
   function closeNav() {
-    mobileNav.classList.remove("open");
-    overlay.classList.remove("open");
-    navToggle.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
+    if (!mobileNav) return;
+    mobileNav.classList.remove("open"); overlay.classList.remove("open");
+    navToggle.classList.remove("open"); navToggle.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
   }
   if (navToggle) navToggle.addEventListener("click", openNav);
@@ -42,97 +38,171 @@
   $$(".mobile-nav a").forEach(function (a) { a.addEventListener("click", closeNav); });
 
   /* ---- Opener "show all" toggle ---- */
-  var openerToggle = $("#openerToggle");
-  var openerMore = $("#openerMore");
+  var openerToggle = $("#openerToggle"), openerMore = $("#openerMore");
   if (openerToggle && openerMore) {
     openerToggle.addEventListener("click", function () {
       var shown = openerMore.classList.toggle("show");
       openerToggle.setAttribute("aria-expanded", shown ? "true" : "false");
       $(".ot-text", openerToggle).textContent = shown ? "Show fewer openers" : "Show all 7 openers";
       $(".ot-chev", openerToggle).style.transform = shown ? "rotate(180deg)" : "";
-      if (shown) {
-        // reveal newly shown cards smoothly
-        $$(".opener-card", openerMore).forEach(function (c, i) {
-          c.style.opacity = 0; c.style.transform = "translateY(16px)";
-          setTimeout(function () {
-            c.style.transition = "opacity .4s ease, transform .4s ease";
-            c.style.opacity = 1; c.style.transform = "none";
-          }, 40 * i);
-        });
-      }
     });
   }
 
   /* ---- FAQ accordion ---- */
   $$(".faq-item").forEach(function (item) {
-    var q = $(".faq-q", item);
-    var a = $(".faq-a", item);
+    var q = $(".faq-q", item), a = $(".faq-a", item);
+    if (!q || !a) return;
     q.addEventListener("click", function () {
       var isOpen = item.classList.contains("open");
-      // close others
       $$(".faq-item").forEach(function (other) {
         other.classList.remove("open");
-        $(".faq-a", other).style.maxHeight = null;
+        var oa = $(".faq-a", other); if (oa) oa.style.maxHeight = null;
+        var ob = $(".faq-q", other); if (ob) ob.setAttribute("aria-expanded", "false");
       });
       if (!isOpen) {
         item.classList.add("open");
         a.style.maxHeight = a.scrollHeight + "px";
+        q.setAttribute("aria-expanded", "true");
       }
     });
   });
 
-  /* ---- Reveal on scroll ---- */
-  var revealEls = $$(".reveal");
-  if ("IntersectionObserver" in window && revealEls.length) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  /* ---- Footer "Pricing" toggle (FLEET standard: reveal [data-px] values) ---- */
+  var priceBtn = $("#pricing-toggle");
+  if (priceBtn) {
+    var els = $$("[data-px]"), saved = new Array(els.length), on = false;
+    priceBtn.addEventListener("click", function () {
+      on = !on;
+      els.forEach(function (el, i) {
+        if (on) { if (saved[i] == null) saved[i] = el.innerHTML; el.innerHTML = el.getAttribute("data-px"); }
+        else { if (saved[i] != null) el.innerHTML = saved[i]; }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-    revealEls.forEach(function (el) { io.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add("in"); });
+      document.body.classList.toggle("show-pricing", on);
+      priceBtn.textContent = on ? "Hide pricing" : "Show pricing";
+      priceBtn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
+  /* ---- Animated stat counters (data-count="10000" data-suffix="+") ---- */
+  var counters = $$("[data-count]");
+  if (counters.length && "IntersectionObserver" in window && !REDUCED) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        cio.unobserve(e.target);
+        var el = e.target, end = parseFloat(el.getAttribute("data-count")),
+            suffix = el.getAttribute("data-suffix") || "", t0 = null, dur = 1400;
+        function tick(t) {
+          if (!t0) t0 = t;
+          var p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+          var val = Math.round(end * eased);
+          el.textContent = (val >= 1000 ? val.toLocaleString() : val) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (c) { cio.observe(c); });
+  }
+
+  /* ---- Scroll-driven "exploded view" garage-door scrubber -------------------
+     Preloads the door-NN.webp sequence and draws the frame that matches the
+     user's scroll position through the pinned section. Pure canvas + rAF, so it
+     stays 60fps. Reduced-motion + no-canvas degrade to a single static frame. */
+  var stage = $("#anatomyStage");
+  if (stage) {
+    var canvas = $("#anatomyCanvas", stage),
+        track = $("#anatomyTrack"),
+        steps = $$(".anatomy-step"),
+        FRAMES = parseInt(stage.getAttribute("data-frames"), 10) || 9,
+        path = stage.getAttribute("data-path") || "assets/anim/door-",
+        imgs = [], loaded = 0, ctx = canvas && canvas.getContext("2d"),
+        dpr = Math.min(window.devicePixelRatio || 1, 2), current = -1;
+
+    function sizeCanvas() {
+      if (!canvas) return;
+      var r = canvas.getBoundingClientRect();
+      canvas.width = r.width * dpr; canvas.height = r.height * dpr;
+      draw(current < 0 ? 0 : current, true);
+    }
+    function draw(i, force) {
+      if (!ctx) return;
+      i = Math.max(0, Math.min(FRAMES - 1, i));
+      if (i === current && !force) return;
+      current = i;
+      var img = imgs[i];
+      if (!img || !img.complete || !img.naturalWidth) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // contain-fit the square frame into the canvas
+      var cw = canvas.width, ch = canvas.height,
+          scale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight),
+          w = img.naturalWidth * scale, h = img.naturalHeight * scale;
+      ctx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
+    }
+    for (var i = 0; i < FRAMES; i++) {
+      (function (n) {
+        var im = new Image();
+        im.onload = function () { loaded++; if (loaded === 1) sizeCanvas(); if (n === 0) draw(0, true); };
+        im.src = path + String(n).padStart(2, "0") + ".webp";
+        imgs[n] = im;
+      })(i);
+    }
+
+    function onAnatomyScroll() {
+      if (!track) return;
+      var rect = track.getBoundingClientRect(),
+          vh = window.innerHeight,
+          total = rect.height - vh,
+          p = total > 0 ? Math.min(Math.max((-rect.top) / total, 0), 1) : 0;
+      draw(Math.round(p * (FRAMES - 1)));
+      // light-up the active caption step
+      if (steps.length) {
+        var active = Math.min(steps.length - 1, Math.floor(p * steps.length));
+        steps.forEach(function (s, idx) { s.classList.toggle("active", idx === active); });
+      }
+    }
+
+    if (REDUCED || !ctx) {
+      // Static, informative end-state; no pinning needed.
+      stage.classList.add("static");
+      if (track) track.style.height = "auto";
+      imgs[FRAMES - 1] && (imgs[FRAMES - 1].onload = function () { draw(FRAMES - 1, true); });
+      draw(FRAMES - 1, true);
+      if (steps.length) steps.forEach(function (s) { s.classList.add("active"); });
+    } else {
+      window.addEventListener("scroll", onAnatomyScroll, { passive: true });
+      window.addEventListener("resize", function () { sizeCanvas(); onAnatomyScroll(); });
+      onAnatomyScroll();
+    }
   }
 
   /* ---- Back to top ---- */
   if (toTop) toTop.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: REDUCED ? "auto" : "smooth" });
   });
 
-  /* ---- Contact form (front-end demo handler) ----
-     No backend yet. To receive submissions, connect this form to a service
-     like Formspree, Netlify Forms, or your own endpoint. For now it validates,
-     shows a success message, and offers a mailto fallback. */
-  var form = $("#quoteForm");
-  var success = $("#formSuccess");
-  if (form) {
+  /* ---- Contact / partner form (front-end handler with mailto fallback) ---- */
+  $$("form[data-quote]").forEach(function (form) {
+    var success = $(".form-success", form.parentNode) || $("#formSuccess");
+    var to = form.getAttribute("data-to") || "info@westvangaragedoors.ca";
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var name = $("#f-name").value.trim();
-      var phone = $("#f-phone").value.trim();
-      if (!name || !phone) {
-        if (!name) $("#f-name").focus(); else $("#f-phone").focus();
-        return;
-      }
-      // Build a mailto fallback so the message can actually be delivered.
-      var email = $("#f-email").value.trim();
-      var service = $("#f-service").value;
-      var msg = $("#f-msg").value.trim();
-      var body = "Name: " + name + "%0D%0APhone: " + phone +
-        "%0D%0AEmail: " + email + "%0D%0AService: " + service +
-        "%0D%0A%0D%0A" + encodeURIComponent(msg);
-      var mailto = "mailto:info@westvangaragedoors.ca?subject=" +
-        encodeURIComponent("Quote request from " + name) + "&body=" + body;
-
+      var name = (form.querySelector("[name=name]") || {}).value, phone = (form.querySelector("[name=phone]") || {}).value;
+      if (name != null && !String(name).trim()) { form.querySelector("[name=name]").focus(); return; }
+      if (phone != null && !String(phone).trim()) { form.querySelector("[name=phone]").focus(); return; }
+      var lines = [];
+      $$("input,select,textarea", form).forEach(function (f) {
+        if (f.name && f.value) lines.push(f.name + ": " + f.value);
+      });
+      var subject = (form.getAttribute("data-subject") || "Website enquiry") + (name ? " — " + name : "");
+      var mailto = "mailto:" + to + "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(lines.join("\n"));
       form.style.display = "none";
       if (success) success.classList.add("show");
-      // open the user's mail client as a delivery fallback
       try { window.location.href = mailto; } catch (err) {}
     });
-  }
+  });
 
   /* ---- Footer year ---- */
-  var yr = $("#year");
-  if (yr) yr.textContent = new Date().getFullYear();
-
+  var yr = $("#year"); if (yr) yr.textContent = new Date().getFullYear();
 })();
