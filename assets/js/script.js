@@ -112,67 +112,80 @@
   var stage = $("#anatomyStage");
   if (stage) {
     var canvas = $("#anatomyCanvas", stage),
+        poster = $("#anatomyPoster", stage),
         track = $("#anatomyTrack"),
         steps = $$(".anatomy-step"),
         FRAMES = parseInt(stage.getAttribute("data-frames"), 10) || 9,
         path = stage.getAttribute("data-path") || "assets/anim/door-",
-        imgs = [], loaded = 0, ctx = canvas && canvas.getContext("2d"),
-        dpr = Math.min(window.devicePixelRatio || 1, 2), current = -1;
+        imgs = [], ctx = canvas && canvas.getContext("2d"),
+        dpr = Math.min(window.devicePixelRatio || 1, 2),
+        target = 0, currentP = 0, lastDrawn = -1, hydrated = false;
 
+    function frameSrc(n) { return path + String(n).padStart(2, "0") + ".webp"; }
     function sizeCanvas() {
       if (!canvas) return;
       var r = canvas.getBoundingClientRect();
-      canvas.width = r.width * dpr; canvas.height = r.height * dpr;
-      draw(current < 0 ? 0 : current, true);
+      canvas.width = Math.round(r.width * dpr);
+      canvas.height = Math.round(r.height * dpr);
+      lastDrawn = -1; // force a redraw at the new size
     }
-    function draw(i, force) {
+    function drawFrame(i) {
       if (!ctx) return;
       i = Math.max(0, Math.min(FRAMES - 1, i));
-      if (i === current && !force) return;
-      current = i;
       var img = imgs[i];
       if (!img || !img.complete || !img.naturalWidth) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      // contain-fit the square frame into the canvas
+      if (i === lastDrawn) return;                 // never redraw the same frame
+      lastDrawn = i;
       var cw = canvas.width, ch = canvas.height,
           scale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight),
           w = img.naturalWidth * scale, h = img.naturalHeight * scale;
+      ctx.clearRect(0, 0, cw, ch);
       ctx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
+      if (!hydrated) { hydrated = true; stage.classList.add("hydrated"); }
     }
+    // preload the sequence
     for (var i = 0; i < FRAMES; i++) {
       (function (n) {
         var im = new Image();
-        im.onload = function () { loaded++; if (loaded === 1) sizeCanvas(); if (n === 0) draw(0, true); };
-        im.src = path + String(n).padStart(2, "0") + ".webp";
+        im.onload = function () { if (n === 0) { sizeCanvas(); drawFrame(0); } };
+        im.src = frameSrc(n);
         imgs[n] = im;
       })(i);
     }
 
-    function onAnatomyScroll() {
-      if (!track) return;
-      var rect = track.getBoundingClientRect(),
-          vh = window.innerHeight,
-          total = rect.height - vh,
-          p = total > 0 ? Math.min(Math.max((-rect.top) / total, 0), 1) : 0;
-      draw(Math.round(p * (FRAMES - 1)));
-      // light-up the active caption step
-      if (steps.length) {
-        var active = Math.min(steps.length - 1, Math.floor(p * steps.length));
-        steps.forEach(function (s, idx) { s.classList.toggle("active", idx === active); });
-      }
+    function progress() {
+      if (!track) return 0;
+      var rect = track.getBoundingClientRect(), total = rect.height - window.innerHeight;
+      return total > 0 ? Math.min(Math.max((-rect.top) / total, 0), 1) : 0;
+    }
+    function setActiveStep(p) {
+      if (!steps.length) return;
+      var active = Math.min(steps.length - 1, Math.floor(p * steps.length));
+      steps.forEach(function (s, idx) { s.classList.toggle("active", idx === active); });
     }
 
     if (REDUCED || !ctx) {
-      // Static, informative end-state; no pinning needed.
+      // Static, informative end-state; no pinning, no scroll-jacking.
       stage.classList.add("static");
       if (track) track.style.height = "auto";
-      imgs[FRAMES - 1] && (imgs[FRAMES - 1].onload = function () { draw(FRAMES - 1, true); });
-      draw(FRAMES - 1, true);
-      if (steps.length) steps.forEach(function (s) { s.classList.add("active"); });
+      var last = new Image();
+      last.onload = function () { sizeCanvas(); lastDrawn = -1; drawFrame(FRAMES - 1); };
+      last.src = frameSrc(FRAMES - 1); imgs[FRAMES - 1] = last;
+      steps.forEach(function (s) { s.classList.add("active"); });
     } else {
-      window.addEventListener("scroll", onAnatomyScroll, { passive: true });
-      window.addEventListener("resize", function () { sizeCanvas(); onAnatomyScroll(); });
-      onAnatomyScroll();
+      // lerp the rendered progress toward the scroll target so the explode GLIDES
+      target = progress();
+      currentP = target;
+      function tick() {
+        currentP += (target - currentP) * 0.12;
+        if (Math.abs(target - currentP) < 0.0005) currentP = target;
+        drawFrame(Math.round(currentP * (FRAMES - 1)));
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      window.addEventListener("scroll", function () { target = progress(); setActiveStep(target); }, { passive: true });
+      window.addEventListener("resize", function () { sizeCanvas(); target = progress(); });
+      setActiveStep(target);
     }
   }
 

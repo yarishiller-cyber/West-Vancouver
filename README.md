@@ -33,9 +33,18 @@ scripts/   # image + page generators (NOT served; blocked by .htaccess)
 pip install Pillow                                   # (cwebp/ffmpeg not needed)
 python3 scripts/to_webp.py                           # jpg/png -> responsive webp
 GEMINI_API_KEY=... python3 scripts/gen_brand.py      # brand hero (desktop+mobile) + OG
-GEMINI_API_KEY=... python3 scripts/gen_explode_frames.py   # the scroll-explode sequence
+GEMINI_API_KEY=... python3 scripts/gen_explode_frames.py   # the scroll-explode keyframes
+pip install imageio-ffmpeg                            # bundled ffmpeg (no system install)
+# densify keyframes for a buttery scrub:
+ffmpeg -framerate 7 -i scratch/door-%02d.png \
+  -vf "minterpolate=fps=32:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1,scale=720:720" scratch/dense/d_%03d.png
+GEMINI_API_KEY=... python3 scripts/gen_veo_explode.py   # OPTIONAL photoreal Veo 3.1 route (paid)
 python3 scripts/content.py && python3 scripts/extra_pages.py   # (re)build all inner pages
 ```
+
+The shipped hero uses 33 motion-interpolated WebP frames (`assets/anim/door-00…32.webp`, ~440 KB),
+scrubbed with lerp smoothing + an LCP poster. `scripts/gen_veo_explode.py` is the optional
+higher-fidelity Veo route — set `data-frames` in `index.html` to match the new frame count.
 
 ## Run locally
 ```bash
