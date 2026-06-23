@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Per-page content for West Vancouver Garage Doors. Run to (re)build all pages.
+"""Per-page content for North Shore Garage Doors. Run to (re)build all pages.
   python3 scripts/content.py
 """
 import os, sys

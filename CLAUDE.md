@@ -1,4 +1,4 @@
-# CLAUDE.md — West Vancouver Garage Doors (site-specific)
+# CLAUDE.md — North Shore Garage Doors (site-specific)
 
 > The METHOD lives in `_shared/CLAUDE.md` + `_shared/FLEET-STANDARDS.md` (read those first,
 > every session). This file holds the SPECIFICS. Facts also in `site-config.json`.
@@ -6,9 +6,9 @@
 ## This site
 - **Town:** West Vancouver, BC (+ the North Shore)
 - **Coverage model:** `single-town` (West Van + adjacent North Shore areas as their own pages)
-- **Domain:** westvangaragedoors.ca · canonical host **www** · deploys to Hostinger via Git
-- **Email:** info@westvangaragedoors.ca
-- **Phone:** (604) 555-0199 — **PLACEHOLDER**, replace with the real local number before go-live
+- **Domain:** northshoregaragedoors.ca · canonical host **www** · deploys to Hostinger via Git
+- **Email:** info@northshoregaragedoors.ca
+- **Phone:** (778) 800-0769 (live North Shore Garage Doors number)
 - **Emphasis:** residential + strata/townhome
 - **Primary keyword:** West Vancouver garage door repair
 - **Voice/angle:** premium-coastal, family-owned, calm and trustworthy (NOT a funny-brand site)

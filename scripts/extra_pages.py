@@ -7,7 +7,7 @@ from build_pages import (head, header, footer, cta_band, page_hero, ld, breadcru
 
 # ---------------- BECOME A PARTNER ----------------
 extra = ld(breadcrumb_ld([("Home","index.html"),("Become a Partner","become-a-partner.html")]))
-p = head("Become a Partner | West Vancouver Garage Doors",
+p = head("Become a Partner | North Shore Garage Doors",
          "Apply to receive overflow garage-door leads on the North Shore. For vetted, licensed and insured installers, handymen and property-services companies in West &amp; North Vancouver.",
          "become-a-partner.html", extra_ld=extra) + header()
 p += page_hero("Become a Partner",
@@ -17,7 +17,7 @@ p += f'''
 <section class="section"><div class="container"><div class="two-col">
   <div class="prose">
     <h2>Real overflow work, fairly shared</h2>
-    <p>West Vancouver Garage Doors is busy — and some weeks we simply can't reach every customer as fast as we'd like. Rather than leave homeowners waiting, we pass genuine, ready-to-book jobs to trusted local partners. No buy-in, no lead-selling games — just real work in your service area when we're at capacity.</p>
+    <p>North Shore Garage Doors is busy — and some weeks we simply can't reach every customer as fast as we'd like. Rather than leave homeowners waiting, we pass genuine, ready-to-book jobs to trusted local partners. No buy-in, no lead-selling games — just real work in your service area when we're at capacity.</p>
     <h2>Who we partner with</h2>
     <ul>
       <li>Garage-door installers &amp; repair techs</li>
@@ -32,9 +32,9 @@ p += f'''
       <li>Responsiveness — these are real customers waiting</li>
     </ul>
     <h2>Apply below</h2>
-    <p>Tell us about your company and where you work. We'll be in touch to set things up. Applications go straight to <a href="mailto:info@westvangaragedoors.ca" style="color:var(--steel);font-weight:700">info@westvangaragedoors.ca</a>.</p>
+    <p>Tell us about your company and where you work. We'll be in touch to set things up. Applications go straight to <a href="mailto:info@northshoregaragedoors.ca" style="color:var(--steel);font-weight:700">info@northshoregaragedoors.ca</a>.</p>
     <div class="form-card" style="margin-top:18px">
-      <form data-quote data-subject="Partner application" data-to="info@westvangaragedoors.ca" novalidate>
+      <form data-quote data-subject="Partner application" data-to="info@northshoregaragedoors.ca" novalidate>
         <div class="form-row two">
           <div class="field"><label for="p-name">Your name</label><input id="p-name" name="name" type="text" placeholder="Full name" required></div>
           <div class="field"><label for="p-company">Company</label><input id="p-company" name="company" type="text" placeholder="Business name"></div>
@@ -64,8 +64,8 @@ p += cta_band("Let's Send You Some Work","Apply above or call to talk it through
 write("become-a-partner.html", p)
 
 # ---------------- THANK YOU ----------------
-t = head("Thank You | West Vancouver Garage Doors",
-         "Thanks for getting in touch with West Vancouver Garage Doors. We'll be right back to you.",
+t = head("Thank You | North Shore Garage Doors",
+         "Thanks for getting in touch with North Shore Garage Doors. We'll be right back to you.",
          "thank-you.html") + header()
 t += f'''
 <section class="section" style="min-height:54vh;display:flex;align-items:center">
@@ -84,7 +84,7 @@ t += footer()
 write("thank-you.html", t)
 
 # ---------------- 404 ----------------
-e = head("Page Not Found | West Vancouver Garage Doors",
+e = head("Page Not Found | North Shore Garage Doors",
          "That page couldn't be found. Explore our garage door services across West Vancouver and the North Shore.",
          "404.html") + header()
 e += f'''

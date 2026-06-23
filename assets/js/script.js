@@ -1,4 +1,4 @@
-/* West Vancouver Garage Doors — interactions */
+/* North Shore Garage Doors — interactions */
 (function () {
   "use strict";
 
@@ -197,7 +197,7 @@
   /* ---- Contact / partner form (front-end handler with mailto fallback) ---- */
   $$("form[data-quote]").forEach(function (form) {
     var success = $(".form-success", form.parentNode) || $("#formSuccess");
-    var to = form.getAttribute("data-to") || "info@westvangaragedoors.ca";
+    var to = form.getAttribute("data-to") || "info@northshoregaragedoors.ca";
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var name = (form.querySelector("[name=name]") || {}).value, phone = (form.querySelector("[name=phone]") || {}).value;

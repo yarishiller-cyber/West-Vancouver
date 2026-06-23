@@ -5,7 +5,7 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Canonical host: non-www -> www
 RewriteCond %{HTTP_HOST} ^westvangaragedoors\.ca$ [NC]
-RewriteRule ^ https://www.westvangaragedoors.ca%{REQUEST_URI} [L,R=301]
+RewriteRule ^ https://www.northshoregaragedoors.ca%{REQUEST_URI} [L,R=301]
 
 # Pretty URLs: allow /spring-repair to serve spring-repair.html
 RewriteCond %{REQUEST_FILENAME} !-d

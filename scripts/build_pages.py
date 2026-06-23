@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Generate all inner pages (services, service areas, partner, thank-you, 404)
-for West Vancouver Garage Doors from a shared shell + per-page content.
+for North Shore Garage Doors from a shared shell + per-page content.
 
 No build step at runtime — this just emits plain static .html files that match
 index.html's header/footer/scripts. Re-run any time content changes.
@@ -10,9 +10,9 @@ index.html's header/footer/scripts. Re-run any time content changes.
 """
 import os, html
 ROOT = os.path.join(os.path.dirname(__file__), "..")
-PHONE = "(604) 555-0199"; TEL = "+16045550199"
-SMS = "sms:+16045550199?&body=Hi%2C%20I'd%20like%20a%20garage%20door%20quote."
-BASE = "https://www.westvangaragedoors.ca"
+PHONE = "(778) 800-0769"; TEL = "+17788000769"
+SMS = "sms:+17788000769?&body=Hi%2C%20I'd%20like%20a%20garage%20door%20quote."
+BASE = "https://www.northshoregaragedoors.ca"
 
 NAV = [("garage-door-repair.html","Repair"),("spring-repair.html","Springs"),
        ("opener-installation.html","Openers"),("new-garage-doors.html","New Doors"),
@@ -69,8 +69,8 @@ def header():
     return f'''
 <header class="header" id="header">
   <div class="container">
-    <a href="index.html" class="brand" aria-label="West Vancouver Garage Doors home">{LOGO}
-      <span class="brand-text"><b>West Vancouver</b><span>Garage Doors</span></span></a>
+    <a href="index.html" class="brand" aria-label="North Shore Garage Doors home">{LOGO}
+      <span class="brand-text"><b>North Shore</b><span>Garage Doors</span></span></a>
     <nav class="nav" aria-label="Primary">{nav}</nav>
     <div class="header-cta">
       <div class="header-phone"><small>Call for service</small><b>{PHONE}</b></div>
@@ -129,8 +129,8 @@ def footer():
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col footer-about">
-        <a href="index.html" class="brand" aria-label="West Vancouver Garage Doors">{LOGO}
-          <span class="brand-text"><b>West Vancouver</b><span style="color:var(--gold)">Garage Doors</span></span></a>
+        <a href="index.html" class="brand" aria-label="North Shore Garage Doors">{LOGO}
+          <span class="brand-text"><b>North Shore</b><span style="color:var(--gold)">Garage Doors</span></span></a>
         <p class="footer-about">Family-owned garage door repair, installation and strata service across West Vancouver and the North Shore. Quality work, honest prices, friendly faces.</p>
       </div>
       <div class="footer-col"><h4>Services</h4><ul>
@@ -150,13 +150,13 @@ def footer():
         <li><a href="north-vancouver.html">North Vancouver</a></li></ul></div>
       <div class="footer-col"><h4>Contact</h4><ul class="footer-contact">
         <li>{PHONE_SVG} <a href="tel:{TEL}">{PHONE}</a></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg> <a href="mailto:info@westvangaragedoors.ca">info@westvangaragedoors.ca</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg> <a href="mailto:info@northshoregaragedoors.ca">info@northshoregaragedoors.ca</a></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Mon–Fri 7–7 · Sat–Sun 8–6</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z"/></svg> Licensed (business licence), insured &amp; WorkSafeBC</li></ul>
         <p style="margin-top:14px"><a href="become-a-partner.html" style="color:var(--gold);font-weight:700">Become a Partner →</a></p></div>
     </div>
     <div class="footer-bottom"><div class="container">
-      <span>© <span id="year">2026</span> West Vancouver Garage Doors. All rights reserved.</span>
+      <span>© <span id="year">2026</span> North Shore Garage Doors. All rights reserved.</span>
       <span class="fb-links">
         <button type="button" id="pricing-toggle" aria-pressed="false">Show pricing</button>
         <a href="become-a-partner.html">Partners</a><a href="index.html#reviews">Reviews</a><a href="index.html#contact">Contact</a>
@@ -189,8 +189,8 @@ def breadcrumb_ld(items):
 def service_ld(name, desc, slug):
     return {"@type":"Service","name":name,"description":desc,"serviceType":name,
             "areaServed":{"@type":"City","name":"West Vancouver"},
-            "provider":{"@type":"HomeAndConstructionBusiness","name":"West Vancouver Garage Doors",
-                        "telephone":"+1-604-555-0199","url":BASE+"/"},
+            "provider":{"@type":"HomeAndConstructionBusiness","name":"North Shore Garage Doors",
+                        "telephone":"+1-778-800-0769","url":BASE+"/"},
             "url":f"{BASE}/{slug}"}
 
 def faq_ld(faqs):

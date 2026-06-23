@@ -1,4 +1,4 @@
-# West Vancouver Garage Doors — Website
+# North Shore Garage Doors — Website
 
 Fast, mobile-first, conversion-focused 15-page microsite for a family-owned garage
 door company serving **West Vancouver & the North Shore** (residential + strata).
@@ -52,9 +52,9 @@ python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
 ## Before go-live
-1. **Replace placeholder phone** `(604) 555-0199` / `+16045550199` with the real local 604/778
+1. **Replace placeholder phone** `(778) 800-0769` / `+17788000769` with the real local 604/778
    number (find/replace across all `*.html` and `assets/js/script.js`).
 2. Wire forms to a backend (SMTP relay / Supabase / Formspree). They currently validate and
-   fall back to `mailto:`. Partner + quote forms post to `info@westvangaragedoors.ca`.
+   fall back to `mailto:`. Partner + quote forms post to `info@northshoregaragedoors.ca`.
 3. Add real Google Business Profile + social URLs (footer placeholders `#`).
 4. Confirm canonical host in `.htaccess` (currently non-www → www).

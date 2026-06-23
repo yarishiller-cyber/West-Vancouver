@@ -28,7 +28,7 @@ SCENE = (
     "A real residential West Vancouver driveway on the North Shore with cedar-and-glass West "
     "Coast modern homes and tall evergreens. An open double sectional garage door (dark charcoal "
     "with frosted glass accents). A navy-blue service van with a tasteful gold pinstripe and the "
-    "small email 'info@westvangaragedoors.ca' on the side panel (no phone number) parked in the "
+    "small email 'info@northshoregaragedoors.ca' on the side panel (no phone number) parked in the "
     "driveway. A friendly male garage-door technician in a clean navy-blue work uniform holding a "
     "cordless drill, mid-job by the door."
 )
