@@ -45,6 +45,23 @@ RewriteRule ^([^.]+)$ $1.html [L]
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), browsing-topics=()"
+  # HSTS (1 year). No preload/includeSubDomains so it stays reversible.
+  Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
+  # Long-cache fingerprint-free static assets; HTML stays fresh (set above).
+  <FilesMatch "\.(webp|png|svg|jpg|jpeg|ico|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# Correct MIME + compression for modern types
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType application/manifest+json .webmanifest
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE application/manifest+json text/plain
 </IfModule>
 
 ErrorDocument 404 /404.html
