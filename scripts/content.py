@@ -16,7 +16,7 @@ service_page(
   "Broken spring in West Vancouver? Same-day torsion &amp; extension spring replacement, free cables on pairs, upfront flat rates. Call (778) 800-0769.",
   "Garage Door Spring Repair in West Vancouver",
   "A snapped spring is the #1 reason a garage door stops working — and the most common same-day call we run across the North Shore. Here's exactly what we replace, why, and what it costs.",
-  [("p","If your door suddenly won't lift, you heard a loud bang from the garage, or the opener strains and gives up, you've almost certainly broken a torsion spring. The spring — not the opener — does the heavy lifting, so when it goes, the door becomes a 150–250&nbsp;lb dead weight. Please don't force it."),
+  [("p","Same-day garage door spring repair for West Vancouver and the North Shore: we replace broken torsion and extension springs at flat, upfront rates, with free lift cables on every two-spring option. If your door suddenly won't lift, you heard a loud bang from the garage, or the opener strains and gives up, you've almost certainly broken a spring — the door is now a 150–250&nbsp;lb dead weight, so please don't force it. Call or text (778) 800-0769 and we'll usually have it lifting again today."),
    ("h2","Torsion vs. extension springs"),
    ("p","Most West Vancouver homes use <b>torsion springs</b> mounted on a steel shaft above the door — they're safer, quieter and longer-lived. Older or lighter doors may use <b>extension springs</b> running along the tracks. We replace both, but we'll often recommend converting to torsion for a smoother, more durable system."),
    ("h2","Why we replace springs in pairs"),
@@ -36,7 +36,8 @@ service_page(
           offer("Two springs + free cables", price="851"),
           offer("Two high-cycle springs (cables free)", price="1274")],
   price_html=(
-    '<h2>Spring pricing — clear and upfront</h2>'
+    '<h2>How much does garage door spring repair cost?</h2>'
+    '<p>Three flat options, published upfront — a single-spring swap, two springs with free cables, or two high-cycle springs for the longest life. Prices are hidden by default; tap “Show pricing” in the footer to reveal the exact numbers below.</p>'
     '<div class="price-card" style="max-width:520px;margin-top:8px">'
     '<div class="price-row"><span class="pr-label">Single torsion spring</span><span class="price-tag" data-px="$739">Upfront flat rate</span></div>'
     '<div class="price-row"><span class="pr-label">Two springs + free cables</span><span class="price-tag" data-px="$851">Best value</span></div>'
@@ -155,11 +156,13 @@ service_page(
   "25-point garage door tune-up in West Vancouver — balance, lubrication, sensor alignment &amp; coastal rust prevention. Book yours: (778) 800-0769.",
   "Garage Door Tune-Ups &amp; Maintenance in West Vancouver",
   "The cheapest repair is the one you prevent. A yearly tune-up keeps your door quiet, safe and reliable — and catches a $30 part before it becomes a $700 emergency.",
-  [("p","Garage doors are easy to ignore until they fail at the worst moment. A simple annual service extends the life of springs, cables and the opener, keeps the door quiet, and — most importantly — keeps the safety systems working. It's also the best defence against North Shore damp and salt-air corrosion."),
+  [("p","A garage door tune-up is a 25-point preventive service — balance testing, full lubrication, safety-sensor alignment, and rust and wear checks on springs, cables and rollers — that keeps your door quiet, safe and reliable. We run tune-ups across West Vancouver, North Vancouver and the whole North Shore, where damp and salt air make an annual service the best defence against corrosion. It's a flat per-door rate; call or text (778) 800-0769 to book yours."),
    ("h2","Our 25-point tune-up"),
    ("ul",["Test and adjust door <b>balance</b> (the key to spring &amp; opener life)","Lubricate springs, rollers, hinges and bearings with coastal-rated product","Inspect cables and drums for fraying and rust","Check and tighten all hardware and brackets","Align and test the photo-eye <b>safety sensors</b>","Test auto-reverse force settings (a critical safety check)","Inspect rollers and tracks for wear and alignment","Check weather-seal and bottom astragal","Full opener health check + remote/myQ test"]),
    ("h2","Why it pays off here"),
    ("p","Salt air and heavy rain accelerate rust on cables and springs; big luxury doors put more load on every part. A tune-up spots corrosion and wear early, so you replace one worn roller on your schedule instead of a snapped cable on a Sunday."),
+   ("h2","How much does a garage door tune-up cost?"),
+   ("p","It's a flat, affordable per-door rate — a fraction of an emergency spring or cable call — with discounts for multi-door homes and strata programs. Like everything we publish, our repair and installation prices stay hidden until you tap “Show pricing” in the footer; call or text and we'll confirm your tune-up rate before we book."),
    ("h2","Strata &amp; multi-unit programs"),
    ("p","We run scheduled maintenance programs for strata corporations and townhome complexes across West Vancouver — consistent service across every unit, documented reports for council, and priority response when something does go wrong.")],
   [("How often should I service my garage door?","Once a year for most homes; twice a year for heavy-use doors, homes near the ocean, or large/heavy luxury doors. Strata programs are typically annual per unit."),
@@ -172,12 +175,14 @@ service_page(
 # strata as a service page
 service_page(
   "strata-townhomes.html",
-  "Strata &amp; Townhome Garage Door Service | West Vancouver",
-  "Garage door service for strata &amp; townhome complexes across West Vancouver — scheduled maintenance, matching doors, consolidated invoicing. (778) 800-0769.",
+  "Strata Garage Door Service | North Shore Garage Doors",
+  "Strata garage door service on the North Shore — scheduled maintenance, priority repairs &amp; council-ready invoicing for property managers. (778) 800-0769.",
   "Strata &amp; Townhome Garage Door Service",
   "A garage door partner your strata council and property managers can actually rely on — from a single unit to an entire complex, fully documented.",
-  [("p","Managing garage doors across a townhome complex or strata building is a headache when every unit needs a different contractor and every invoice looks different. We're the single, dependable point of contact for garage doors across West Vancouver and the North Shore — responsive, professional and easy to administrate."),
-   ("h2","Built for councils &amp; property managers"),
+  [("p","We provide garage door service for property managers and strata councils across West Vancouver, North Vancouver and the whole North Shore — scheduled maintenance programs, repairs to common-property and resident doors, and council-ready reports with consolidated invoicing. Residents get priority same-day response when a door fails; managers get one dependable contact instead of a different contractor for every unit. Call or text (778) 800-0769 and we'll take a building off your plate."),
+   ("h2","Do you work with property managers and strata councils?"),
+   ("p","Yes — that's the heart of this service. We support professional property management companies, self-managed stratas and townhome sections across the North Shore with scheduled per-unit maintenance, documented inspection reports for council minutes and depreciation planning, and quotes written so a council can approve them quickly. One phone number, one crew that knows your building, one tidy paper trail."),
+   ("h2","What's included for your complex"),
    ("ul",["Scheduled multi-unit <b>maintenance programs</b> with documented reports","Priority emergency response for residents","<b>Matching doors &amp; hardware</b> across units for a consistent look","Clear quotes, purchase orders and <b>consolidated invoicing</b>","Licensed (business licence), insured &amp; WorkSafeBC-covered","Detailed records for depreciation reports and council minutes"]),
    ("h2","From one unit to the whole complex"),
    ("p","Need a single resident's spring fixed today, or a phased replacement of 40 aging doors across a complex? We scale to either — with a quote your council can approve and a schedule that minimizes disruption to residents."),
@@ -198,7 +203,7 @@ area_page(
   "Same-day garage door repair in North Vancouver — Lynn Valley, Deep Cove, Lonsdale &amp; Edgemont. Springs, cables, openers &amp; new doors. (778) 800-0769.",
   "Garage Door Repair in North Vancouver",
   "From Lower Lonsdale to Lynn Valley and Deep Cove, we're the North Shore's family-owned garage door team — often at your door the same day.",
-  [("p","North Vancouver's mix of post-war bungalows, Lynn Valley family homes and new Lonsdale townhomes means we see every kind of garage door — and every kind of North Shore weather wearing them down. We cover all of North Van with a stocked truck for fast, one-visit repairs."),
+  [("p","Need garage door repair in North Vancouver? We fix broken springs, snapped cables, off-track doors and failed openers across North Van — usually the same day — with a stocked truck so most door repairs are finished in one visit. From Lower Lonsdale to Lynn Valley, Deep Cove and Edgemont, the city's mix of post-war bungalows, family homes and new townhomes means we see every kind of door, and every kind of North Shore weather wearing them down. Call or text (778) 800-0769 for an honest arrival window."),
    ("h2","Neighbourhoods we serve in North Van"),
    ("ul",["Lynn Valley &amp; Lynn Creek","Deep Cove &amp; Dollarton","Lonsdale (Lower &amp; Central) and the Shipyards","Edgemont Village &amp; Capilano","Grand Boulevard, Norgate, Pemberton Heights"]),
    ("h2","Common North Vancouver door problems"),
