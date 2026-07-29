@@ -39,8 +39,8 @@ body{
   background:var(--white);
   line-height:1.65;
   font-size:16px;
-  overflow-x:hidden;
 }
+html,body{overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
@@ -128,6 +128,11 @@ section{position:relative}
 @media(max-width:1040px){
   .nav,.header-phone{display:none}
   .nav-toggle{display:flex}
+}
+/* Narrow phones: brand + hamburger only (Free Quote lives in the hero,
+   the drawer and the floating call/text bar) — prevents header overflow. */
+@media(max-width:560px){
+  .header .header-cta .btn-primary{display:none}
 }
 
 /* mobile nav drawer */
