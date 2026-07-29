@@ -1,31 +1,51 @@
-# .htaccess — Hostinger (Apache). HTTPS + canonical host, gzip, caching, protect internals.
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# .htaccess — Hostinger (Apache/LiteSpeed). FLEET §0 clean URLs + HTTPS + canonical
+# www host, gzip, caching, security headers, protect internals.
+Options +FollowSymLinks -Indexes
+DirectoryIndex index.html
 
-# Canonical host: force www.northshoregaragedoors.ca (also catches the old
-# westvangaragedoors.ca domain and any non-www variant -> single canonical host)
-RewriteCond %{HTTP_HOST} !^www\.northshoregaragedoors\.ca$ [NC]
-RewriteRule ^ https://www.northshoregaragedoors.ca%{REQUEST_URI} [L,R=301]
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
 
-# --- Legacy URL 301 redirects (old filenames Google still has indexed -> live pages) ---
-RewriteRule ^garage-doors\.html$   /new-garage-doors.html   [R=301,L]
-RewriteRule ^springs\.html$        /spring-repair.html      [R=301,L]
-RewriteRule ^openers\.html$        /opener-installation.html [R=301,L]
-RewriteRule ^reviews\.html$        /#reviews                [R=301,L,NE]
-RewriteRule ^contact\.html$        /#contact                [R=301,L,NE]
-RewriteRule ^about\.html$          /#about                  [R=301,L,NE]
-RewriteRule ^faq\.html$            /#faq                    [R=301,L,NE]
+  # HTTPS 301 (direct or behind a proxy/CDN) + canonical host www.northshoregaragedoors.ca
+  # (also catches the old westvangaragedoors.ca domain and any non-www variant)
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
+  RewriteCond %{HTTP_HOST} !^www\.northshoregaragedoors\.ca$ [NC]
+  RewriteRule ^ https://www.northshoregaragedoors.ca%{REQUEST_URI} [L,R=301]
 
-# Pretty URLs: allow /spring-repair to serve spring-repair.html
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^([^.]+)$ $1.html [L]
+  # --- Legacy URL 301 redirects (old filenames Google still has indexed -> live clean URLs) ---
+  RewriteRule ^garage-doors\.html$   /new-garage-doors/    [R=301,L]
+  RewriteRule ^springs\.html$        /spring-repair/       [R=301,L]
+  RewriteRule ^openers\.html$        /opener-installation/ [R=301,L]
+  RewriteRule ^reviews\.html$        /#reviews             [R=301,L,NE]
+  RewriteRule ^contact\.html$        /#contact             [R=301,L,NE]
+  RewriteRule ^about\.html$          /#about               [R=301,L,NE]
+  RewriteRule ^faq\.html$            /#faq                 [R=301,L,NE]
+
+  # strip index.html (root or subdir) -> directory
+  RewriteCond %{THE_REQUEST} \s/+(([^?\s]*/)?)index\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # /page.html -> /page/   (301; consolidates old links)
+  RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[\s?] [NC]
+  RewriteRule ^ /%1/ [R=301,L]
+
+  # serve /page/ AND nested /dir/page/ from the flat .html file
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+
+  RewriteRule ^(_build|_shared)/ - [F,L]
+</IfModule>
 
 # Protect internal / markdown / config files
 <FilesMatch "\.(md|mjs|sh|py|gitmodules)$">
   Require all denied
 </FilesMatch>
+<Files "site-config.json">
+  Require all denied
+</Files>
 <Files "site.webmanifest">
   Require all granted
 </Files>
@@ -37,6 +57,7 @@ RewriteRule ^([^.]+)$ $1.html [L]
   ExpiresActive On
   ExpiresByType image/webp        "access plus 1 year"
   ExpiresByType image/png         "access plus 1 year"
+  ExpiresByType image/jpeg        "access plus 1 year"
   ExpiresByType image/svg+xml     "access plus 1 year"
   ExpiresByType text/css          "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
