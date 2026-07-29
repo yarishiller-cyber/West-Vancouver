@@ -8,11 +8,12 @@ from build_pages import (head, header, footer, cta_band, page_hero, ld, breadcru
 # ---------------- BECOME A PARTNER ----------------
 extra = ld(breadcrumb_ld([("Home","index.html"),("Become a Partner","become-a-partner.html")]))
 p = head("Become a Partner | North Shore Garage Doors",
-         "Apply to receive overflow garage-door leads on the North Shore. For vetted, licensed and insured installers, handymen and property-services companies in West &amp; North Vancouver.",
-         "become-a-partner.html", extra_ld=extra) + header()
+         "Apply to receive overflow garage-door leads on the North Shore — for vetted, licensed &amp; insured installers, handymen &amp; property-services companies.",
+         "become-a-partner.html", extra_ld=extra,
+         hero_img="assets/img/hero-brand-960.webp") + header()
 p += page_hero("Become a Partner",
     "We get more calls than we can take. If you do quality garage-door or property work on the North Shore, partner with us for vetted overflow jobs in your area.",
-    ["<a href='index.html'>Home</a>","Become a Partner"])
+    ["<a href='/'>Home</a>","Become a Partner"])
 p += f'''
 <section class="section"><div class="container"><div class="two-col">
   <div class="prose">
@@ -66,7 +67,7 @@ write("become-a-partner.html", p)
 # ---------------- THANK YOU ----------------
 t = head("Thank You | North Shore Garage Doors",
          "Thanks for getting in touch with North Shore Garage Doors. We'll be right back to you.",
-         "thank-you.html") + header()
+         "thank-you.html", noindex=True) + header()
 t += f'''
 <section class="section" style="min-height:54vh;display:flex;align-items:center">
   <div class="container center" style="max-width:640px">
@@ -76,7 +77,7 @@ t += f'''
     <p class="section-intro" style="margin:0 auto 26px">Your request has reached the family. We usually reply within the hour during business hours. For anything urgent — a door stuck open or a car trapped inside — please call us right now.</p>
     <div class="cta-actions" style="justify-content:center">
       <a href="tel:{TEL}" class="btn btn-call btn-lg" data-hover-lift>{PHONE_SVG} Call {PHONE}</a>
-      <a href="index.html" class="btn btn-ghost btn-lg">Back to Home</a>
+      <a href="/" class="btn btn-ghost btn-lg">Back to Home</a>
     </div>
   </div>
 </section>'''
@@ -86,7 +87,7 @@ write("thank-you.html", t)
 # ---------------- 404 ----------------
 e = head("Page Not Found | North Shore Garage Doors",
          "That page couldn't be found. Explore our garage door services across West Vancouver and the North Shore.",
-         "404.html") + header()
+         "404.html", noindex=True) + header()
 e += f'''
 <section class="section" style="min-height:54vh;display:flex;align-items:center">
   <div class="container center" style="max-width:640px">
@@ -94,8 +95,8 @@ e += f'''
     <h1 class="section-title">That Door Wouldn't Open</h1>
     <p class="section-intro" style="margin:0 auto 26px">We couldn't find the page you were after — but we can definitely find your garage door problem. Try one of these:</p>
     <div class="related-links" style="justify-content:center">
-      <a href="index.html">Home</a><a href="garage-door-repair.html">Repair</a><a href="spring-repair.html">Springs</a>
-      <a href="opener-installation.html">Openers</a><a href="new-garage-doors.html">New Doors</a><a href="index.html#contact">Contact</a>
+      <a href="/">Home</a><a href="/garage-door-repair/">Repair</a><a href="/spring-repair/">Springs</a>
+      <a href="/opener-installation/">Openers</a><a href="/new-garage-doors/">New Doors</a><a href="/#contact">Contact</a>
     </div>
     <div class="cta-actions" style="justify-content:center;margin-top:24px">
       <a href="tel:{TEL}" class="btn btn-call btn-lg" data-hover-lift>{PHONE_SVG} Call {PHONE}</a>

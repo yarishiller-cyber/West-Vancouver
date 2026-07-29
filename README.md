@@ -39,8 +39,13 @@ pip install imageio-ffmpeg                            # bundled ffmpeg (no syste
 ffmpeg -framerate 7 -i scratch/door-%02d.png \
   -vf "minterpolate=fps=32:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1,scale=720:720" scratch/dense/d_%03d.png
 GEMINI_API_KEY=... python3 scripts/gen_veo_explode.py   # OPTIONAL photoreal Veo 3.1 route (paid)
+node scripts/gen_og.mjs                                 # per-page 1200x630 OG cards (Playwright)
+node scripts/gen_favicons.mjs && python3 scripts/gen_favicons.py  # favicon set (512->192/96/48/32 + .ico)
 python3 scripts/content.py && python3 scripts/extra_pages.py   # (re)build all inner pages
 ```
+
+All public URLs are extensionless (`/spring-repair/`, FLEET §0) — `.htaccess` maps them to the
+flat `.html` files and 301s any old `.html` request. Keep internal links + sitemap clean-URL.
 
 The shipped hero uses 33 motion-interpolated WebP frames (`assets/anim/door-00…32.webp`, ~440 KB),
 scrubbed with lerp smoothing + an LCP poster. `scripts/gen_veo_explode.py` is the optional

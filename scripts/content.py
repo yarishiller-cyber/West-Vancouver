@@ -6,14 +6,14 @@
 import os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from build_pages import (service_page, area_page, head, header, footer, cta_band,
-                         page_hero, ld, breadcrumb_ld, faq_ld, write, BASE, PHONE, TEL, SMS, PHONE_SVG)
+                         page_hero, ld, breadcrumb_ld, faq_ld, offer, write, BASE, PHONE, TEL, SMS, PHONE_SVG)
 
 # ============================ SERVICE PAGES ============================
 
 service_page(
   "spring-repair.html",
-  "Garage Door Spring Repair West Vancouver | Same-Day Torsion Springs",
-  "Broken garage door spring in West Vancouver? Same-day torsion &amp; extension spring replacement with free cables on pairs and a free safety inspection. Upfront flat-rate pricing.",
+  "Garage Door Spring Repair West Vancouver | Same-Day Service",
+  "Broken spring in West Vancouver? Same-day torsion &amp; extension spring replacement, free cables on pairs, upfront flat rates. Call (778) 800-0769.",
   "Garage Door Spring Repair in West Vancouver",
   "A snapped spring is the #1 reason a garage door stops working — and the most common same-day call we run across the North Shore. Here's exactly what we replace, why, and what it costs.",
   [("p","If your door suddenly won't lift, you heard a loud bang from the garage, or the opener strains and gives up, you've almost certainly broken a torsion spring. The spring — not the opener — does the heavy lifting, so when it goes, the door becomes a 150–250&nbsp;lb dead weight. Please don't force it."),
@@ -32,6 +32,9 @@ service_page(
    ("Should I replace one spring or both?","If you have two springs, we strongly recommend replacing both. They wear at the same rate, and doing both keeps the door balanced and saves a second call.")],
   [("Garage door repair","garage-door-repair.html"),("Cables &amp; rollers","cable-roller-repair.html"),("Maintenance tune-up","maintenance-tune-up.html"),("Openers","opener-installation.html")],
   img="assets/img/service-spring-960.webp",
+  offers=[offer("Single torsion spring replacement", price="739"),
+          offer("Two springs + free cables", price="851"),
+          offer("Two high-cycle springs (cables free)", price="1274")],
   price_html=(
     '<h2>Spring pricing — clear and upfront</h2>'
     '<div class="price-card" style="max-width:520px;margin-top:8px">'
@@ -43,7 +46,7 @@ service_page(
 service_page(
   "garage-door-repair.html",
   "Garage Door Repair West Vancouver | Same-Day &amp; Emergency",
-  "Fast, honest garage door repair across West Vancouver &amp; the North Shore — off-track doors, broken cables, noisy operation, dented panels, dead openers and sensors. Same-day &amp; emergency.",
+  "Same-day garage door repair across West Vancouver &amp; the North Shore — off-track doors, cables, openers &amp; sensors. Upfront pricing. Call (778) 800-0769.",
   "Garage Door Repair in West Vancouver",
   "Door off its tracks? Won't open or close? Grinding like a freight train? We diagnose it in plain language, quote it upfront, and fix most problems on the first visit.",
   [("p","A garage door is the largest moving part of your home, and when it fails it's rarely convenient — you're blocked in, or you can't lock up. We run same-day and emergency repairs across West Vancouver, from Ambleside to Horseshoe Bay, with a stocked truck so most jobs are done in one visit."),
@@ -62,8 +65,8 @@ service_page(
 
 service_page(
   "opener-installation.html",
-  "Garage Door Opener Installation West Vancouver | LiftMaster Dealer",
-  "Authorized LiftMaster® dealer in West Vancouver. Quiet belt-drive, chain-drive and wall-mount openers installed and repaired — Wi-Fi + myQ, battery backup. Upfront installed pricing.",
+  "Garage Door Opener Installation West Vancouver | LiftMaster",
+  "Authorized LiftMaster dealer in West Vancouver. Belt, chain &amp; wall-mount openers installed with Wi-Fi + myQ. Upfront installed pricing — (778) 800-0769.",
   "Garage Door Openers in West Vancouver",
   "We install and service the full LiftMaster® residential lineup — quiet belt drives, rugged chain drives and space-saving wall-mounts, all with Wi-Fi and the myQ® app.",
   [("p","Whether your old opener finally died or you want app control, battery backup and a quieter motor, we're an authorized LiftMaster® dealer and install their complete residential range. We also repair most existing opener brands — sometimes a $150 logic board or gear kit saves a full replacement."),
@@ -81,6 +84,10 @@ service_page(
    ("Do new openers work in a power outage?","Models with battery backup do — they'll run for a number of cycles on the internal battery. We recommend it on the North Shore, where winter storms cause outages.")],
   [("New garage doors","new-garage-doors.html"),("Garage door repair","garage-door-repair.html"),("Spring repair","spring-repair.html"),("Maintenance","maintenance-tune-up.html")],
   img="assets/img/service-opener-960.webp",
+  offers=[offer("LiftMaster 2220L chain-drive opener, installed", price="1311"),
+          offer("LiftMaster 6580L belt-drive opener, installed", price="1448"),
+          offer("LiftMaster 6690L belt-drive opener with camera, installed", price="1523"),
+          offer("LiftMaster 98022 wall-mount opener with battery backup, installed", price="2155")],
   price_html=(
     '<h2>Installed opener pricing</h2>'
     '<div class="price-card" style="max-width:560px;margin-top:8px">'
@@ -92,8 +99,8 @@ service_page(
 
 service_page(
   "new-garage-doors.html",
-  "New Garage Doors West Vancouver | Modern, Carriage &amp; Glass Install",
-  "New garage door installation in West Vancouver — modern full-view glass, carriage house, traditional steel and flush-panel doors, insulated for the West Coast. Expert measure, supply &amp; install.",
+  "New Garage Doors West Vancouver | Modern, Carriage &amp; Glass",
+  "New garage door installation in West Vancouver — modern glass, carriage &amp; insulated steel. Free in-home measure &amp; written quote. Call (778) 800-0769.",
   "New Garage Door Installation in West Vancouver",
   "Your garage door is up to a third of your home's street view. We help you choose the right style, colour and insulation for the West Coast, then install it flawlessly.",
   [("p","From Dundarave character homes to glass-and-cedar new builds in the British Properties, the right garage door transforms a façade. We measure, supply and install doors that suit West Vancouver architecture and stand up to coastal weather — and we handle the old-door removal and disposal."),
@@ -111,6 +118,9 @@ service_page(
    ("Do you install the opener too?","Yes — we can supply and install a matching LiftMaster® opener with your new door, or reuse a compatible existing unit.")],
   [("Openers","opener-installation.html"),("Strata &amp; townhomes","strata-townhomes.html"),("Garage door repair","garage-door-repair.html"),("Maintenance","maintenance-tune-up.html")],
   img="assets/img/service-install-960.webp",
+  offers=[offer("New insulated steel garage door, supplied + installed", min_price="3647"),
+          offer("Designer-style garage door, supplied + installed", min_price="4558"),
+          offer("Premium full-view glass garage door, supplied + installed", min_price="7268")],
   price_html=(
     '<h2>New door starting prices</h2>'
     '<div class="price-card" style="max-width:520px;margin-top:8px">'
@@ -121,8 +131,8 @@ service_page(
 
 service_page(
   "cable-roller-repair.html",
-  "Garage Door Cable &amp; Roller Repair West Vancouver | Off-Track Doors",
-  "Frayed cables, worn rollers, bent tracks and off-track garage doors repaired across West Vancouver &amp; the North Shore. Quiet, smooth operation restored — same-day in most cases.",
+  "Garage Door Cable &amp; Roller Repair West Vancouver | Off-Track",
+  "Frayed cables, worn rollers, bent tracks &amp; off-track doors fixed same-day across West Vancouver &amp; the North Shore. Call (778) 800-0769 for a quote.",
   "Cable, Roller &amp; Track Repair in West Vancouver",
   "The small parts that make a big noise. Frayed cables, worn nylon rollers and bent tracks throw a door off balance — and off its tracks. We set it right.",
   [("p","If your door has gone crooked, jumped its track, or sounds like it's grinding gravel, the culprit is usually the hardware: cables, rollers, hinges, bearings or the tracks themselves. These wear faster on the North Shore thanks to damp, salt air and heavy daily use."),
@@ -141,8 +151,8 @@ service_page(
 
 service_page(
   "maintenance-tune-up.html",
-  "Garage Door Maintenance &amp; Tune-Up West Vancouver | 25-Point Service",
-  "Prevent breakdowns with a 25-point garage door tune-up in West Vancouver — balance, lubrication, sensor alignment and coastal rust prevention. Single homes &amp; strata programs.",
+  "Garage Door Tune-Up West Vancouver | 25-Point Maintenance",
+  "25-point garage door tune-up in West Vancouver — balance, lubrication, sensor alignment &amp; coastal rust prevention. Book yours: (778) 800-0769.",
   "Garage Door Tune-Ups &amp; Maintenance in West Vancouver",
   "The cheapest repair is the one you prevent. A yearly tune-up keeps your door quiet, safe and reliable — and catches a $30 part before it becomes a $700 emergency.",
   [("p","Garage doors are easy to ignore until they fail at the worst moment. A simple annual service extends the life of springs, cables and the opener, keeps the door quiet, and — most importantly — keeps the safety systems working. It's also the best defence against North Shore damp and salt-air corrosion."),
@@ -162,8 +172,8 @@ service_page(
 # strata as a service page
 service_page(
   "strata-townhomes.html",
-  "Strata &amp; Townhome Garage Door Service West Vancouver | Property Managers",
-  "Garage door service for strata corporations, property managers and townhome complexes across West Vancouver &amp; the North Shore — scheduled maintenance, matching doors, consolidated invoicing.",
+  "Strata &amp; Townhome Garage Door Service | West Vancouver",
+  "Garage door service for strata &amp; townhome complexes across West Vancouver — scheduled maintenance, matching doors, consolidated invoicing. (778) 800-0769.",
   "Strata &amp; Townhome Garage Door Service",
   "A garage door partner your strata council and property managers can actually rely on — from a single unit to an entire complex, fully documented.",
   [("p","Managing garage doors across a townhome complex or strata building is a headache when every unit needs a different contractor and every invoice looks different. We're the single, dependable point of contact for garage doors across West Vancouver and the North Shore — responsive, professional and easy to administrate."),
@@ -184,8 +194,8 @@ service_page(
 
 area_page(
   "north-vancouver.html",
-  "Garage Door Repair North Vancouver | Springs, Openers &amp; New Doors",
-  "Same-day garage door repair in North Vancouver — Lynn Valley, Deep Cove, Lonsdale, Edgemont &amp; Capilano. Springs, cables, openers and new doors. Licensed, insured &amp; local.",
+  "Garage Door Repair North Vancouver | Springs &amp; Openers",
+  "Same-day garage door repair in North Vancouver — Lynn Valley, Deep Cove, Lonsdale &amp; Edgemont. Springs, cables, openers &amp; new doors. (778) 800-0769.",
   "Garage Door Repair in North Vancouver",
   "From Lower Lonsdale to Lynn Valley and Deep Cove, we're the North Shore's family-owned garage door team — often at your door the same day.",
   [("p","North Vancouver's mix of post-war bungalows, Lynn Valley family homes and new Lonsdale townhomes means we see every kind of garage door — and every kind of North Shore weather wearing them down. We cover all of North Van with a stocked truck for fast, one-visit repairs."),
@@ -200,12 +210,12 @@ area_page(
    ("Why do North Shore doors rust so fast?","Heavy rainfall and humidity, plus salt air near the inlet, corrode cables and springs faster than inland. Annual maintenance with corrosion-resistant parts is the fix."),
    ("Are your prices the same in North Vancouver?","Yes — the same upfront, published pricing applies across West and North Vancouver. Reveal it with the footer toggle.")],
   [("Spring repair","spring-repair.html"),("Garage door repair","garage-door-repair.html"),("Openers","opener-installation.html"),("West Vancouver","index.html")],
-  img="assets/img/gallery-1-960.webp")
+  img="assets/img/gallery-1-960.webp", area="North Vancouver")
 
 area_page(
   "british-properties.html",
-  "Garage Door Service British Properties | Luxury Homes, West Vancouver",
-  "Garage door repair &amp; installation in the British Properties, West Vancouver — large, heavy and custom doors, glass &amp; carriage styles, quiet belt-drive openers. Discreet, professional service.",
+  "Garage Door Service British Properties | West Vancouver",
+  "Garage door repair &amp; installation in the British Properties — oversized estate doors, quiet openers, custom glass &amp; carriage styles. (778) 800-0769.",
   "Garage Door Service in the British Properties",
   "Large estate doors, custom glass, and triple garages on steep driveways — the British Properties needs a garage door team that handles premium work discreetly and properly.",
   [("p","The British Properties and Chartwell are home to some of West Vancouver's largest and most distinctive houses — and their garage doors are correspondingly big, heavy and often custom. Oversized doors put extra load on springs, cables and openers, so the right parts and a properly balanced system matter even more here."),
@@ -225,7 +235,7 @@ area_page(
 area_page(
   "ambleside-dundarave.html",
   "Garage Door Repair Ambleside &amp; Dundarave | West Vancouver",
-  "Local garage door repair &amp; installation in Ambleside and Dundarave, West Vancouver — character homes, laneway garages and modern builds. Same-day springs, openers &amp; new doors.",
+  "Garage door repair in Ambleside &amp; Dundarave — character homes, laneway garages &amp; modern builds. Same-day springs &amp; openers. Call (778) 800-0769.",
   "Garage Door Service in Ambleside &amp; Dundarave",
   "From heritage character homes near Dundarave Pier to modern builds along Marine Drive, we keep Ambleside and Dundarave garages running smoothly.",
   [("p","Ambleside and Dundarave are the heart of West Vancouver — walkable villages, a mix of 1940s character homes, mid-century houses and sleek new builds, many with tucked-away or laneway garages. That variety means everything from original wood doors to the latest glass-and-aluminum, and we service all of them."),
@@ -244,8 +254,8 @@ area_page(
 
 area_page(
   "horseshoe-bay.html",
-  "Garage Door Repair Horseshoe Bay &amp; Caulfeild | West Vancouver",
-  "Garage door repair &amp; installation in Horseshoe Bay, Caulfeild, Eagle Harbour and West Bay — coastal-grade hardware against salt air. Same-day springs, openers &amp; new doors.",
+  "Garage Door Repair Horseshoe Bay &amp; Caulfeild | Same-Day",
+  "Garage door repair in Horseshoe Bay, Caulfeild, Eagle Harbour &amp; West Bay — coastal-grade hardware against salt air. Same-day. Call (778) 800-0769.",
   "Garage Door Service in Horseshoe Bay &amp; Caulfeild",
   "Right on the water by the ferry terminal, Horseshoe Bay, Caulfeild and Eagle Harbour are beautiful — and tough on garage door hardware. We come prepared.",
   [("p","The far west of West Vancouver — Horseshoe Bay, Caulfeild, Eagle Harbour and West Bay — sits directly on Howe Sound. The views are spectacular and the salt air is relentless, which makes corrosion-resistant parts and regular maintenance essential, not optional."),
@@ -265,7 +275,7 @@ area_page(
 area_page(
   "lions-bay-bowen-island.html",
   "Garage Door Repair Lions Bay &amp; Bowen Island | Sea-to-Sky",
-  "Garage door repair &amp; installation for Lions Bay and Bowen Island — mountainside and island homes, coastal-grade hardware, scheduled visits. Springs, openers &amp; new doors.",
+  "Garage door repair &amp; installation for Lions Bay &amp; Bowen Island — coastal-grade hardware, scheduled visits, battery-backup openers. (778) 800-0769.",
   "Garage Door Service in Lions Bay &amp; Bowen Island",
   "Mountainside Lions Bay and island-living Bowen are worth the trip — we plan our visits so even the far corners of the North Shore get proper garage door service.",
   [("p","Lions Bay clings to the Sea-to-Sky mountainside north of Horseshoe Bay, and Bowen Island is a short ferry away across Howe Sound. Both are gorgeous, both are exposed to coastal weather, and both deserve more than a contractor who won't make the trip. We schedule efficient visits so you get the same quality service as the rest of West Van."),
@@ -280,6 +290,6 @@ area_page(
    ("Is service more expensive out here?","Our parts and labour prices are the same; for Bowen Island a scheduled trip simply means planning ahead rather than same-day. We'll be upfront about timing."),
    ("Why do you recommend battery backup here?","These exposed coastal communities lose power in winter storms. A battery-backup opener keeps your door working — and your car free — during outages.")],
   [("Openers","opener-installation.html"),("Spring repair","spring-repair.html"),("Maintenance","maintenance-tune-up.html"),("West Vancouver","index.html")],
-  img="assets/img/hero-carriage.webp")
+  img="assets/img/hero-carriage.webp", area=["Lions Bay","Bowen Island"])
 
 print("\nservice + area pages built")
